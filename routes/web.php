@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ControladorUsuario;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', ControladorUsuario::class);
+Route::get('index', [ControladorUsuario::class, "index"]);
+Route::get('/Productos', [ControladorUsuario::class, "Productos"]);
