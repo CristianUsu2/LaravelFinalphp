@@ -1,20 +1,20 @@
 const contenedor = document.querySelector('#contenedor');
 
-document.querySelector('#boton-menu').addEventListener('click',()=>{
+document.querySelector('#boton-menu').addEventListener('click', () => {
     contenedor.classList.toggle('active');
 });
 
-const comprobarAncho = ()=>{
-    if(window.innerWidth <=768){
+const comprobarAncho = () => {
+    if (window.innerWidth <= 768) {
         contenedor.classList.remove('active');
-    }else{
+    } else {
         contenedor.classList.add('active');
     }
 }
 
 comprobarAncho();
 
-window.addEventListener('resize',()=>{
-   comprobarAncho();
+window.addEventListener('resize', () => {
+    comprobarAncho();
 });
 
