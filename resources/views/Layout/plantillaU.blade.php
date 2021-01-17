@@ -17,6 +17,7 @@
         </div>
         <div class="tituloCarrito">Carrito de compras</div>
         <div class=""></div>
+        
         <header class="header">
             <div class="contenedor-logo">
                 <button id="boton-menu" class="boton-menu"><i class="fas fa-bars"></i></button>
