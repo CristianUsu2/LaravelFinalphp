@@ -3,30 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../Usuario/css/estilos.css">
+    <link rel="stylesheet" href="../Usuario/pushbar/css/pushbar.css">
     <link rel="stylesheet" href="../Usuario/fontawesome-free-5.15.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../Usuario/css/estilos.css">
     <link rel="stylesheet" href="../Usuario/css/bootstrap.min.css">
     <link rel="icon" href="../Usuario/img/logo.jpeg" />
-
     <title>Tienda Axes</title>
   </head>
   <body>
-    
-    
     <div class="contenedor active" id="contenedor">
+        <div class="carritoC"  data-pushbar-id="carrito" data-pushbar-direction="right">
+           <i class="fas fa-times btn-cerrar" data-pushbar-close ></i>
+        </div>
+        <div class="tituloCarrito">Carrito de compras</div>
+        <div class=""></div>
         <header class="header">
             <div class="contenedor-logo">
                 <button id="boton-menu" class="boton-menu"><i class="fas fa-bars"></i></button>
                 <a href="#" class="logo"><img src="../Usuario/img/logo.jpeg" alt="" width="120"></a>
             </div>
 
-            <div class="barra-busqueda">
-                <input type="text" placeholder="Buscar">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </div>
-
             <div class="botones-header">
-                <button><i class="fas fa-shopping-cart"></i></button>
+                <button data-pushbar-target="carrito"><i class="fas fa-shopping-cart"></i></button>
                 <button><i class="fas fa-user-circle"></i></button>
                 <button><i class="fas fa-share-alt"></i></button>
 
@@ -133,6 +131,15 @@
 
 
 <script src="../Usuario/js/main.js"></script>
-    
+<script src="../Usuario/pushbar/js/pushbar.js"></script>    
+<script>
+    let pushbar= new Pushbar({
+     blur:true,
+     overlay:true
+    });
+
+
+</script>
+
   </body>
 </html>

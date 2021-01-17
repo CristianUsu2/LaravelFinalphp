@@ -350,6 +350,17 @@ footer{
     text-decoration: none;
     color: #000000;
 }
+.btn-cerrar{
+   cursor: pointer;
+   font-size: 20px;
+   float: right;
+   margin-top: 25px;
+   margin-right: 25px;
+}
+.carritoC{
+    width: 310px !important;
+    background-color: #EEEAEA;
+}
 
 
 @media screen and (max-width: 1100px){
