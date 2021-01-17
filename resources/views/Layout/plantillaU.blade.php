@@ -20,7 +20,7 @@
                 <span><i class="fas fa-trash-alt"></i></span>
                </div>
                 <div class="producto-seccimg">
-                 <img class="prod-secc-img" src="../Usuario/img/descarga.jpg" id="img" /> 
+                 <img class="prod-secc-img" src="../Usuario/img/descarga.jpg" id="img"/> 
                 </div> 
                 <div class="producto-secc-titulo">
                   <p class="prod-secc-title" id="nombre">holis</p> 
@@ -31,11 +31,11 @@
                  <p class="prod-secc-descrip" id="cantidad">Cantidad:2</p>
                  <p class="prod-secc-descrip" id="talla">Talla: M</p>
                 </div>
-                <div class="separador">
+              <div class="separador">
                  <span><i class="fas fa-arrow-down"></i></span>   
                  <hr>     
                 </div>
-                </div class="valores-compra">
+                <div class="valores-compra">
                   <div class="contenido-valores">
                   <label class="" id="subtotal"></label>
                   <label class="" id="envio"></label>
@@ -49,7 +49,10 @@
                 <button id="boton-menu" class="boton-menu"><i class="fas fa-bars"></i></button>
                 <a href="#" class="logo"><img src="../Usuario/img/logo.jpeg" alt="" width="120"></a>
             </div>
-                    
+          <div class="barra-busqueda">
+                <input type="text" placeholder="Buscar">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>                   
             <div class="botones-header">
                 <button data-pushbar-target="carrito"><i class="fas fa-shopping-cart"></i></button>
                 <button><i class="fas fa-user-circle"></i></button>
