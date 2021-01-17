@@ -22,8 +22,11 @@
                 <button id="boton-menu" class="boton-menu"><i class="fas fa-bars"></i></button>
                 <a href="#" class="logo"><img src="../Usuario/img/logo.jpeg" alt="" width="120"></a>
             </div>
-
-            <div class="botones-header">
+            <div class="barra-busqueda">
+              <input type="text" placeholder="Buscar">
+              <button type="submit"><i class="fas fa-search"></i></button>
+          </div>
+         <div class="botones-header">
                 <button data-pushbar-target="carrito"><i class="fas fa-shopping-cart"></i></button>
                 <button><i class="fas fa-user-circle"></i></button>
                 <button><i class="fas fa-share-alt"></i></button>
