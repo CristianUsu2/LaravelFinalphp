@@ -13,20 +13,44 @@
   <body>
     <div class="contenedor active" id="contenedor">
         <div class="carritoC"  data-pushbar-id="carrito" data-pushbar-direction="right">
-           <i class="fas fa-times btn-cerrar" data-pushbar-close ></i>
+           <i class="fas fa-times btn-cerrar" data-pushbar-close></i>
+             <div class="tituloCarrito">Carrito de compras</div>
+             <div class="producto-seccion">
+               <div class="producto-remove">
+                <span><i class="fas fa-trash-alt"></i></span>
+               </div>
+                <div class="producto-seccimg">
+                 <img class="prod-secc-img" src="../Usuario/img/descarga.jpg" id="img" /> 
+                </div> 
+                <div class="producto-secc-titulo">
+                  <p class="prod-secc-title" id="nombre">holis</p> 
+                </div>     
+                <div class="producto-secc-descrip">
+                 <p class="prod-secc-descrip" id="idProducto">Item: 12</p>
+                 <p class="prod-secc-descrip" id="precio">Precio:123</p>
+                 <p class="prod-secc-descrip" id="cantidad">Cantidad:2</p>
+                 <p class="prod-secc-descrip" id="talla">Talla: M</p>
+                </div>
+                <div class="separador">
+                 <span><i class="fas fa-arrow-down"></i></span>   
+                 <hr>     
+                </div>
+                </div class="valores-compra">
+                  <div class="contenido-valores">
+                  <label class="" id="subtotal"></label>
+                  <label class="" id="envio"></label>
+                  <label class="" id="total"></label> 
+                  </div>  
+                </div>
+             </div>
         </div>
-        <div class="tituloCarrito">Carrito de compras</div>
-        <div class=""></div>
         <header class="header">
             <div class="contenedor-logo">
                 <button id="boton-menu" class="boton-menu"><i class="fas fa-bars"></i></button>
                 <a href="#" class="logo"><img src="../Usuario/img/logo.jpeg" alt="" width="120"></a>
             </div>
-            <div class="barra-busqueda">
-              <input type="text" placeholder="Buscar">
-              <button type="submit"><i class="fas fa-search"></i></button>
-          </div>
-         <div class="botones-header">
+                    
+            <div class="botones-header">
                 <button data-pushbar-target="carrito"><i class="fas fa-shopping-cart"></i></button>
                 <button><i class="fas fa-user-circle"></i></button>
                 <button><i class="fas fa-share-alt"></i></button>
