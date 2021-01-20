@@ -12,4 +12,8 @@ class ControladorUsuario extends Controller
    public function productos(){
        return view('Usuario/productos');
    }
+
+   public function detalleProd(){
+       return view('Usuario/detalleProd');
+   }
 }

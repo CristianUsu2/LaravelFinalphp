@@ -161,6 +161,7 @@
 
 
 <script src="../Usuario/js/main.js"></script>
+<script src="../Usuario/js/cart.js"></script>
 <script src="../Usuario/pushbar/js/pushbar.js"></script>    
 <script>
     let pushbar= new Pushbar({
