@@ -14,6 +14,10 @@ a{
     text-decoration: none;
     color: #000;
 }
+
+/*---------------------------------------Header, Main, Navegación--------------------------------------------------*/
+
+
 .contenedor{
     width: 100%;
     min-height: 100vh;
@@ -186,6 +190,8 @@ a{
     text-align: center;
 }
 
+/*---------------------------------------Sección Productos--------------------------------------------------*/
+
 
 .product-grid4,.product-grid4 .product-image4{position:relative}
 .product-grid4{font-family:Poppins,sans-serif;text-align:center;border-radius:5px;overflow:hidden;z-index:1;transition:all .3s ease 0s}
@@ -217,6 +223,11 @@ a{
 .product-grid4 .add-to-cart{border:1px solid #e5e5e5;display:inline-block;padding:10px 20px;color:#888;font-weight:600;font-size:14px;border-radius:4px;transition:all .3s}
 .product-grid4:hover .add-to-cart{border:1px solid transparent;background:#16a085;color:#fff}
 .product-grid4 .add-to-cart:hover{background-color:#505050;box-shadow:0 0 10px rgba(0,0,0,.5)}
+
+
+/*---------------------------------------Footer--------------------------------------------------*/
+
+
 
 footer{
     width: 100%;
@@ -364,6 +375,7 @@ footer{
     text-decoration: none;
     color: #000000;
 }
+
 /*---------------------------------------Carrito de compras--------------------------------------------------*/
 .btn-cerrar{
    cursor: pointer;
@@ -374,9 +386,10 @@ footer{
 }
 .carritoC{
     width: 310px !important;
-    background-color: #EEEAEA;
+    
 }
 .tituloCarrito{
+    font-family: 'Open Sans',sans-serif;
    display: flex;
    justify-content: center;
    text-transform: uppercase;
@@ -388,6 +401,7 @@ footer{
    margin-top: 70px;
 }
 .producto-seccion{
+    font-family: 'Open Sans',sans-serif;
     width: 280px;
     height: 144px;
     background-color: #FAF8F8;
@@ -403,10 +417,12 @@ footer{
 .prod-secc-img{
   width: 109px;
   height: 144px;
-  background-size: cover3;
+  background-size: cover;
   object-fit: cover;
+  align-items: center;
 }
 .producto-secc-descrip{
+    font-family: 'Open Sans',sans-serif;
     width: 130px;
     height: 90px;
     background-color: #FAF8F8;
@@ -414,6 +430,7 @@ footer{
     margin-left: 120px;
 }
 .producto-seccion .producto-secc-titulo{
+    font-family: 'Open Sans',sans-serif;
  float: right;
  width: 130px;  
  height: 30px;
@@ -422,6 +439,7 @@ footer{
  margin-right: 30px;
 }
 .prod-secc-descrip{
+    font-family: 'Open Sans',sans-serif;
  margin-bottom: 2px;
  line-height: 10px;
  font-family: "Gorgia";
@@ -429,10 +447,56 @@ footer{
  color: #000;
  font-size: 0.9em;
 }
+
+.producto-seccion i{
+    float: left;
+    margin-top: -40px;
+    margin-left: 130px;
+    color: #f80909;
+}
+.separador i{
+    margin-top: 40px;
+    align-items: center;
+    color: #000000;
+    width: 80%;
+    margin-left: 135px;
+    margin-bottom: 10px;
+}
+
 .producto-secc-titulo .prod-secc-title{
-    font-family: "serif";
+    font-family: 'Open Sans',sans-serif;
     font-size: 1.2em;
     color: #000;
+}
+
+.contenido-valores{
+   
+    justify-content: space-between;
+    font-family: 'Open Sans',sans-serif;
+    color: #000000;
+    padding-top: 5px;
+    font-size: 15px;
+    text-transform: initial;
+    margin-bottom: 10px;
+}
+.contenido-valores .subt{
+    margin-left: 150px;
+    
+}
+.contenido-valores .envio{
+    margin-left: 162px;
+}
+.valores-compra .total{
+    margin-left: 170px;
+}
+.valores-compra .btn{
+    margin-top: 20px;
+    margin-left: 50px;
+    padding: 10px;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #545454;
+    border: none;
 }
 @media screen and (max-width: 1200px){
 
