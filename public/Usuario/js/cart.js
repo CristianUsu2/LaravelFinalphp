@@ -14,7 +14,7 @@ let obtenerDatos=obj=>{
   console.log(obj);
   let bloque=obj.querySelector('.title');
   let a= bloque.querySelector('a').textContent;
-  let img=
+  let img=sd;
 }
  /*let idproducto=document.getElementById("idproducto");
  let img=document.getElementById("img");

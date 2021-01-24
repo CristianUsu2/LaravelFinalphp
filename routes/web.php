@@ -15,4 +15,5 @@ use App\Http\Controllers\ControladorUsuario;
 
 Route::resource('/', ControladorUsuario::class);
 Route::get('index', [ControladorUsuario::class, "index"]);
-Route::get('/Productos', [ControladorUsuario::class, "Productos"]);
+Route::get('/Productos/productos', [ControladorUsuario::class, "Productos"]);
+Route::get('/Productos/detalleProducto', [ControladorUsuario::class, "detalleProd"]);

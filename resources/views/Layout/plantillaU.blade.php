@@ -16,14 +16,13 @@
            <i class="fas fa-times btn-cerrar" data-pushbar-close></i>
              <div class="tituloCarrito">Carrito de compras</div>
              <div class="producto-seccion">
-               <div class="producto-remove">
-                <span><i class="fas fa-trash-alt"></i></span>
-               </div>
+              
                 <div class="producto-seccimg">
                  <img class="prod-secc-img" src="../Usuario/img/descarga.jpg" id="img"/> 
                 </div> 
                 <div class="producto-secc-titulo">
                   <p class="prod-secc-title" id="nombre">holis</p> 
+                  <span><i class="fas fa-trash-alt"></i></span>
                 </div>     
                 <div class="producto-secc-descrip">
                  <p class="prod-secc-descrip" id="idProducto">Item: 12</p>
@@ -36,11 +35,18 @@
                  <hr>     
                 </div>
                 <div class="valores-compra">
-                  <div class="contenido-valores">
-                  <label class="" id="subtotal"></label>
-                  <label class="" id="envio"></label>
-                  <label class="" id="total"></label> 
-                  </div>  
+                       <div class="contenido-valores">
+                    <span>SubTotal</span>
+                      <span class="subt">$78.000</span>
+                    
+                     <span>Envío</span>
+                      <span class="envio">Por Definir</span>
+                 
+                </div>
+                <label class="" id="total"><strong>Total</strong></label> 
+                <label class="total" id="total"><strong>$78.000</strong></label> 
+
+                <button class="btn btn-danger" type="submit">Proceder a Pagar</button>
                 </div>
              </div>
         </div>

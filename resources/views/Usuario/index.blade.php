@@ -69,7 +69,7 @@
                                   $14.40
                                   <span id="preciop">$16.00</span>
                               </div>
-                              <a data-pushbar-target="carrito" id="añadir" class="add-to-cart" href="">AÑADIR AL CARRITO</></a>
+                              <a class="add-to-cart" href="/Productos/detalleProducto">Ver detalle</></a>
                           </div>
                       </div>
                   </div>
