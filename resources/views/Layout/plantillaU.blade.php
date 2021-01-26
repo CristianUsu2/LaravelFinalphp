@@ -15,14 +15,14 @@
         <div class="carritoC"  data-pushbar-id="carrito" data-pushbar-direction="right">
            <i class="fas fa-times btn-cerrar" data-pushbar-close></i>
              <div class="tituloCarrito">Carrito de compras</div>
-             <div class="producto-seccion">
+             <div class="producto-seccion" id="">
               
                 <div class="producto-seccimg">
                  <img class="prod-secc-img" src="../Usuario/img/descarga.jpg" id="img"/> 
                 </div> 
                 <div class="producto-secc-titulo">
                   <p class="prod-secc-title" id="nombre">holis</p> 
-                  <span><i class="fas fa-trash-alt"></i></span>
+                  <a class="remove"><i class="fas fa-trash-alt"></i></a>
                 </div>     
                 <div class="producto-secc-descrip">
                  <p class="prod-secc-descrip" id="idProducto">Item: 12</p>
@@ -168,6 +168,8 @@
 
 <script src="../Usuario/js/main.js"></script>
 <script src="../Usuario/js/cart.js"></script>
+<script src="../Usuario/js/bootstrap.min.js"></script>
+<script src="../Usuario/js/popper.min.js"></script>
 <script src="../Usuario/pushbar/js/pushbar.js"></script>    
 <script>
     let pushbar= new Pushbar({
@@ -177,6 +179,16 @@
 
 
 </script>
-
+ <script src="../Usuario/js/jquery-1.8.3.min.js"></script>
+ <script src="../Usuario/js/jquery.elevatezoom.js"></script>
+ <script>
+   $("#imgdet").elevateZoom({
+      zoomType: "inner",
+      cursor: "crosshair",
+      zoomWindowFadeIn: 500,
+      zoomWindowFadeOut: 750
+   }
+   );
+ </script>
   </body>
 </html>
