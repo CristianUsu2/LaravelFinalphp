@@ -15,8 +15,8 @@
         <div class="carritoC"  data-pushbar-id="carrito" data-pushbar-direction="right">
            <i class="fas fa-times btn-cerrar" data-pushbar-close></i>
              <div class="tituloCarrito">Carrito de compras</div>
+             <div class="CartProductos" id="CartProductos">
              <div class="producto-seccion" id="">
-              
                 <div class="producto-seccimg">
                  <img class="prod-secc-img" src="../Usuario/img/descarga.jpg" id="img"/> 
                 </div> 
@@ -30,25 +30,28 @@
                  <p class="prod-secc-descrip" id="cantidad">Cantidad:2</p>
                  <p class="prod-secc-descrip" id="talla">Talla: M</p>
                 </div>
-              <div class="separador">
-                 <span><i class="fas fa-arrow-down"></i></span>   
-                 <hr>     
-                </div>
-                <div class="valores-compra">
-                       <div class="contenido-valores">
-                    <span>SubTotal</span>
-                      <span class="subt">$78.000</span>
-                    
-                     <span>Envío</span>
-                      <span class="envio">Por Definir</span>
-                 
-                </div>
-                <label class="" id="total"><strong>Total</strong></label> 
-                <label class="total" id="total"><strong>$78.000</strong></label> 
-
-                <button class="btn btn-danger" type="submit">Proceder a Pagar</button>
-                </div>
              </div>
+            </div>
+                <div class="iconoseparador">
+                 <span ><i class="fas fa-arrow-down"></i></span>
+                </div>
+                <div  class="separadorLinea">
+                  <hr>
+                </div>
+                  <div class="valores-compra">
+                   <div class="contenido-valores">
+                    <span>SubTotal:</span>
+                    <span class="subt">$78.000</span>
+                    <span>Envío:</span>
+                    <span class="envio">Por Definir</span>
+                   </div>
+                   <div class="divtotal">
+                  <label class="total" id="total"><strong>Total:</strong></label> 
+                  <label class="total" id="total"><strong>$78.000</strong></label> 
+                   </div>
+                  <button class="btn btn-danger" type="submit">Proceder a Pagar</button>
+                </div>
+             
         </div>
         <header class="header">
             <div class="contenedor-logo">
@@ -81,7 +84,7 @@
          @yield('paginas')
         </main>
     </div>
-
+  <!--$cursos = Curso::orderBy('id','desc')->paginate();-->
 
     <footer>
       <div class="container-footer-all">
