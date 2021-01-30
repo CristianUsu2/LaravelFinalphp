@@ -1,5 +1,5 @@
 
-let divproductos=document.getElementById("productos");
+/*let divproductos=document.getElementById("productos");
 divproductos.addEventListener('click', (e)=>{
  mandaritem(e);
 });

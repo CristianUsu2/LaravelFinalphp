@@ -15,7 +15,7 @@
         <div class="carritoC"  data-pushbar-id="carrito" data-pushbar-direction="right">
            <i class="fas fa-times btn-cerrar" data-pushbar-close></i>
              <div class="tituloCarrito">Carrito de compras</div>
-             <div class="CartProductos" id="CartProductos">
+             <div  id="CartProductos">
              <div class="producto-seccion" id="">
                 <div class="producto-seccimg">
                  <img class="prod-secc-img" src="../Usuario/img/descarga.jpg" id="img"/> 
