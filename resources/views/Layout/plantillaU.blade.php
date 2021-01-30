@@ -52,6 +52,7 @@
                   <button class="btn btn-danger" type="submit">Proceder a Pagar</button>
                   </div>
         </div>
+        <input type="hidden" value="a"/>
         <header class="header">
             <div class="contenedor-logo">
                 <button id="boton-menu" class="boton-menu"><i class="fas fa-bars"></i></button>
