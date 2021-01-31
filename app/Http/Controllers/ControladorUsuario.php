@@ -9,11 +9,12 @@ class ControladorUsuario extends Controller
     public function index(){
         return view('Usuario/index');
    }
-   public function productos(){
-       return view('Usuario/productos');
+   public function detalleCompra(){
+       return view('Usuario/detalleCompra');
    }
 
    public function detalleProd(){
        return view('Usuario/detalleProd');
    }
+
 }

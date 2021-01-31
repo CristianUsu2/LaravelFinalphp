@@ -16,21 +16,7 @@
            <i class="fas fa-times btn-cerrar" data-pushbar-close></i>
              <div class="tituloCarrito">Carrito de compras</div>
              <div  id="CartProductos">
-             <div class="producto-seccion" id="">
-                <div class="producto-seccimg">
-                 <img class="prod-secc-img" src="../Usuario/img/descarga.jpg" id="img"/> 
-                </div> 
-                <div class="producto-secc-titulo">
-                  <p class="prod-secc-title" id="nombre">holis</p> 
-                  <a class="remove"><i class="fas fa-trash-alt"></i></a>
-                </div>     
-                <div class="producto-secc-descrip">
-                 <p class="prod-secc-descrip" id="idProducto">Item: 12</p>
-                 <p class="prod-secc-descrip" id="precio">Precio:123</p>
-                 <p class="prod-secc-descrip" id="cantidad">Cantidad:2</p>
-                 <p class="prod-secc-descrip" id="talla">Talla: M</p>
-                </div>
-             </div>
+          
             </div>
                 <div class="iconoseparador">
                  <span ><i class="fas fa-arrow-down"></i></span>
@@ -41,18 +27,18 @@
                   <div class="valores-compra">
                    <div class="contenido-valores">
                     <span>SubTotal:</span>
-                    <span class="subt">$78.000</span>
+                    <span class="subt" id="subtotalC"></span>
                     <span>Envío:</span>
-                    <span class="envio">Por Definir</span>
+                    <span class="envio" id="envioC">$5000</span>
                    </div>
                    <div class="divtotal">
-                  <label class="total" id="total"><strong>Total:</strong></label> 
-                  <label class="total" id="total"><strong>$78.000</strong></label> 
+                  <label class="total" ><strong>Total:</strong></label> 
+                  <label class="total" id="totalC"><strong></strong></label> 
                    </div>
-                  <button class="btn btn-danger" type="submit">Proceder a Pagar</button>
+                  <button class="btn btn-danger" id="DetalleC" type="submit">Detalle de compra</button>
                   </div>
         </div>
-        <input type="hidden" value="a"/>
+      
         <header class="header">
             <div class="contenedor-logo">
                 <button id="boton-menu" class="boton-menu"><i class="fas fa-bars"></i></button>
@@ -63,7 +49,9 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>                   
             <div class="botones-header">
-                <button data-pushbar-target="carrito"><i class="fas fa-shopping-cart"></i></button>
+              <span class="badge badge-light iconoTotal" id="iconoTotal"></span>
+               <button data-pushbar-target="carrito"><i class="fas fa-shopping-cart"></i>
+               </button>
                 <button><i class="fas fa-user-circle"></i></button>
                 <button><i class="fas fa-share-alt"></i></button>
 
@@ -179,8 +167,6 @@
      blur:true,
      overlay:true
     });
-
-
 </script>
  <script src="../Usuario/js/jquery-1.8.3.min.js"></script>
  <script src="../Usuario/js/jquery.elevatezoom.js"></script>
