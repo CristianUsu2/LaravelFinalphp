@@ -15,6 +15,7 @@
                     <th>Talla</th>
                     <th>Precio</th>
                     <th>Cantidad</th>
+                    <th>Mi Flow diabolico como los 3 6</th>
                     <th>Acciones</th>
                 </tr>
             </head>
