@@ -159,6 +159,7 @@
 
 <script src="../Usuario/js/main.js"></script>
 <script src="../Usuario/js/cart.js"></script>
+<script src="../Usuario/js/detailsCart.js"></script>
 <script src="../Usuario/js/bootstrap.min.js"></script>
 <script src="../Usuario/js/popper.min.js"></script>
 <script src="../Usuario/pushbar/js/pushbar.js"></script>    
