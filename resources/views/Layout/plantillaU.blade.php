@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../Usuario/fontawesome-free-5.15.1-web/css/all.min.css">
     <link rel="stylesheet" href="../Usuario/css/estilos.css">
     <link rel="stylesheet" href="../Usuario/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Usuario/css/bootstrap.css">
     <link rel="icon" href="../Usuario/img/logo.jpeg" />
     <title>Tienda Axes</title>
   </head>
@@ -52,14 +53,23 @@
               <span class="badge badge-light iconoTotal" id="iconoTotal"></span>
                <button data-pushbar-target="carrito"><i class="fas fa-shopping-cart"></i>
                </button>
-                <button><i class="fas fa-user-circle"></i></button>
+
+               <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="/Productos/login">Iniciar Sesión</a></li>
+                </ul>
+              </div>
+
                 <button><i class="fas fa-share-alt"></i></button>
 
             </div>
-
+            
         </header>
 
         <nav class="menu-lateral">
+
             <a href="#" class="active"><i class="fas fa-home"></i>Inicio</a>
             <a href="#"><i class="fas fa-plus"></i>Nueva Colección</a>
             <a href="#"><i class="fas fa-tshirt"></i>Ropa</a>
@@ -159,8 +169,8 @@
 
 <script src="../Usuario/js/main.js"></script>
 <script src="../Usuario/js/cart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 <script src="../Usuario/js/bootstrap.min.js"></script>
-<script src="../Usuario/js/popper.min.js"></script>
 <script src="../Usuario/pushbar/js/pushbar.js"></script>    
 <script>
     let pushbar= new Pushbar({
