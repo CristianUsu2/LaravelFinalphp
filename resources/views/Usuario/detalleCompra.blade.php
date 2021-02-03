@@ -31,9 +31,9 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th>Subtotal: $2323</th>
-                    <th>Envio: $5000</th>
-                    <th>Total: $32442</th>
+                    <th id="subtotalD"></th>
+                    <th id="envioD">Envio: $5000</th>
+                    <th id="totalD"></th>
                 </tr>
             </tfoot>
         </table>

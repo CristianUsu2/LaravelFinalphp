@@ -1,5 +1,3 @@
-import { type } from "os";
-
 
 let botonCompra = document.getElementById("botonCarrito");
 let id = document.getElementById("item");
@@ -26,10 +24,12 @@ if (botonCompra != null && DivTallas != null) {
   });
 }
 
+
 let SacarTalla = (e) => {
   let talla = e.target.textContent;
   tallaP = talla;
 }
+
 
 let AñadirElementoLocalStorage = () => {
   if (tallaP != null) {
@@ -65,6 +65,7 @@ let AñadirElementoLocalStorage = () => {
   }
 }
 
+
 let MostrarProductos = () => {
   let productos = JSON.parse(localStorage.getItem("productos"));
   divCarrito.innerHTML = '';
@@ -92,6 +93,8 @@ let MostrarProductos = () => {
   NumeroProductos();
   CalculoCompra();
 }
+
+
 let NumeroProductos = () => {
   let objetos = JSON.parse(localStorage.getItem("productos"));
   if (objetos != null) {
@@ -112,6 +115,7 @@ let EliminarProducto = (e) => {
   objetos.splice(indice, 1);
   localStorage.setItem("productos", JSON.stringify(objetos));
   MostrarProductos();
+  MostrarProductosDetalle();
 }
 
 let CalculoCompra = () => {
@@ -126,8 +130,6 @@ let CalculoCompra = () => {
   }
 }
 
-
 MostrarProductos();
 NumeroProductos();
 
-export const eliminar=EliminarProducto();
