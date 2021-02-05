@@ -2,9 +2,9 @@
 @section('paginas')
     <div class="row">
       <div class="col-12">
-          <h1>Detalle de compra</h1>
+          <h1 class="titulo-Detcompra">Detalle de compra</h1>
       </div>  
-     <div class="col-12">
+     <div class="col-12 mt-2">
         <table class="table">
             <thead class="table-dark">
                 <tr>
@@ -15,7 +15,6 @@
                     <th>Talla</th>
                     <th>Precio</th>
                     <th>Cantidad</th>
-                    <th>Mi Flow diabolico como los 3 6</th>
                     <th>Acciones</th>
                 </tr>
             </head>
@@ -32,9 +31,9 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th>Subtotal: $2323</th>
-                    <th>Envio: $5000</th>
-                    <th>Total: $32442</th>
+                    <th id="subtotalD"></th>
+                    <th id="envioD">Envio: $5000</th>
+                    <th id="totalD"></th>
                 </tr>
             </tfoot>
         </table>

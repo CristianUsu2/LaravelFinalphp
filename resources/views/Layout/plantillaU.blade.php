@@ -169,7 +169,11 @@
 
 <script src="../Usuario/js/main.js"></script>
 <script src="../Usuario/js/cart.js"></script>
+<<<<<<< HEAD
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+=======
+<script src="../Usuario/js/detailsCart.js"></script>
+>>>>>>> b272732ea0d198f06ed4e2a910365a35b23b66a4
 <script src="../Usuario/js/bootstrap.min.js"></script>
 <script src="../Usuario/pushbar/js/pushbar.js"></script>    
 <script>
