@@ -67,7 +67,7 @@ a{
     background: #E7E7E7;
 }
 
-.header .contenedor-logo .logo img{
+.header .contenedor-logo .logo1 img{
     padding: 7px 12px;
     border-radius: 9px;
     position: relative;
@@ -655,43 +655,9 @@ footer{
            su tamaño con scale(2). 
         transform : scale(2);
     }*/
-
-<<<<<<< HEAD
+    
 /*-----------------------------------LOGIN---------------------------------*/
 
-a.button {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    height: auto;
-    padding: .8rem 1.0rem;
-    font-size: .8rem;
-    line-height: normal;
-    text-transform: uppercase;
-    font-family: 'Proxima Nova', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0;
-    border-radius: 0;
-    border: 1px solid #2D515C;
-    text-decoration: none;
-    color: #fff;
-    background-color: transparent;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-}
-a.button:hover {
-    border-color: #2D515C;
-    color: #fff;
-    padding: 1.0rem 3.2rem;
-}
-@media only screen and (min-width: 22em) {
-    a.button {
-        padding: 1.0rem 2.8rem;
-        font-size: 1.0rem;
-    }
-}
 
 /* LOGIN */
 .login {
