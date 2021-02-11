@@ -51,17 +51,10 @@
             </div>                   
             <div class="botones-header">
               <span class="badge badge-light iconoTotal" id="iconoTotal"></span>
-               <button data-pushbar-target="carrito"><i class="fas fa-shopping-cart"></i>
-               </button>
+               <button data-pushbar-target="carrito"><i class="fas fa-shopping-cart"></i></button>
 
-               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <li><a class="dropdown-item" href="/Productos/login">Iniciar Sesión</a></li>
-                </ul>
-              </div>
-
+               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user-circle"></i></button>
+                
                 <button><i class="fas fa-share-alt"></i></button>
 
             </div>
@@ -90,7 +83,7 @@
         <div class="container-body">
 
             <div class="colum1">
-                <h1>Paga en línea o en Efectivo Y Servicio a Domicilio</h1>
+                <h1>Pagos en línea Y Servicio a Domicilio</h1>
 
                 <div class="row">
                   <a href="https://www.facebook.com/AXES-Skateboarding-100422468179966"><i id="visa" class="fab fa-cc-visa"></i>Tarjeta de crédito Visa</a>
@@ -151,7 +144,8 @@
         </div>
     
     </div>
-    
+
+
     <div class="container-footer">
            <div class="footer">
                 <div class="copyright">
@@ -167,13 +161,60 @@
     </footer>
 
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="login-box">
+            <img src="../Usuario/img/logo.jpeg" class="avatar" alt="Avatar Image">
+            <h1>Inicio de Sesión</h1>
+            <form action="" method="POST">
+
+              <label for="username">Correo</label>
+              <input type="text" placeholder="Ingrese su Correo">
+
+              <label for="password">Contraseña</label>
+              <input type="password" placeholder="Ingrese su Contraseña">
+
+              <input type="submit" value="INGRESAR">
+
+              <a href="#">¿Olvidaste tú Contraseña?</a><br>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#registro">¿No tienes una cuenta? Registrarte Aquí.</a>
+            </form>
+          </div>
+
+      </div>
+    </div>
+    </div>
+
+
+    <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="registroLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="login-box">
+            <img src="../Usuario/img/logo.jpeg" class="avatar" alt="Avatar Image">
+            <h1>Registro</h1>
+            <form action="" method="POST">
+
+              <label for="username">Correo</label>
+              <input type="text" placeholder="Ingrese su Correo">
+
+              <label for="password">Contraseña</label>
+              <input type="password" placeholder="Ingrese su Contraseña">
+              
+              <input type="submit" value="REGISTRARSE">
+
+            </form>
+          </div>
+
+      </div>
+    </div>
+    </div>
+
 <script src="../Usuario/js/main.js"></script>
 <script src="../Usuario/js/cart.js"></script>
-<<<<<<< HEAD
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-=======
 <script src="../Usuario/js/detailsCart.js"></script>
->>>>>>> b272732ea0d198f06ed4e2a910365a35b23b66a4
 <script src="../Usuario/js/bootstrap.min.js"></script>
 <script src="../Usuario/pushbar/js/pushbar.js"></script>    
 <script>
@@ -193,6 +234,7 @@
    }
    );
  </script>
+ 
  <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
  <script >/* LOGIN - MAIN.JS - dp 2017 */
  
