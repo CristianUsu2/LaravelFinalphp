@@ -50,7 +50,7 @@
             </div>                   
             <div class="botones-header">
               <span class="badge badge-light iconoTotal" id="iconoTotal"></span>
-               <button class="carro" data-pushbar-target="carrito"><i class="fas fa-shopping-cart"><label>1</label></i></button>
+               <button class="carro" data-pushbar-target="carrito"><i class="fas fa-shopping-cart"><label id="iconoTotal">1</label></i></button>
 
                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user-circle"></i></button>
                 
