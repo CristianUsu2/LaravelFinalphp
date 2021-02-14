@@ -9,7 +9,7 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="../Usuario/img/slide01.jpg" class="d-block w-100" alt="...">
+                    <img src="../Usuario/img/carrousel.jpg" class="d-block w-100" alt="..." height="600">
                     <div class="carousel-caption d-none d-md-block">
                       <h5>First slide label</h5>
                       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -48,7 +48,7 @@
                       <div class="product-grid4" id="producto">
                           <div class="product-image4">
                               <a href="#">
-                                  <img id="img" class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-1.jpg">
+                                  <img id="img" class="pic-1" src="../Usuario/img/foto1.jpg">
 
                               </a>
                               <ul class="social">
@@ -77,7 +77,7 @@
                       <input type="hidden" id="tallap" value="L"/>
                           <div class="product-image4">
                               <a href="#">
-                                  <img class="pic-1" id="imgp" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-3.jpg">
+                                  <img class="pic-1" id="imgp" src="../Usuario/img/foto2.jpg">
 
                               </a>
                               <ul class="social">
@@ -213,7 +213,7 @@
                 <div class="product-grid4">
                     <div class="product-image4">
                         <a href="#">
-                            <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-1.jpg">
+                            <img class="pic-1" src="">
 
                         </a>
                         <ul class="social">

@@ -756,8 +756,8 @@ footer{
 /*---------------------------------------Registro---------------------------------------------*/
 
 .registro-box {
-    width: 420px;
-    height: 580px;
+    width: 480px;
+    height: 600px;
     background: rgb(59, 59, 59);
     color: rgb(255, 255, 255);
     top: -50%;

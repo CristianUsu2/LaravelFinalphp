@@ -109,7 +109,7 @@
                 </div>
               
                 <div class="row">
-                  <a href="https://www.instagram.com/axes_skateboarding/"><i id="insta" class="fab fa-instagram"></i>Siguenos en Instagram</a>
+                  <a href="https://www.instagram.com/axes_sb/"><i id="insta" class="fab fa-instagram"></i>Siguenos en Instagram</a>
 
                 </div>
                
