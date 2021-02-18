@@ -49,8 +49,7 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>                   
             <div class="botones-header">
-              <span class="badge badge-light iconoTotal" id="iconoTotal"></span>
-               <button class="carro" data-pushbar-target="carrito"><i class="fas fa-shopping-cart"><label id="iconoTotal">1</label></i></button>
+               <a class="carro" data-pushbar-target="carrito"><i class="fas fa-shopping-cart"><label id="iconoTotal">1</label></i></a>
 
                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user-circle"></i></button>
                 
@@ -232,17 +231,7 @@
     });
 </script>
  <script src="../Usuario/js/jquery-1.8.3.min.js"></script>
- <script src="../Usuario/js/jquery.elevatezoom.js"></script>
- <script>
-   $("#imgdet").elevateZoom({
-      zoomType: "inner",
-      cursor: "crosshair",
-      zoomWindowFadeIn: 500,
-      zoomWindowFadeOut: 750
-   }
-   );
- </script>
- 
- <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+ <script src="../Usuario/js/jquery.zoom.js"></script>
+
   </body>
 </html>

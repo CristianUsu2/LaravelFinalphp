@@ -125,8 +125,7 @@ let CalculoCompra = () => {
   if (objetos != null) {
     let valorSubtotal = objetos.reduce((e, i) => e + Number(i.precioP.replace('.', '')) * Number(i.cantidadP), 0);
     subtotal.textContent = '$' + valorSubtotal;
-    let valorTotal = valorSubtotal + Number(document.getElementById("envioC").textContent.replace('$', ''));
-    total.textContent = '$' + valorTotal;
+    total.textContent = '$' + valorSubtotal;
   }
 }
 
