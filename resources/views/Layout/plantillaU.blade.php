@@ -49,7 +49,7 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>                   
             <div class="botones-header">
-               <a class="carro" data-pushbar-target="carrito"><i class="fas fa-shopping-cart"><label id="iconoTotal">1</label></i></a>
+               <a class="carro"style="margin-top:17px;" data-pushbar-target="carrito"><i class="fas fa-shopping-cart"><label id="iconoTotal">1</label></i></a>
 
                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user-circle"></i></button>
                 
