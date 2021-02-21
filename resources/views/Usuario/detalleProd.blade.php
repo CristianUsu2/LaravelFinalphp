@@ -2,7 +2,7 @@
 @section('paginas')
 <input type="hidden" id="item" value="2"/>
 <div class="col-md-7 img-prod" id='ex1'>
-        <img id="imgdet" src="../Usuario/img/image1.png" class="img-22" />
+        <img id="imgdet" src="../Usuario/img/jmm.jpg" class="img-22" />
     </div>
     <div class="col-md-5 seccion-detalle">
      <h1 class="titulo-prod-det" id="titulo">Bolso Skate</h1>

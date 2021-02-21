@@ -661,16 +661,30 @@ footer{
 .button:hover{
     background-color: #2C2B2B;
 }
-/*  Efecto zoom casero
- .zoom{
-         Aumentamos la anchura y altura durante 2 segundos 
-        transition: width 2s, height 2s, transform 2s;
-    }
-    .zoom:hover{
-        /* tranformamos el elemento al pasar el mouse por encima al doble de
-           su tamaño con scale(2). 
-        transform : scale(2);
-    }*/
+/*-------------------Estilos Zoom detalle--------------------*/
+.zoom {
+    display:inline-block;
+    position: relative;
+}
+
+/* magnifying glass icon */
+.zoom:after {
+    content:'';
+    display:block; 
+    width:33px; 
+    height:33px; 
+    position:absolute; 
+    top:0;
+    right:0;
+    background:url(icon.png);
+}
+
+.zoom img {
+    display: block;
+}
+
+.zoom img::selection { background-color: transparent; }
+
     
 /*-----------------------------------LOGIN---------------------------------*/
 .login-box {

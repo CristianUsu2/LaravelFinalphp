@@ -232,6 +232,8 @@
 </script>
  <script src="../Usuario/js/jquery-1.8.3.min.js"></script>
  <script src="../Usuario/js/jquery.zoom.js"></script>
-
+ <script>
+   $('#ex1').zoom();
+ </script>
   </body>
 </html>
