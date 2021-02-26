@@ -49,7 +49,11 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>                   
             <div class="botones-header">
+<<<<<<< HEAD
                <button class="carro" data-pushbar-target="carrito"><i class="fas fa-shopping-cart"><label id="iconoTotal">1</label></i></button>
+=======
+               <a class="carro"style="margin-top:17px;" data-pushbar-target="carrito"><i class="fas fa-shopping-cart"><label id="iconoTotal">1</label></i></a>
+>>>>>>> 55d1f2f8d67942c06a6cd2bea95c9921a1fedfa5
 
                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user-circle"></i></button>
                 
@@ -257,6 +261,7 @@
 </script>
  <script src="../Usuario/js/jquery-1.8.3.min.js"></script>
  <script src="../Usuario/js/jquery.zoom.js"></script>
+<<<<<<< HEAD
  
  @if($errors==null){
    <script>
@@ -273,5 +278,10 @@
  }
  @endif
 
+=======
+ <script>
+   $('#ex1').zoom();
+ </script>
+>>>>>>> 55d1f2f8d67942c06a6cd2bea95c9921a1fedfa5
   </body>
 </html>
