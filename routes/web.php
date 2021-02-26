@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ControladorAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorUsuario;
 /*
@@ -18,3 +19,6 @@ Route::get('index', [ControladorUsuario::class, "index"]);
 Route::get('/Productos/detalleProducto', [ControladorUsuario::class, "detalleProd"]);
 Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"]);
 Route::get('/Productos/login', [ControladorUsuario::class,"inicio"]);
+Route::post('/', [ControladorUsuario::class, "login"])->name('login');
+Route::post('/', [ControladorUsuario::class, "register"]);
+Route::get('Administrador', [ControladorAdmin::class, "index"]);

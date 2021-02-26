@@ -49,7 +49,6 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>                   
             <div class="botones-header">
-              <span class="badge badge-light iconoTotal" id="iconoTotal"></span>
                <button class="carro" data-pushbar-target="carrito"><i class="fas fa-shopping-cart"><label id="iconoTotal">1</label></i></button>
 
                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user-circle"></i></button>
@@ -62,7 +61,7 @@
 
         <nav class="menu-lateral">
 
-            <a href="#" class="active"><i class="fas fa-home"></i>Inicio</a>
+            <a href="/" class="active"><i class="fas fa-home"></i>Inicio</a>
             <a href="#"><i class="fas fa-plus"></i>Nueva Colección</a>
             <a href="#"><i class="fas fa-tshirt"></i>Ropa</a>
             <a href="#"><i class="fas fa-socks"></i>Zapatos</a>
@@ -75,7 +74,6 @@
         </main>
     </div>
   <!--$cursos = Curso::orderBy('id','desc')->paginate();-->
-
     <footer>
       <div class="container-footer-all">
         
@@ -165,15 +163,16 @@
         <div class="modal-content">
           
           <div class="login-box">
-            <img src="../Usuario/img/logo.jpeg" class="avatar" alt="Avatar Image">
+            <img src="../Usuario/img/logo_perro.jpg" class="avatar" alt="Avatar Image">
             <h1>INICIO DE SESIÓN</h1>
-            <form action="" method="POST">
 
+            <form action="" method="POST">
+              @csrf
               <label for="username">Correo</label>
-              <input type="text" placeholder="Ingrese su Correo">
+              <input type="email" name="correo" placeholder="Ingrese su Correo">
 
               <label for="password">Contraseña</label>
-              <input type="password" placeholder="Ingrese su Contraseña">
+              <input type="password" name="contra" placeholder="Ingrese su Contraseña">
 
               <input type="submit" value="INGRESAR">
 
@@ -192,34 +191,59 @@
         <div class="modal-content">
           
           <div class="registro-box">
-            <img src="../Usuario/img/logo.jpeg" class="avatar" alt="Avatar Image">
+            <img src="../Usuario/img/logo_perro.jpg" class="avatar" alt="Avatar Image">
             <h1>REGISTRO</h1>
-            <form action="" method="POST">
+        
+          
+            <form action="" method="POST" class="form">
+                @csrf
+              <label for="nombre">Nombre</label>
+              @error('name')
+              <small>{{$message}}</small>
+              @enderror 
 
-              <label for="username">Nombre</label>
-              <input type="text" placeholder="Ingrese su Nombre">
+              <input type="text" name="name" placeholder="Ingrese su Nombre">
 
-              <label for="username">Apellido</label>
-              <input type="text" placeholder="Ingrese su Apellido">
+              <label for="apellido">Apellido</label>
+              @error('apellido')
+                  <small>{{$message}}</small>
+              @enderror
 
-              <label for="username">Correo</label>
-              <input type="text" placeholder="Ingrese su Correo">
+              <input type="text" name="apellido" placeholder="Ingrese su Apellido">
 
-              <label for="username">Dirección</label>
-              <input type="text" placeholder="Ingrese su Dirección">
+              <label for="correo">Correo</label>
+                @error('email')
+                <small>{{$message}}</small>
+              @enderror
+
+              <input type="email" name="email" placeholder="Ingrese su Correo">
+
+              <label for="direccion">Dirección</label>
+              @error('direccion')
+                <small>{{$message}}</small>
+              @enderror
+
+              <input type="text" name="direccion" placeholder="Ingrese su Dirección">
 
               <label for="password">Contraseña</label>
-              <input type="password" placeholder="Ingrese su Contraseña">
+              @error('password')
+                <small>{{$message}}</small>
+              @enderror
+
+              <input type="password" name="password" placeholder="Ingrese su Contraseña">
               
               <input type="submit" value="REGISTRARSE">
-
+               
             </form>
           </div>
+
+        
 
       </div>
     </div>
     </div>
 
+ <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="../Usuario/js/main.js"></script>
 <script src="../Usuario/js/cart.js"></script>
 <script src="../Usuario/js/detailsCart.js"></script>
@@ -232,17 +256,22 @@
     });
 </script>
  <script src="../Usuario/js/jquery-1.8.3.min.js"></script>
- <script src="../Usuario/js/jquery.elevatezoom.js"></script>
- <script>
-   $("#imgdet").elevateZoom({
-      zoomType: "inner",
-      cursor: "crosshair",
-      zoomWindowFadeIn: 500,
-      zoomWindowFadeOut: 750
-   }
-   );
- </script>
+ <script src="../Usuario/js/jquery.zoom.js"></script>
  
- <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+ @if($errors==null){
+   <script>
+   console.log("entre a la condicion")
+  </script>
+ }
+ @else{
+  <script>
+    import {confirmar,error} from '../Usuario/js/mensajes.js';
+    let e= new mensajes();
+    console.log(e.error());
+</script>
+    
+ }
+ @endif
+
   </body>
 </html>
