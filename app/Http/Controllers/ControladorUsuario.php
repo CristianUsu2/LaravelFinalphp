@@ -20,4 +20,8 @@ class ControladorUsuario extends Controller
    public function inicio(){
        return view('Usuario/inicio');
    }
+
+   public function FinalizarCompra(){
+       return view('Usuario/finalizarCompra');
+   }
 }

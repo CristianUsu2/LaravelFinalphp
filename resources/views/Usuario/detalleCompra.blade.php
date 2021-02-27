@@ -21,6 +21,10 @@
                 </tr>
             </tfoot>
         </table>
+        <div class="botones-dtC">
+            <button class="btn btn-primary mr-2 bton" id="btnFinalizarC">Finalizar Compra</button>
+            <button type="button" class="btn btn-primary mr-2 bton">Borrar Articulos</button>
+        </div>
      </div>
     </div>
 @endsection

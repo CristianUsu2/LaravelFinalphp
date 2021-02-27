@@ -18,3 +18,4 @@ Route::get('index', [ControladorUsuario::class, "index"]);
 Route::get('/Productos/detalleProducto', [ControladorUsuario::class, "detalleProd"]);
 Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"]);
 Route::get('/Productos/login', [ControladorUsuario::class,"inicio"]);
+Route::get('/Productos/finalizarCompra',[ControladorUsuario::class,"FinalizarCompra"]);

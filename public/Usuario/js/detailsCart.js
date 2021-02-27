@@ -1,14 +1,14 @@
-let tbody = document.getElementById("tbody");
 
+let tbody = document.getElementById("tbody");
+let botonFinalizar=document.getElementById("btnFinalizarC");
+let productos = JSON.parse(localStorage.getItem("productos"));
 let MostrarProductosDetalle = () => {
-  let productos = JSON.parse(localStorage.getItem("productos"));
-  
   if (tbody != null) {
     tbody.innerHTML = '';
     if (productos != null) {
       productos.forEach(Element => {
         tbody.innerHTML += `
-     <tr >
+     <tr>
      <td><img class="prod-secc-img" src="${Element.imgP}" /></td>
       <input type="hidden" value="${Element.itemP}" />
       <td><div class="div-descripDet">
@@ -36,11 +36,19 @@ let MostrarProductosDetalle = () => {
   }
   
 }
+
+if(botonFinalizar!=null){
+  botonFinalizar.addEventListener('click',()=>{
+    window.location="/Productos/finalizarCompra";
+  })
+}
+
 if(tbody!=null){
 tbody.addEventListener('click',(e)=>{
     capturar(e)
 });
 }
+
 let capturar=(e)=>{
     if(e.target.classList.contains('minus','bg-dark')){
         if(e.target.textContent == '-'){
@@ -75,9 +83,8 @@ let SumarRestarCantidad = (e,i) => {
 let CalculoCompraD=()=>{
   let subtotalD = document.getElementById("subtotalD");
   let totalD = document.getElementById("totalD");
-  let objetos = JSON.parse(localStorage.getItem("productos"));
-  if (objetos != null) {
-    let valorSubtotal = objetos.reduce((e, i) => e + Number(i.precioP.replace('.', '')) * Number(i.cantidadP), 0);
+  if (productos != null) {
+    let valorSubtotal = productos.reduce((e, i) => e + Number(i.precioP.replace('.', '')) * Number(i.cantidadP), 0);
     subtotalD.textContent = 'Subtotal: $' + valorSubtotal;
     let valorTotal = valorSubtotal;
     totalD.textContent = 'Total: $' + valorTotal;
@@ -85,7 +92,6 @@ let CalculoCompraD=()=>{
 }
 
 let AumentarValor=(e,value)=>{
-  let productos=JSON.parse(localStorage.getItem("productos"));
   let itemB=e.querySelector('input[type="hidden"]').value;
   let busqueda=productos.findIndex(i=>i.itemP==itemB);
   if(busqueda!=-1){
@@ -95,4 +101,12 @@ let AumentarValor=(e,value)=>{
      CalculoCompraD();
   } 
 }
+
+let ValidacionDeItemsCard=()=>{
+  productos.reduce((e,i,o)=>{
+    console.log(i,o)
+    
+  },[]) 
+}
+ValidacionDeItemsCard()
 MostrarProductosDetalle();
