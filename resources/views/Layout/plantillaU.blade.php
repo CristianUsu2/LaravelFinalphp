@@ -88,7 +88,7 @@
       <div class="chat-input">      
         <form>
           <input type="text" id="chat-input" placeholder="Send a message..."/>
-        <button type="submit" class="chat-submit" id="chat-submit"><i class="material-icons">send</i></button>
+        <button type="submit" class="chat-submit" id="chat-submit"><i class="material-icons">Enviar</i></button>
         </form>      
       </div>
     </div>
@@ -190,13 +190,13 @@
             <img src="../Usuario/img/logo_perro.jpg" class="avatar" alt="Avatar Image">
             <h1>INICIO DE SESIÓN</h1>
 
-            <form action="" method="POST">
+            <form action="{{route('login')}}" method="POST">
               @csrf
               <label for="username">Correo</label>
-              <input type="email" name="correo" placeholder="Ingrese su Correo">
+              <input type="email" name="email" placeholder="Ingrese su Correo">
 
               <label for="password">Contraseña</label>
-              <input type="password" name="contra" placeholder="Ingrese su Contraseña">
+              <input type="password" name="password" placeholder="Ingrese su Contraseña">
 
               <input type="submit" value="INGRESAR">
 

@@ -45,13 +45,13 @@
        <img class="prod-secc-img" src="http://127.0.0.1:8000/Usuario/img/jmm.jpg" id="img"/> 
       </div> 
       <div class="producto-secc-titulo">
-        <p class="prod-secc-title" id="nombreC">Hola mi amor</p> 
+        <p class="prod-secc-title" id="nombreC">Zapatos</p> 
       </div>     
       <div class="producto-secc-descrip">
-        <p class="prod-secc-descrip" id="idProductoC">Item:112</p>
-        <p class="prod-secc-descrip" id="colorC">Color: mi amor</p>
+        <p class="prod-secc-descrip" id="idProductoC">Item: 112</p>
+        <p class="prod-secc-descrip" id="colorC">Color: Rosado</p>
         <p class="prod-secc-descrip" id="precioC">Precio: 2311</p>
-        <p class="prod-secc-descrip" id="tallaC">Talla:M</p>
+        <p class="prod-secc-descrip" id="tallaC">Talla: 38</p>
       </div>
     </div>
   </div>

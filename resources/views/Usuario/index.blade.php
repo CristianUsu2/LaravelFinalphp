@@ -200,7 +200,7 @@
                 <div class="product-grid4">
                     <div class="product-image4">
                         <a href="#">
-                            <img class="pic-1" src="">
+                            <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-7.jpg">
 
                         </a>
                         <ul class="social">

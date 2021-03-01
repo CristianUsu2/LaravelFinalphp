@@ -28,15 +28,21 @@ class ControladorUsuario extends Controller
    public function FinalizarCompra(){
        return view('Usuario/finalizarCompra');
    }
-   public function login(){
-       $credentials = request()->only('email','password');
+   public function login(Request $request){
+    $login = new User();
+   $validar = $login->email = $request->email;
+   $validar = $login->password = $request->password;
 
-      if(Auth::attempt($credentials)){
-          request()->session()->regenerate();
-          return view('Usuario/index');
-      }
-          return view('Usuario/detalleCompra');
+    if($validar->id_rol=1){
+        return view('Usuario/index');
+    }else if($validar->id_rol=2){
+        return "hola";
     }
+    
+        return view('Usuario/index');
+       
+    
+   }
     
     public function register(Request $request){
 

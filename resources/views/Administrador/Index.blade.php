@@ -45,12 +45,12 @@
               <div class="small-box bg-warning">
                 <div class="inner">
                   <h3>44</h3>
-                  <p>User Registrations</p>
+                  <p>Usuarios Registrados</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{route('usuarios')}}" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->

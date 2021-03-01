@@ -23,3 +23,6 @@ Route::get('/Productos/finalizarCompra',[ControladorUsuario::class,"FinalizarCom
 Route::post('/', [ControladorUsuario::class, "login"])->name('login');
 Route::post('/', [ControladorUsuario::class, "register"]);
 Route::get('/Administrador', [ControladorAdmin::class, "index"]);
+Route::get('/Administrador/usuarios', [ControladorAdmin::class, "usuarios"])->name('usuarios');
+Route::post('/Administrador/usuarios', [ControladorAdmin::class, "estado"])->name('estado');
+

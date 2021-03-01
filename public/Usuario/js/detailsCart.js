@@ -21,7 +21,7 @@ let MostrarProductosDetalle = () => {
       <div class="qty mt-5" id="inputDiv">
       <input type="hidden" value="${Element.itemP}"/>
       <span  class="minus bg-dark">-</span>
-      <input id="inputD" type="number" class="count" name="qty" value="1" disabled>
+      <input id="inputD" type="text" class="count" name="qty" value="1" disabled>
       <span  class="plus bg-dark">+</span>
       </div>
       </div>
