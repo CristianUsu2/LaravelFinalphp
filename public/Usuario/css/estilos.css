@@ -138,6 +138,7 @@ a{
     width: 40px;
     height: 40px;
     padding: -7px 12px;
+    
 }
 
 .header .botones-header a .fas:hover{
@@ -748,7 +749,7 @@ footer{
     color: #ffffff;
   }
   
-  .login-box input[type="text"], .login-box input[type="password"] {
+  .login-box input[type="email"], .login-box input[type="password"] {
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;
@@ -788,8 +789,8 @@ footer{
 /*---------------------------------------Registro---------------------------------------------*/
 
 .registro-box {
-    width: 420px;
-    height: 580px;
+    width: 580px;
+    height: 680px;
     background: rgb(59, 59, 59);
     color: rgb(255, 255, 255);
     top: -50%;
@@ -798,7 +799,7 @@ footer{
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px 30px;
-    margin-top: 350px;
+    margin-top: 400px;
   }
   
   .registro-box .avatar {
@@ -838,6 +839,16 @@ footer{
     color: rgb(255, 255, 255);
     font-size: 16px;
   }
+
+  .registro-box input[type="email"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+  }
   
   .registro-box input[type="submit"] {
     border: none;
@@ -865,6 +876,8 @@ footer{
   .registro-box a:hover {
     color: #fff;
   }
+
+/*---------------------------------------Estilos Efecto Carga---------------------------------------------*/
 
 /*---------------------------------------Estilos detalle Compra---------------------------------------------*/
 .tcabeza tr{
@@ -1181,8 +1194,62 @@ input[type=number]::-webkit-outer-spin-button {
 
 /*--------------------------------Estilos finalizar compra------------------------------*/
 .col-factura{
-    background-color: #000;
+    width: 330px !important;
+    height: 200px  !important;
+    display:flex;
+
 }
+.div-productos-pedido{
+    background-color: #000;
+    width: 300px;
+    height: 200px;
+}
+.div-titulo-finalizarC{
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 80px;
+    display: flex !important;
+}
+.titulo-finalizarC{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    color: black;
+    font-weight: 100;
+}
+.separadorLinea hr{
+    width: 430px !important;
+}
+.modifi{
+    margin-left: -306px !important;
+    margin-top: 38px !important;
+    justify-content: center;
+}
+.divIconoDerecha{
+    float: right;
+    margin-right: -22px;
+    width: 20px;
+    height: 20px;
+    margin-top: -120px;
+    cursor:pointer;
+}
+.divIconoIzquierda{
+    float: left !important;
+    width: 20px;
+    height: 20px;
+    margin-top: -120px;
+    margin-left: -10px;
+    cursor:pointer;
+}
+
+.icon-derecha{
+    font-size: 30px;
+}
+.icon-izquierda{
+  font-size: 30px;
+  margin-top: -50px;
+}
+
 /*-----------------------------------Estilos Responsive---------------------------------*/
 @media screen and (max-width: 1200px){
 
@@ -1258,3 +1325,4 @@ input[type=number]::-webkit-outer-spin-button {
 @media only screen and (max-width:1200px){.product-grid4{margin-bottom:30px}
 
 }
+    }

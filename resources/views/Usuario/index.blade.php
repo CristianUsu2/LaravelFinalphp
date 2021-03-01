@@ -1,6 +1,9 @@
 @extends('Layout.plantillaU')
 @section('paginas')
 <h3 class="inicio">INICIO</h3>
+    <div id="contenedor_carga">
+        <div id="carga"></div>
+    </div>
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                 <ol class="carousel-indicators">
                   <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
@@ -9,27 +12,10 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="../Usuario/img/slide01.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </div>
+                    <iframe class="video" src="../Usuario/img/video.mp4" width="1000" height="480"></iframe>
+                   
                   </div>
-                  <div class="carousel-item">
-                    <img src="../Usuario/img/img1.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Second slide label</h5>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../Usuario/img/slide01.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Third slide label</h5>
-                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </div>
-                  </div>
-                </div>
+                 
                 <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
@@ -41,6 +27,7 @@
               </div>
 
             <h3 class="titulo">Nuestros Productos</h3>
+            <pre>{{Auth::user()}}</pre>
               <div class="grid-videos">
             <div class="container">
               <div class="row" id="productos">
@@ -48,7 +35,7 @@
                       <div class="product-grid4" id="producto">
                           <div class="product-image4">
                               <a href="#">
-                                  <img id="img" class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-1.jpg">
+                                  <img id="img" class="pic-1" src="../Usuario/img/foto1.jpg">
 
                               </a>
                               <ul class="social">
@@ -77,7 +64,7 @@
                       <input type="hidden" id="tallap" value="L"/>
                           <div class="product-image4">
                               <a href="#">
-                                  <img class="pic-1" id="imgp" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-3.jpg">
+                                  <img class="pic-1" id="imgp" src="../Usuario/img/foto2.jpg">
 
                               </a>
                               <ul class="social">
@@ -213,7 +200,7 @@
                 <div class="product-grid4">
                     <div class="product-image4">
                         <a href="#">
-                            <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-1.jpg">
+                            <img class="pic-1" src="">
 
                         </a>
                         <ul class="social">
