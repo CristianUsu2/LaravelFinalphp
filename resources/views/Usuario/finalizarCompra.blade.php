@@ -115,7 +115,19 @@
         </h2>
         <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
-
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+              <label class="form-check-label" for="exampleRadios1">
+                Pago Contra entrega
+              </label>
+            </div>
+            <div class="form-check mt-2">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2">
+               <img class="iconoPayU" src="../Usuario/img/iconoPayU.png"/>
+              </label>
+            </div>
+            <button class="mt-2 btn btn-dark" type="submit">Continuar</button>
           </div>
         </div>
       </div>
@@ -126,7 +138,13 @@
           </button>
         </h2>
         <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+          <div class="accordion-body">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+              <label class="form-check-label" for="inlineCheckbox2">Acepto Terminos y condiciones</label>
+            </div>
+          </div>
+          <button class="btn btn-dark mb-2 mr-4">Finalizar Compra</button>
         </div>
       </div>
     </div>
@@ -136,26 +154,15 @@
     <div class="div-titulo-finalizarC">
      <h4 class="titulo-finalizarC">Resumen Pedido</h4>
     </div>
-    <div class="producto-seccion modifi">
-      <div class="producto-seccimg">
-       <img class="prod-secc-img" src="http://127.0.0.1:8000/Usuario/img/jmm.jpg" id="img"/> 
-      </div> 
-      <div class="producto-secc-titulo">
-        <p class="prod-secc-title" id="nombreC">Zapatos</p> 
-      </div>     
-      <div class="producto-secc-descrip">
-        <p class="prod-secc-descrip" id="idProductoC">Item: 112</p>
-        <p class="prod-secc-descrip" id="colorC">Color: Rosado</p>
-        <p class="prod-secc-descrip" id="precioC">Precio: 2311</p>
-        <p class="prod-secc-descrip" id="tallaC">Talla: 38</p>
-      </div>
+    <div class="producto-seccion modifi" id="divContenedorCards">
+      
     </div>
   </div>
   <div class="divIconoDerecha">
-    <span class="icon-derecha"><i class="fas fa-arrow-alt-circle-right"></i></span>
+    <span class="icon-derecha" id="iconoDerecho"><i class="fas fa-arrow-alt-circle-right"></i></span>
     </div>
     <div class="divIconoIzquierda">
-    <span class="icon-izquierda"><i class="fas fa-arrow-alt-circle-left"></i></span>
+    <span class="icon-izquierda" id="iconoIzquierdo"><i class="fas fa-arrow-alt-circle-left"></i></span>
     </div>
   <div class="valores-compra">
     <div class="contenido-valores">

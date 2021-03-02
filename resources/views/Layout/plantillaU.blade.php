@@ -271,6 +271,7 @@
 <script src="../Usuario/js/main.js"></script>
 <script src="../Usuario/js/cart.js"></script>
 <script src="../Usuario/js/detailsCart.js"></script>
+<script src="../Usuario/js/finishBuy.js"></script>
 <script src="../Usuario/js/bootstrap.min.js"></script>
 <script src="../Usuario/pushbar/js/pushbar.js"></script>    
 <script>
@@ -291,9 +292,9 @@
  }
  @else{
   <script>
-    import {confirmar,error} from '../Usuario/js/mensajes.js';
-    let e= new mensajes();
-    console.log(e.error());
+   // import {confirmar,error} from '../Usuario/js/mensajes.js';
+    //let e= new mensajes();
+    //console.log(e.error());
 </script>
     
  }

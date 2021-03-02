@@ -1,6 +1,6 @@
 @extends('Layout.plantillaU')
 @section('paginas')
-<input type="hidden" id="item" value="1"/>
+<input type="hidden" id="item" value="2"/>
 <div class="col-md-7 img-prod" id='ex1'>
         <img id="imgdet" src="../Usuario/img/jmm.jpg" class="img-22" />
     </div>
