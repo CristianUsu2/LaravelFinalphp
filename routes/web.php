@@ -13,7 +13,7 @@ use App\Http\Controllers\ControladorUsuario;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*-----Rutas de las vistas del Usuario ----------------------- */
 Route::resource('/', ControladorUsuario::class);
 Route::get('index', [ControladorUsuario::class, "index"]);
 Route::get('/Productos/detalleProducto', [ControladorUsuario::class, "detalleProd"]);
@@ -25,8 +25,19 @@ Route::post('/', [ControladorUsuario::class, "register"]);
 Route::get('/Administrador', [ControladorAdmin::class, "index"]);
 Route::get('/Administrador/usuarios', [ControladorAdmin::class, "usuarios"])->name('usuarios');
 Route::post('/Administrador/usuarios', [ControladorAdmin::class, "estado"])->name('estado');
+
+/*-----------Rutas de las categorias ----------- */
+
 Route::get('/Administrador/categorias', [ControladorAdmin::class, "categorias"])->name('categoria');
 Route::get('/Administrador/categorias/agregar', [ControladorAdmin::class, "Agregar"])->name('agregar');
 Route::post('/Administrador/categorias/agregar', [ControladorAdmin::class, "Agregar"])->name('agregarC');
 Route::get('/Administrador/categorias/{categorias/id}//editar', [ControladorAdmin::class, "editar"])->name('editar');
 
+/*-----------Rutas de los colores ----------- */
+Route::get('/Administrador/colores/MostrarColor',[ControladorAdmin::class, "MostrarColor"])->name('MostrarColor');
+Route::post('/Administrador/colores/MostrarColor',[ControladorAdmin::class,"GuardarColor"])->name('GuardarColor');
+Route::get('/Administrador/colores/MostrarColor/{id}',[
+  ControladorAdmin::class,"EditarColor"
+]);
+Route::post('/Administrador/colores/MostrarColor',[ControladorAdmin::class,"ModificarColor"])->name('Editar');
+Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class, "EstadoColor"]);
