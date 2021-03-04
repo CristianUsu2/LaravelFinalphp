@@ -15,9 +15,11 @@
 
             <div class="row">
 
+                <a href="{{route('agregar')}}"><button class="btn btn-primary">Agregar Categoria</button></a>
+
                 <div class="col-md-12 text-center">
 
-                    <h3><strong>Usuarios Registrados</strong></h3>
+                    <h3><strong>Categorías</strong></h3>
 
                 </div>
 
@@ -31,15 +33,7 @@
 
                         <th width="50">Id</th>
 
-                        <th>Nombre</th>
-
-                        <th>Apellido</th>
-
-                        <th>Correo</th>
-
-                        <th>Dirección</th>
-
-                        <th>Estado</th>
+                        <th>Nombre Categoría</th>
 
                         <th width="100px">Acciones</th>
 
@@ -48,20 +42,17 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($users as $user)
+                    
+                    @foreach($categoria as $categorias)
                         
                     <tr>
-                        <td>{{$user->Id_Usuarios}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->Apellido}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$user->Direccion}}</td>
-                        <td>{{$user->estado}}</td>
-                        <td><a href="{{route('estado')}}"><button type="submit" class="btn btn-danger">Inactivar</button></a></td>
+                        <td>{{$categorias->Id_Categoria}}</td>
+                        <td>{{$categorias->Nombre_Categoria}}</td>
+
+                        <td widht="10px"><a href="{{route('editar',$categorias->Id_Categoria)}}"><button type="submit" class="btn btn-secondary">Editar</button></a></td>
 
                     </tr>
                     @endforeach
-
                 </tbody>
 
             </table>
@@ -71,7 +62,6 @@
     </div>
 
 </div>
-
 @stop
 
 @section('css')
@@ -85,8 +75,7 @@
 @stop
 
 @section('js')
-
-  <script>
+<script>
     $(document).ready(function () {
         $('#usuarios').DataTable({
             "language": {
@@ -108,5 +97,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-
 @stop

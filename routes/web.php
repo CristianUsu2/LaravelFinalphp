@@ -25,4 +25,8 @@ Route::post('/', [ControladorUsuario::class, "register"]);
 Route::get('/Administrador', [ControladorAdmin::class, "index"]);
 Route::get('/Administrador/usuarios', [ControladorAdmin::class, "usuarios"])->name('usuarios');
 Route::post('/Administrador/usuarios', [ControladorAdmin::class, "estado"])->name('estado');
+Route::get('/Administrador/categorias', [ControladorAdmin::class, "categorias"])->name('categoria');
+Route::get('/Administrador/categorias/agregar', [ControladorAdmin::class, "Agregar"])->name('agregar');
+Route::post('/Administrador/categorias/agregar', [ControladorAdmin::class, "Agregar"])->name('agregarC');
+Route::get('/Administrador/categorias/{categorias/id}//editar', [ControladorAdmin::class, "editar"])->name('editar');
 
