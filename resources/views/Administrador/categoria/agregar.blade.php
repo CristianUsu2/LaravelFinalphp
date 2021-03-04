@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<form action="{{route('agregarC')}}" method="POST">
+<form action="" method="POST">
   @csrf
 <div class="container mt-5 mr-4">
     <label for="">Nombre de la Categoría</label>

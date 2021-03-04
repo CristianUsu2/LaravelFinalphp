@@ -35,17 +35,31 @@ class ControladorAdmin extends Controller
 
     public function Agregar(Request $request){
         $request->validate([
-            'Nombre' => 'required|min:10|max:30'
+            'Nombre' => 'required|min:5|max:30'
         ]);
 
         $categoria = new Categorias();
 
         $categoria->Nombre_Categoria = $request->Nombre;
-
         $categoria->save();
 
-        return view('Administrador/categoria/agregar');
+        return view('Administrador/categoria/categorias',compact('categoria'));
     }
+
+    public function EstadoC($id){
+      $busqueda=Categorias::find($id);
+      if($busqueda!=null){
+      
+           if($busqueda->estado == 1){
+              $busqueda->estado=0;
+           }else{
+             $busqueda->estado=1;   
+           }
+         $busqueda->save();   
+         return redirect()->action([ControladorAdmin::class,"categorias"]);
+              
+     }
+  }
 
     public function editar(Categorias $categorias){
         return view('Administrador/categoria/editar',compact('categorias'));
@@ -90,7 +104,7 @@ class ControladorAdmin extends Controller
         $Ncolor->estado=1;
         $Ncolor->save();
         return redirect()->action([ControladorAdmin::class, "MostrarColor" ]); 
-        }catch(Exception  $e){
+        }catch(Exception $e){
           $e->getMessage();
         }
     }
@@ -108,7 +122,7 @@ class ControladorAdmin extends Controller
             return redirect()->action([ControladorAdmin::class, "MostrarColor"]);
           }
          }catch(Exception $e){
-             return reponse()->$e.getMessage();
+             return response()->$e.getMessage();
          }
     }
 

@@ -9,13 +9,42 @@
 @section('content')
 <div class="container">
 
+
+    <div class="col-md-12 mt-5">
+        <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Crear Color</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                <form action="{{route('agregarC')}}" method="POST" class="form-group">
+                    @csrf
+                  <label>Nombre de la Categoria</label>
+                  <input type="text" name="Nombre" class="form-control" placeholder="Camisa, Zapatos, Bolso......"/>
+                
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+
+
     <div class="row">
 
         <div class="col-md-12 mt-5">
 
             <div class="row">
 
-                <a href="{{route('agregar')}}"><button class="btn btn-primary">Agregar Categoria</button></a>
+                <a><button class="btn btn-primary" data-toggle="modal" data-target="#agregar">Agregar Categoria</button></a>
+
 
                 <div class="col-md-12 text-center">
 
@@ -35,7 +64,9 @@
 
                         <th>Nombre Categoría</th>
 
-                        <th width="100px">Acciones</th>
+                        <th>Estado</th>
+
+                        <th colspan="1">Acciones</th>
 
                     </tr>
 
@@ -46,11 +77,13 @@
                     @foreach($categoria as $categorias)
                         
                     <tr>
-                        <td>{{$categorias->Id_Categoria}}</td>
+                        <td>{{$categorias->id}}</td>
                         <td>{{$categorias->Nombre_Categoria}}</td>
-
-                        <td widht="10px"><a href="{{route('editar',$categorias->Id_Categoria)}}"><button type="submit" class="btn btn-secondary">Editar</button></a></td>
-
+                        <td>{{$categorias->estado==1? "Activo":"Inactivo"}}</td>
+                        <td>
+                            <a class="btn btn-danger" href="{{url('/Administrador/categorias/editar/'.$categorias->id)}}">Editar</a>
+                            <a class="btn btn-success" href="{{url('/Administrador/categorias/'.$categorias->id)}}">Cambiar Estado</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

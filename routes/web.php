@@ -29,15 +29,16 @@ Route::post('/Administrador/usuarios', [ControladorAdmin::class, "estado"])->nam
 /*-----------Rutas de las categorias ----------- */
 
 Route::get('/Administrador/categorias', [ControladorAdmin::class, "categorias"])->name('categoria');
-Route::get('/Administrador/categorias/agregar', [ControladorAdmin::class, "Agregar"])->name('agregar');
-Route::post('/Administrador/categorias/agregar', [ControladorAdmin::class, "Agregar"])->name('agregarC');
-Route::get('/Administrador/categorias/{categorias/id}//editar', [ControladorAdmin::class, "editar"])->name('editar');
+Route::get('/Administrador/categoria', [ControladorAdmin::class, "Agregar"])->name('agregarC');
+Route::post('/Administrador/categoria', [ControladorAdmin::class, "Agregar"]);
+
+Route::get('/Administrador/categorias/editar/{id}', [ControladorAdmin::class, "editar"])->name('editarC');
+Route::post('/Administrador/categorias/editar/{id}', [ControladorAdmin::class, "editar"])->name('editar');
+Route::get('/Administrador/categorias/{id}',[ControladorAdmin::class, "EstadoC"])->name('EditarC');
 
 /*-----------Rutas de los colores ----------- */
 Route::get('/Administrador/colores/MostrarColor',[ControladorAdmin::class, "MostrarColor"])->name('MostrarColor');
 Route::post('/Administrador/colores/MostrarColor',[ControladorAdmin::class,"GuardarColor"])->name('GuardarColor');
-Route::get('/Administrador/colores/MostrarColor/{id}',[
-  ControladorAdmin::class,"EditarColor"
-]);
+Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class,"EditarColor"]);
 Route::post('/Administrador/colores/MostrarColor',[ControladorAdmin::class,"ModificarColor"])->name('Editar');
 Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class, "EstadoColor"]);
