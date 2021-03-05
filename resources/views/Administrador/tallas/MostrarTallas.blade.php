@@ -4,24 +4,24 @@
 
 @section('content')
 <div class="container">
-
+    
     <div class="row">
 
         <div class="col-md-12 mt-5">
-            <div class="modal fade" id="btnAgregarColor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="btnAgregarTalla" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Crear Color</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Crear Talla</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                    <form action="{{url('Administrador/colores/MostrarColor')}}" method="POST" class="form-group">
+                    <form action="{{route('GuardarTalla')}}" method="POST" class="form-group">
                         @csrf
-                      <label>Nombre del color</label>
-                      <input type="text" name="color" class="form-control" placeholder="Amarillo,Verde,Negro ..."/>
+                      <label>Ingresar la talla</label>
+                      <input type="text" name="talla" class="form-control" placeholder="XL,L,M ..."/>
                     
                     </div>
                     <div class="modal-footer">
@@ -38,28 +38,28 @@
 
                 <div class="col-md-12 text-center">
 
-                    <h3 class="mb-2"><strong>Colores registrados</strong></h3>
+                    <h3 class="mb-2"><strong>Tallas registrados</strong></h3>
 
                 </div>
-                <a  class="btn btn-success mb-2 ml-2" data-toggle="modal" data-target="#btnAgregarColor">Agregar color</a>
+                <a  class="btn btn-success mb-2 ml-2" data-toggle="modal" data-target="#btnAgregarTalla">Agregar Talla</a>
               <div class="col-lg-12">
                 <table class="table" id="colores">
                     <thead>
                       <tr>
-                        <th scope="col">Id del color</th>
-                        <th scope="col">Nombre del color</th>
+                        <th scope="col">Id de la talla</th>
+                        <th scope="col">Talla</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($colores as $item)
+                        @foreach ($tallas as $item)
                         <tr>
                             <th scope="row">{{$item->id}}</th>
-                            <td>{{$item->color}}</td>
+                            <td>{{$item->talla}}</td>
                             <td>{{$item->estado==1? "Activo":"Inactivo"}}</td>
-                            <td><a class="btn btn-primary" href="{{url('/Administrador/colores/EditarColor/'.$item->id)}}">Editar</a>
-                                <a class="btn btn-dark" href="{{url('/Administrador/colores/MostrarColor/'.$item->id)}}">Cambiar Estado</a>
+                            <td><a class="btn btn-primary" href="{{url('/Administrador/colores/ModificarTalla/'.$item->id)}}">Editar</a>
+                                <a class="btn btn-dark" href="{{url('/Administrador/colores/Estado/'.$item->id)}}">Cambiar Estado</a>
                             </td>
                             
                           </tr>
@@ -68,7 +68,7 @@
                      
                     </tbody>
                   </table>
-                  {{$colores->links()}}
+                  {{$tallas->links()}}
                 </div> 
             </div>
             

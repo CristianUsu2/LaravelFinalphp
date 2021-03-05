@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Colores;
 use App\Models\Categorias;
 use App\Models\User;
+use App\Models\Tallas;
 use Illuminate\Http\Request;
 
 class ControladorAdmin extends Controller
@@ -126,6 +127,64 @@ class ControladorAdmin extends Controller
          }
     }
 
+    /*-----------------------Acciones tallas------------------- */
+
+    public function MostrarTallas(){
+        $registros=Tallas::paginate(5);
+       return view('Administrador/tallas/MostrarTallas')->with("tallas",$registros);
+    }
+
+    public function GuardarTalla(Request $request){
+           $request->validate([
+            'talla'=>'required'
+           ]);
+        
+          try{
+            $talla= new Tallas(); 
+            $talla->talla=$request->talla;
+            $talla->estado=1;
+            $talla->save();
+            return redirect()->action([ControladorAdmin::class,"MostrarTallas"]);
+          }catch(Exceptio $e){
+             return response()->json($e.getMessage());
+          } 
+    }
+
+    public function EditarTalla(Request $request){
+      $request->validate([
+       'tallaN'=>'required',
+       'idTalla'=>'required'
+      ]);
+       $Btalla=Tallas::find($request->idTalla);
+       if($Btalla!=null){
+         try{
+         $Btalla->talla=$request->tallaN;
+         $Btalla->save();
+         return redirect()->action([ControladorAdmin::class,"MostrarTallas"]);
+         }catch(Exception $e){
+           return response()->json($e.getMessage());
+         }
+       }
+      
+    }
+
+    public function ModificarTalla($id){
+         $busquedaTalla=Tallas::find($id);
+        return view('Administrador/tallas/ModificarTallas')->with('tallaB', $busquedaTalla);
+    }
+
+    public function EstadoTalla($id){
+      $busquedaT=Tallas::find($id);
+      if($busquedaT!=null){
+        if($busquedaT->estado==0){
+             $busquedaT->estado=1;
+        }else{
+          $busquedaT->estado=0;
+        }
+        $busquedaT->save();
+      }
+      return redirect()->action([ControladorAdmin::class, "MostrarTallas"]);
+    }
 }
 
                     
