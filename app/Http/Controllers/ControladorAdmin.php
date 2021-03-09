@@ -62,7 +62,8 @@ class ControladorAdmin extends Controller
      }
   }
 
-    public function editar(Categorias $categorias){
+    public function editarC($id){
+      $categorias=Categorias::find($id);
         return view('Administrador/categoria/editar',compact('categorias'));
     }
 

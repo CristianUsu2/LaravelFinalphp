@@ -36,6 +36,9 @@
             </div>
           </div>
 
+        
+    
+    
 
     <div class="row">
 
@@ -81,8 +84,8 @@
                         <td>{{$categorias->Nombre_Categoria}}</td>
                         <td>{{$categorias->estado==1? "Activo":"Inactivo"}}</td>
                         <td>
-                            <a class="btn btn-danger" href="{{url('/Administrador/categorias/editar/'.$categorias->id)}}">Editar</a>
-                            <a class="btn btn-success" href="{{url('/Administrador/categorias/'.$categorias->id)}}">Cambiar Estado</a>
+                            <a class="btn btn-danger"  href="{{url('/Administrador/categorias/editar/'.$categorias->id)}}">Editar</a>
+                            <a class="btn btn-success"  href="{{url('/Administrador/categorias/'.$categorias->id)}}">Cambiar Estado</a>
                         </td>
                     </tr>
                     @endforeach

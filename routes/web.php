@@ -31,7 +31,10 @@ Route::post('/Administrador/usuarios', [ControladorAdmin::class, "estado"])->nam
 Route::get('/Administrador/categorias', [ControladorAdmin::class, "categorias"])->name('categoria');
 Route::get('/Administrador/categorias/agregar', [ControladorAdmin::class, "Agregar"])->name('agregar');
 Route::post('/Administrador/categorias/agregar', [ControladorAdmin::class, "Agregar"])->name('agregarC');
-Route::get('/Administrador/categorias/{categorias/id}//editar', [ControladorAdmin::class, "editar"])->name('editar');
+Route::get('/Administrador/categorias/editar/{id}', [ControladorAdmin::class, "editarC"])->name('editarC');
+
+Route::get('/Administrador/categorias/{id}',[ControladorAdmin::class, "EstadoC"]);
+
 
 /*-----------Rutas de los colores ----------- */
 Route::get('/Administrador/colores/MostrarColor',[ControladorAdmin::class, "MostrarColor"])->name('MostrarColor');
@@ -45,9 +48,7 @@ Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class, 
 /*----------Rutas de las tallas------------ */
 Route::get('/Administrador/tallas/MostrarTallas',[ControladorAdmin::class, "MostrarTallas"])->name('MostrarTallas');
 Route::post('/Administrador/colores/GuardarTalla',[ControladorAdmin::class,"GuardarTalla"])->name('GuardarTalla');
-Route::get('/Administrador/colores/ModificarTalla/{id}',[
-  ControladorAdmin::class,"ModificarTalla"
-]);
+Route::get('/Administrador/colores/ModificarTalla/{id}',[ControladorAdmin::class,"ModificarTalla"]);
 Route::post('/Administrador/colores/MostrarTallas',[ControladorAdmin::class,"EditarTalla"])->name('EditarTalla');
 Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class, "EstadoColor"]);
 Route::get('/Administrador/colores/Estado/{id}',[ControladorAdmin::class,"EstadoTalla"]);
