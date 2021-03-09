@@ -242,12 +242,12 @@
 
               <input type="email" name="email" placeholder="Ingrese su Correo">
 
-              <label for="direccion">Dirección</label>
-              @error('direccion')
+              <label for="telefono">Telefono</label>
+              @error('telefono')
                 <small>{{$message}}</small>
               @enderror
 
-              <input type="text" name="direccion" placeholder="Ingrese su Dirección">
+              <input type="text" name="telefono" placeholder="Ingrese su Telefono">
 
               <label for="password">Contraseña</label>
               @error('password')

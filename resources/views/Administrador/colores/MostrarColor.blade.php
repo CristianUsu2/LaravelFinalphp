@@ -18,10 +18,10 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                    <form action="{{url('Administrador/colores/MostrarColor')}}" method="POST" class="form-group">
+                    <form action="{{url('/Administrador/colores/GuardarColor')}}" method="POST" class="form-group">
                         @csrf
                       <label>Nombre del color</label>
-                      <input type="text" name="color" class="form-control" placeholder="Amarillo,Verde,Negro ..."/>
+                      <input type="text" name="ColorN" class="form-control" placeholder="Amarillo,Verde,Negro ..."/>
                     
                     </div>
                     <div class="modal-footer">
