@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class ControladorAdmin extends Controller
 {
+  /*------------Acciones Usuarios ------------------- */
     public function index(){
         return view('Administrador/index');
     }
@@ -17,18 +18,47 @@ class ControladorAdmin extends Controller
         return view('Administrador/usuarios',compact('users'));
 
     }
-    public function estado(Request $request){
-        $users = new User();
-        $estado = "";
-        if($users->estado ==1){
-          $estado = '<a href="Administrador/usuarios/estado/'.$users->Id_Usuarios.'/0" class="btn btn-danger">Inactivar</a>';
-        }else if($users->estado ==2){
-            $estado = '<a href="Administrador/usuarios/estado/'.$users->Id_Usuarios.'/1" class="btn btn-danger">Activar</a>';
-
-        }
-
+    public function estado($Id_Usuarios){
+       $UsuB=User::Where("Id_Usuarios","=",$Id_Usuarios)->first();
+       try{
+          if($UsuB->estado==1){
+             $UsuB->estado=0;       
+          }else{
+            $UsuB->estado=1;
+          }        
+          $UsuB->save();
+        return redirect()->action([ControladorAdmin::class, "usuarios"]);
+       }catch(Exception $e){
+         return response()->json($e.getMessage());
+       }
     }
 
+    public function editarUsuario($id){
+      $UserB=User::find($id);
+      return view('Administrador/Modificar')->with('usuario',$UserB);
+    }
+
+    public function ModificarUsuario(Request $request){
+      $usuM=User::find($request->IdUsuario);
+      if($usuM !=null){
+          try{
+            $usuM->name=$request->NombreN;
+            $usuM->email=$request->CorreoN;
+            $usuM->Apellido=$request->ApellidoN;
+            $usuM->telefono=$request->TelefonoN;
+            $usuM->save();
+            return redirect()->action([ControladorAdmin::class, "usuarios"]);
+          }catch(Exception $e){
+             return redirect()->json($e.getMessage());
+          }
+      }
+    } 
+
+    public function crear(){
+      return view('Administrador/Crear');
+    }
+
+    /*-------------------Acciones categorias ----------------------*/
     public function categorias(){
         $categoria = Categorias::all();
         return view('Administrador/categoria/categorias',compact('categoria'));
@@ -36,7 +66,7 @@ class ControladorAdmin extends Controller
 
     public function Agregar(Request $request){
         $request->validate([
-            'Nombre' => 'required|min:5|max:30'
+            'Nombre' => 'required|min:2|max:30'
         ]);
 
         $categoria = new Categorias();
@@ -44,7 +74,7 @@ class ControladorAdmin extends Controller
         $categoria->Nombre_Categoria = $request->Nombre;
         $categoria->save();
 
-        return view('Administrador/categoria/categorias',compact('categoria'));
+        return redirect()->action([ControladorAdmin::class,"categorias"]);
     }
 
     public function EstadoC($id){
@@ -97,12 +127,12 @@ class ControladorAdmin extends Controller
     }
 
     public function GuardarColor(Request $request){
-        $request->validate([
-            'color'=>'required|min:2|max:20'
-        ]);
+      /*$request->validate([
+        'ColorN'=>'required/min:3/max:12'
+      ]);*/ 
         try{
         $Ncolor= new Colores();
-        $Ncolor->color=$request->color;
+        $Ncolor->color=$request->ColorN;
         $Ncolor->estado=1;
         $Ncolor->save();
         return redirect()->action([ControladorAdmin::class, "MostrarColor" ]); 

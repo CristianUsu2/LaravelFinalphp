@@ -2,10 +2,6 @@
 
 @section('title', 'Tienda Axes | Administrador')
 
-@section('content_header')
-    <h1>Panel Administrativo</h1>
-@stop
-
 @section('content')
 <div class="container">
 
@@ -20,7 +16,7 @@
                     <h3><strong>Usuarios Registrados</strong></h3>
 
                 </div>
-
+               <a href="{{route('crearUsuario')}}" class="btn btn-success mb-2 ml-2">Crear Usuario</a>
             </div>
 
             <table class="table table-bordered data-table" id="usuarios">
@@ -37,7 +33,7 @@
 
                         <th>Correo</th>
 
-                        <th>Dirección</th>
+                        <th>Telefono</th>
 
                         <th>Estado</th>
 
@@ -55,9 +51,12 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->Apellido}}</td>
                         <td>{{$user->email}}</td>
-                        <td>{{$user->Direccion}}</td>
-                        <td>{{$user->estado}}</td>
-                        <td><a href="{{route('estado')}}"><button type="submit" class="btn btn-danger">Inactivar</button></a></td>
+                        <td>{{$user->telefono}}</td>
+                        <td>{{$user->estado==1?"Activo":"Inactivo"}}</td>
+                        <td>
+                            <a href="{{url('/Administrador/usuariosE/'.$user->Id_Usuarios)}}" class="btn btn-primary mb-2">Editar</a>
+                            <a href="{{url('/Administrador/usuarios/'.$user->Id_Usuarios)}}" class="btn btn-dark">Cambio Estado</a>
+                        </td>
 
                     </tr>
                     @endforeach

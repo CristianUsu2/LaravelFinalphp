@@ -28,42 +28,32 @@ class ControladorUsuario extends Controller
    public function FinalizarCompra(){
        return view('Usuario/finalizarCompra');
    }
-   public function login(Request $request){
-    $login = new User();
-   $validar = $login->email = $request->email;
-   $validar = $login->password = $request->password;
 
-    if($validar->id_rol=1){
-        return view('Usuario/index');
-    }else if($validar->id_rol=2){
-        return "hola";
-    }
-    
-        return view('Usuario/index');
-       
-    
+   public function login(Request $request){
+     $usuarios=User::where(["email","=",$request->email])->get();
+     return response()->json($usuarios->email);
+        //view('Usuario/index');
    }
     
     public function register(Request $request){
 
         $request->validate([
-           'name' => 'required|min:5|max:20',
-           'apellido'=> 'required|min:10|max:30',
-           'email' => 'required|email|unique:users|min:15|max:150|',
-            'password' => 'required|min:8|max:30',
-            'direccion' => 'required|min:10|max:30'
+           'name' => 'required|min:2|max:20',
+           'apellido'=> 'required|min:2|max:20',
+           'email' => 'required|email|unique:users|min:4|max:50|',
+            'password' => 'required|min:4|max:30',
+            'telefono' => 'required|min:5|max:30'
         ]);
 
         $registro = new User();
 
         $registro->name = $request->name;
-        $registro->password  = $request->password;
         $registro->apellido = $request->apellido;
-        $registro->direccion = $request->direccion;
+        $registro->telefono = $request->telefono;
         $registro->email = $request->email;
-
-       $registro['password'] = bcrypt($request->password);
-
+        $registro->id_rol=1;
+        $incriptado= bcrypt($request->password);
+        $registro->password=$incriptado; 
         $registro->save();
 
         return view('Usuario/index')->with('boton','lola');

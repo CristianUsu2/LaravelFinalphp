@@ -559,7 +559,30 @@
 <script src="../Usuario/js/modernizr-3.6.0.min.js"></script>
 <script src="../Usuario/js/jquery-3.3.1.min.js"></script>
 
+<<<<<<< HEAD
 <script src="../Usuario/js/bootstrap.min.js"></script>
+=======
+              <label for="telefono">Telefono</label>
+              @error('telefono')
+                <small>{{$message}}</small>
+              @enderror
+
+              <input type="text" name="telefono" placeholder="Ingrese su Telefono">
+
+              <label for="password">Contraseña</label>
+              @error('password')
+                <small>{{$message}}</small>
+              @enderror
+
+              <input type="password" name="password" placeholder="Ingrese su Contraseña">
+              
+              <input type="submit" value="REGISTRARSE">
+               
+            </form>
+          </div>
+
+        
+>>>>>>> 9e6648ce3ea9a0033804cbca249c2f691eeb45ea
 
     <script src="../Usuario/js/plugins.js"></script>
     <script src="../Usuario/js/ajax-mail.js"></script>

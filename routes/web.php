@@ -20,11 +20,16 @@ Route::get('/Productos/detalleProducto', [ControladorUsuario::class, "detallePro
 Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"]);
 Route::get('/Productos/login', [ControladorUsuario::class,"inicio"]);
 Route::get('/Productos/finalizarCompra',[ControladorUsuario::class,"FinalizarCompra"]);
-Route::post('/', [ControladorUsuario::class, "login"])->name('login');
+Route::post('/Productos/inicioDeSesion', [ControladorUsuario::class, "login"])->name('login');
 Route::post('/', [ControladorUsuario::class, "register"]);
+
+/*-------------Rutas de Administrador Usuarios---------------------- */
 Route::get('/Administrador', [ControladorAdmin::class, "index"]);
 Route::get('/Administrador/usuarios', [ControladorAdmin::class, "usuarios"])->name('usuarios');
-Route::post('/Administrador/usuarios', [ControladorAdmin::class, "estado"])->name('estado');
+Route::get('/Administrador/usuarios/crear', [ControladorAdmin::class, "crear"])->name('crearUsuario');
+Route::get('/Administrador/usuarios/{Id_Usuarios}', [ControladorAdmin::class, "estado"]);
+Route::get('/Administrador/usuariosE/{Id_Usuarios}',[ControladorAdmin::class, "editarUsuario"]);
+Route::post('/Administrador/usuariosE',[ControladorAdmin::class,"ModificarUsuario"])->name('ModificarUsuario');
 
 /*-----------Rutas de las categorias ----------- */
 
@@ -38,7 +43,7 @@ Route::get('/Administrador/categorias/{id}',[ControladorAdmin::class, "EstadoC"]
 
 /*-----------Rutas de los colores ----------- */
 Route::get('/Administrador/colores/MostrarColor',[ControladorAdmin::class, "MostrarColor"])->name('MostrarColor');
-Route::post('/Administrador/colores/MostrarColor',[ControladorAdmin::class,"GuardarColor"])->name('GuardarColor');
+Route::post('/Administrador/colores/GuardarColor',[ControladorAdmin::class,"GuardarColor"]);
 Route::get('/Administrador/colores/EditarColor/{id}',[
   ControladorAdmin::class,"EditarColor"
 ]);
