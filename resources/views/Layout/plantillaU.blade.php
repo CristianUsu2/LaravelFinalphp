@@ -75,8 +75,7 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="myaccount">
-                                                    <a class="dropdown-item" href="login-register.html">Iniciar Sesión</a>
-                                                    <a class="dropdown-item" href="login-register.html">Registro</a>
+                                                    <a class="dropdown-item" href="{{route('login')}}">Iniciar Sesión</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -114,7 +113,7 @@
                                       </div>
                                       <div class="shipping-content">
                                           <h5>Horario de Trabajo</h5>
-                                          <span>Lunes - Domingo: 8:00 A.M - 7:00 P.M</span>
+                                          <span>Lunes - Sábado: 7:00 A.M - 5:00 P.M</span>
                                       </div>
                                   </div> <!-- end single shipping -->
                                   <div class="single-block-shipping">
@@ -153,7 +152,7 @@
                                       <ul class="cart-list">
                                           <li>
                                               <div class="cart-img">
-                                                  <a href="product-details.html"><img src="assets/img/cart/cart-1.jpg"
+                                                  <a href="product-details.html"><img src="../Usuario/img/product-img4.jpg"
                                                           alt=""></a>
                                               </div>
                                               <div class="cart-info">
@@ -166,7 +165,7 @@
                                           </li>
                                           <li>
                                               <div class="cart-img">
-                                                  <a href="product-details.html"><img src="assets/img/cart/cart-2.jpg"
+                                                  <a href="product-details.html"><img src="../Usuario/img/product-img1.jpg"
                                                           alt=""></a>
                                               </div>
                                               <div class="cart-info">
@@ -227,7 +226,7 @@
                                             
                                         </li>
                                        
-                                        <li><a href="#">shop <i class="fa fa-angle-down"></i></a>
+                                        <li><a href="#">Productos <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown">
                                                 <li><a href="#">shop grid layout <i class="fa fa-angle-right"></i></a>
                                                     <ul class="dropdown">
@@ -286,91 +285,93 @@
 
     </header>
 
-
     <div class="container">
-      <div class="row">
-          <div class="col-lg-12">
-              <div class="slider-wrapper-area">
-                  <div class="hero-slider-active hero__1 slick-dot-style hero-dot">
-                      <div class="single-slider" style="background-image: url(../Usuario/img/slider11_bg.jpg);">
-                          <div class="container p-0">
-                              <div class="slider-main-content">
-                                  <div class="slider-content-img">
-                                      <img src="../Usuario/img/slider11_lable1.png" alt="">
-                                      <img src="../Usuario/img/slider11_lable2.png" alt="">
-                                      <img src="../Usuario/img/slider11_lable3.png" alt="">
-                                  </div>
-                                  <div class="slider-text">
-                                      <div class="slider-label">
-                                          <img src="../Usuario/img/slider11_lable4.png" alt="">
-                                      </div>
-                                      <h1>headphones az12</h1>
-                                      <p>Typi Non Habent Claritatem Insitam; Est Usus Legentis</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="single-slider" style="background-image: url(../Usuario/img/slider12_bg.jpg);">
-                          <div class="container p-0">
-                              <div class="slider-main-content">
-                                  <div class="slider-content-img">
-                                      <img src="../Usuario/img/slider11_lable1.png" alt="">
-                                      <img src="../Usuario/img/slider11_lable2.png" alt="">
-                                      <img src="../Usuario/img/slider11_lable3.png" alt="">
-                                  </div>
-                                  <div class="slider-text">
-                                      <div class="slider-label">
-                                          <img src="assets/img/slider/slider11_lable4.png" alt="">
-                                      </div>
-                                      <h1>samson s90</h1>
-                                      <p>Typi Non Habent Claritatem Insitam; Est Usus Legentis</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="slider-wrapper-area">
+                    <div class="hero-slider-active hero__1 slick-dot-style hero-dot">
+                        <div class="single-slider" style="background-image: url(../Usuario/img/slider11_bg.jpg);">
+                            <div class="container p-0">
+                                <div class="slider-main-content">
+                                    <div class="slider-content-img">
+                                        <img src="../Usuario/img/slider11_lable1.png" alt="">
+                                        <img src="../Usuario/img/slider11_lable2.png" alt="">
+                                        <img src="../Usuario/img/slider11_lable3.png" alt="">
+                                    </div>
+                                    <div class="slider-text">
+                                        <div class="slider-label">
+                                            <img src="../Usuario/img/slider11_lable4.png" alt="">
+                                        </div>
+                                        <h1>headphones az12</h1>
+                                        <p>Typi Non Habent Claritatem Insitam; Est Usus Legentis</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-slider" style="background-image: url(../Usuario/img/slider12_bg.jpg);">
+                            <div class="container p-0">
+                                <div class="slider-main-content">
+                                    <div class="slider-content-img">
+                                        <img src="../Usuario/img/slider11_lable1.png" alt="">
+                                        <img src="../Usuario/img/slider11_lable2.png" alt="">
+                                        <img src="../Usuario/img/slider11_lable3.png" alt="">
+                                    </div>
+                                    <div class="slider-text">
+                                        <div class="slider-label">
+                                            <img src="../Usuario/img/slider11_lable4.png" alt="">
+                                        </div>
+                                        <h1>samson s90</h1>
+                                        <p>Typi Non Habent Claritatem Insitam; Est Usus Legentis</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="banner-area mt-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 order-1">
+                    <div class="img-container img-full fix imgs-res mb-sm-30">
+                        <a href="#">
+                            <img src="../Usuario/img/banner_left.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 order-sm-3">
+                    <div class="img-container img-full fix mb-30">
+                        <a href="#">
+                            <img src="../Usuario/img/banner_static_top1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="img-container img-full fix mb-30">
+                        <a href="#">
+                            <img src="../Usuario/img/banner_static_top2.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 order-2 order-md-3">
+                    <div class="img-container img-full fix">
+                        <a href="#">
+                            <img src="../Usuario/img/banner_static_top3.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   
-  <div class="banner-area mt-30">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-6 order-1">
-                  <div class="img-container img-full fix imgs-res mb-sm-30">
-                      <a href="#">
-                          <img src="../Usuario/img/banner_left.jpg" alt="">
-                      </a>
-                  </div>
-              </div>
-              <div class="col-lg-5 col-md-5 order-sm-3">
-                  <div class="img-container img-full fix mb-30">
-                      <a href="#">
-                          <img src="../Usuario/img/banner_static_top1.jpg" alt="">
-                      </a>
-                  </div>
-                  <div class="img-container img-full fix mb-30">
-                      <a href="#">
-                          <img src="../Usuario/img/banner_static_top2.jpg" alt="">
-                      </a>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-6 order-2 order-md-3">
-                  <div class="img-container img-full fix">
-                      <a href="#">
-                          <img src="../Usuario/img/banner_static_top3.jpg" alt="">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
         <main class="main">
 
          @yield('paginas')
         </main>
+
+
+        
   <footer>
 
     <!-- footer main start -->

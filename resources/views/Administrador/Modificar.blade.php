@@ -46,7 +46,7 @@
 
                  <div class="form-group col-6">
                   <label>Telefono/Celular</label>
-                  <input class="form-control" type="text" name="TelefonoN" value="{{$usuario->telefono}}" />
+                  <input class="form-control" type="text" name="TelefonoN" value="{{$usuario->Telefono}}" />
                  </div>
                 </div>
                  <button type="submit" class="btn btn-success">Enviar</button>

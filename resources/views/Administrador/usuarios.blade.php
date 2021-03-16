@@ -51,7 +51,7 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->Apellido}}</td>
                         <td>{{$user->email}}</td>
-                        <td>{{$user->telefono}}</td>
+                        <td>{{$user->Telefono}}</td>
                         <td>{{$user->estado==1?"Activo":"Inactivo"}}</td>
                         <td>
                             <a href="{{url('/Administrador/usuariosE/'.$user->Id_Usuarios)}}" class="btn btn-primary mb-2">Editar</a>

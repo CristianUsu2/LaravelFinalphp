@@ -29,10 +29,9 @@ class ControladorUsuario extends Controller
        return view('Usuario/finalizarCompra');
    }
 
-   public function login(Request $request){
-     $usuarios=User::where(["email","=",$request->email])->get();
-     return response()->json($usuarios->email);
-        //view('Usuario/index');
+   public function login(){
+
+     return view('Usuario/login');
    }
     
     public function register(Request $request){
@@ -41,8 +40,9 @@ class ControladorUsuario extends Controller
            'name' => 'required|min:2|max:20',
            'apellido'=> 'required|min:2|max:20',
            'email' => 'required|email|unique:users|min:4|max:50|',
+           'identificacion' => 'required|unique:users|min:10|max:12|',
             'password' => 'required|min:4|max:30',
-            'telefono' => 'required|min:5|max:30'
+            'telefono' => 'required|min:5|max:11'
         ]);
 
         $registro = new User();
@@ -51,7 +51,7 @@ class ControladorUsuario extends Controller
         $registro->apellido = $request->apellido;
         $registro->telefono = $request->telefono;
         $registro->email = $request->email;
-        $registro->id_rol=1;
+        $registro->identificacion = $request->identificacion;
         $incriptado= bcrypt($request->password);
         $registro->password=$incriptado; 
         $registro->save();
