@@ -16,7 +16,62 @@
                     <h3><strong>Usuarios Registrados</strong></h3>
 
                 </div>
-               <a href="{{route('crearUsuario')}}" class="btn btn-success mb-2 ml-2">Crear Usuario</a>
+               <button class="btn btn-success mb-2 ml-2" data-toggle="modal" data-target="#btnUsuario">Crear Usuario</button>
+            </div>
+
+            <div class="col-md-12 mt-5">
+                <div class="modal  fade" id="btnUsuario" tabindex="-1" role="dialog"  aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Crear Usuario</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form action="{{url('/Administrador/usuarios/crear')}}" method="POST" class="form-group">
+                            @csrf
+                           <div class="row">
+                             <div class="col-12"> 
+                                <label>Documento de identidad</label>
+                                <input type="text" name="documentoNu" class="form-control" placeholder="12312 ...."/>
+                              </div>  
+                              <div class="col-6 mt-2">
+                                <label>Nombre</label>
+                                <input type="text" name="nombreNu" class="form-control" placeholder="alveiro"/>
+                              </div>
+                              <div class="col-6 mt-2">
+                                 <label>Apellido</label>
+                                 <input type="text" name="apellidoNu" class="form-control" placeholder="zuñiga"/>
+                              </div>
+                              <div class="col-12 mt-2">
+                                  <label>Email</label>
+                                  <input type="email" name="emailU" class="form-control" placeholder="212@gmail.com"/>
+                              </div>
+                              <div class="col-12 mt-2">
+                                  <label>Telefono</label>
+                                  <input type="text" name="telefonoNu" class="form-control" placeholder=""/> 
+                              </div>
+                              <div class="col-6 mt-2">
+                                  <label>Contraseña</label>
+                                  <input type="password" name="passwordNu" class="form-control" placeholder=""/>
+                              </div>
+                              <div class="col-6 mt-2">
+                                  <label>Confirmar contraseña</label>
+                                  <input type="password" name="passwordNuR" class="form-control" placeholder=""/>
+                              </div>
+                           </div>  
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                          <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                      </form>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
             </div>
 
             <table class="table table-bordered data-table" id="usuarios">

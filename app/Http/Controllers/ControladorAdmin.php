@@ -54,8 +54,27 @@ class ControladorAdmin extends Controller
       }
     } 
 
-    public function crear(){
-      return view('Administrador/Crear');
+    public function crear(Request $request){
+      $request->validate([
+        'nombreNu' => 'required|min:2|max:20',
+        'apellidoNu'=> 'required|min:2|max:20',
+        'emailU' => 'required|email|unique:users|min:4|max:50|',
+        'documentoNu' => 'required|unique:users|min:10|max:12|',
+         'passwordNu' => 'required|min:4|max:30',
+         'telefonoNu' => 'required|min:5|max:11'
+     ]);
+
+     $registro = new User();
+
+     $registro->name = $request->nombreNu;
+     $registro->apellido = $request->apellidoNu;
+     $registro->telefono = $request->telefonoNu;
+     $registro->email = $request->emailU;
+     $registro->identificacion = $request->documentoNu;
+     $incriptado= bcrypt($request->passwordNu);
+     $registro->password=$incriptado; 
+     $registro->save();
+      return redirect()->action([ControladorAdmin::class, "usuarios"]);
     }
 
     /*-------------------Acciones categorias ----------------------*/
