@@ -556,6 +556,8 @@
   <i class="fa fa-angle-up"></i>
 </div>
 
+<script src="../Usuario/js/jquery-3.3.1.min.js"></script>
+
 <script src="../Usuario/js/modernizr-3.6.0.min.js"></script>
 <script src="../Usuario/js/jquery-3.3.1.min.js"></script>
    
@@ -572,7 +574,11 @@
 
 <script src="../Usuario/js/detailsCart.js"></script>
 <script src="../Usuario/js/finishBuy.js"></script>
-<script src="../Usuario/pushbar/js/pushbar.js"></script>    
+<script src="../Usuario/pushbar/js/pushbar.js"></script>   
+
+
+
+
 <script>
     let pushbar= new Pushbar({
      blur:true,
