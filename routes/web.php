@@ -9,9 +9,8 @@ use App\Http\Controllers\ControladorUsuario;
 Route::resource('/', ControladorUsuario::class);
 Route::get('index', [ControladorUsuario::class, "index"]);
 Route::get('/InicioSesion', [ControladorUsuario::class, "login"])->name('login');
-Route::post('/InicioSesion', [ControladorUsuario::class, "login"])->name('login');
-
-Route::post('/InicioSesion', [ControladorUsuario::class, "register"])->name('register');
+Route::post('/InicioSesion', [ControladorUsuario::class, "loginV"]);
+Route::post('/InicioSesionR', [ControladorUsuario::class, "register"]);
 
 Route::get('/Productos/detalleProducto', [ControladorUsuario::class, "detalleProd"]);
 Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"]);

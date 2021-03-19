@@ -58,22 +58,26 @@ class ControladorAdmin extends Controller
       $request->validate([
         'nombreNu' => 'required|min:2|max:20',
         'apellidoNu'=> 'required|min:2|max:20',
-        'emailU' => 'required|email|unique:users|min:4|max:50|',
-        'documentoNu' => 'required|unique:users|min:10|max:12|',
-         'passwordNu' => 'required|min:4|max:30',
-         'telefonoNu' => 'required|min:5|max:11'
+        'emailNu' => 'required|email|min:4|max:50|',
+        'identificacion' => 'required|min:7|max:12|',
+         'passwordNu' => 'required|min:2|max:30',
+         'telefonoNu' => 'required|min:2|max:11'
      ]);
-
-     $registro = new User();
-
-     $registro->name = $request->nombreNu;
-     $registro->apellido = $request->apellidoNu;
-     $registro->telefono = $request->telefonoNu;
-     $registro->email = $request->emailU;
-     $registro->identificacion = $request->documentoNu;
-     $incriptado= bcrypt($request->passwordNu);
-     $registro->password=$incriptado; 
-     $registro->save();
+      try{
+      if($request->passwordNu== $request->passwordNuR){
+       $registro = new User();
+       $registro->name = $request->nombreNu;
+       $registro->email = $request->emailNu;
+       $registro->identificacion = $request->identificacion;
+       $incriptado= bcrypt($request->passwordNu);
+       $registro->password=$incriptado; 
+       $registro->apellido = $request->apellidoNu;
+       $registro->telefono = $request->telefonoNu;
+       $registro->save();
+      }
+      }catch(Exception $e){
+      return response()->json($e.getMessage());
+      }
       return redirect()->action([ControladorAdmin::class, "usuarios"]);
     }
 

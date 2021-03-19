@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
 
-    <div class="row">
+    <div class="row mt-2">
 
         <div class="col-md-12 mt-5">
 
@@ -35,7 +35,7 @@
                            <div class="row">
                              <div class="col-12"> 
                                 <label>Documento de identidad</label>
-                                <input type="text" name="documentoNu" class="form-control" placeholder="12312 ...."/>
+                                <input type="text" name="identificacion" class="form-control" placeholder="12312 ...."/>
                               </div>  
                               <div class="col-6 mt-2">
                                 <label>Nombre</label>
@@ -47,7 +47,7 @@
                               </div>
                               <div class="col-12 mt-2">
                                   <label>Email</label>
-                                  <input type="email" name="emailU" class="form-control" placeholder="212@gmail.com"/>
+                                  <input type="email" name="emailNu" class="form-control" placeholder="212@gmail.com"/>
                               </div>
                               <div class="col-12 mt-2">
                                   <label>Telefono</label>
@@ -82,16 +82,19 @@
 
                         <th width="50">Id</th>
 
+                        <th>Numero de identificacion</th>
+
                         <th>Nombre</th>
 
                         <th>Apellido</th>
 
-                        <th>Correo</th>
+                        <th width="50px">Correo</th>
 
                         <th>Telefono</th>
 
                         <th>Estado</th>
-
+                        
+                        <th width="220px">Fecha de creacion</th> 
                         <th width="100px">Acciones</th>
 
                     </tr>
@@ -103,11 +106,13 @@
                         
                     <tr>
                         <td>{{$user->Id_Usuarios}}</td>
+                        <td>{{$user->identificacion}}</td>
                         <td>{{$user->name}}</td>
-                        <td>{{$user->Apellido}}</td>
+                        <td>{{$user->apellido}}</td>
                         <td>{{$user->email}}</td>
-                        <td>{{$user->Telefono}}</td>
+                        <td>{{$user->telefono}}</td>
                         <td>{{$user->estado==1?"Activo":"Inactivo"}}</td>
+                        <td>{{$user->created_at}}</td>
                         <td>
                             <a href="{{url('/Administrador/usuariosE/'.$user->Id_Usuarios)}}" class="btn btn-primary mb-2">Editar</a>
                             <a href="{{url('/Administrador/usuarios/'.$user->Id_Usuarios)}}" class="btn btn-dark">Cambio Estado</a>
