@@ -29,6 +29,11 @@
                 @csrf
                 <input type="hidden" value="{{$usuario->Id_Usuarios}}" name="IdUsuario"/>
                 <div class="row form-row">
+                    <div class="form-group col-12">
+                        <label>Identificacion</label>
+                        <input class="form-control" type="email" name="CorreoN" value="{{$usuario->identificacion}}" disabled />
+                       </div>
+      
                  <div class="form-group col-6">
                   <label>Nombre</label>
                   <input class="form-control" type="text" name="NombreN" value="{{$usuario->name}}"/>
@@ -36,7 +41,7 @@
 
                  <div class="form-group col-6">
                   <label>Apellido</label>
-                  <input class="form-control" type="text" name="ApellidoN" value="{{$usuario->Apellido}}" />
+                  <input class="form-control" type="text" name="ApellidoN" value="{{$usuario->apellido}}" />
                  </div>
 
                  <div class="form-group col-6">
@@ -46,10 +51,11 @@
 
                  <div class="form-group col-6">
                   <label>Telefono/Celular</label>
-                  <input class="form-control" type="text" name="TelefonoN" value="{{$usuario->Telefono}}" />
+                  <input class="form-control" type="text" name="TelefonoN" value="{{$usuario->telefono}}" />
                  </div>
                 </div>
                  <button type="submit" class="btn btn-success">Enviar</button>
+                 <a href="{{route('usuarios')}}" class="btn btn-primary">Cancelar</a>
                 </form>   
                   
          </div>

@@ -9,7 +9,8 @@
                 <div class="col-lg-6">
                     <div class="login-reg-form-wrap  pr-lg-50">
                         <h2>Iniciar Sesión</h2>
-                        <form action="" method="post">
+                        <form action="{{url('/InicioSesion')}}" method="post">
+                            @csrf
                             <div class="single-input-item">
                                 <input type="email" placeholder="Ingrese su Correo" name="correo"/>
                             </div>
@@ -39,13 +40,13 @@
                 <div class="col-lg-6">
                     <div class="login-reg-form-wrap mt-md-34 mt-sm-34">
                         <h2>REGISTRO</h2>
-                        <form action="{{route('register')}}" method="post">
+                        <form action="{{url('/InicioSesionR')}}" method="post">
                             @csrf
                             <div class="single-input-item">
                                 <input type="text" name="identificacion" placeholder="Documento Identidad" />
                             </div>
                             <div class="single-input-item">
-                                <input type="text" name="name" placeholder="Nombre" />
+                                <input type="text" name="nombre" placeholder="Nombre" />
                             </div>
                             <div class="single-input-item">
                                 <input type="text" name="apellido" placeholder="Apellido" />
@@ -64,7 +65,11 @@
                                         <input type="password" name="password" placeholder="Contraseña" />
                                     </div>
                                 </div>
-                                
+                                <div class="col-lg-6">
+                                    <div class="single-input-item">
+                                        <input type="password" name="passwordR" placeholder="Confirmar contraseña" />
+                                    </div>
+                                </div>
                             </div>
                             <div class="single-input-item">
                                 <div class="login-reg-form-meta">
