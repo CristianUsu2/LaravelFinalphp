@@ -15,33 +15,6 @@
     <title>Tienda Axes</title>
   </head>
   <body>
-
-        <div class="carritoC"  data-pushbar-id="carrito" data-pushbar-direction="right">
-           <i class="fas fa-times btn-cerrar" data-pushbar-close></i>
-             <div class="tituloCarrito">Carrito de compras</div>
-             <div  id="CartProductos">
-          
-            </div>
-                <div class="iconoseparador">
-                 <span ><i class="fas fa-arrow-down"></i></span>
-                </div>
-                <div  class="separadorLinea">
-                  <hr>
-                </div>
-                  <div class="valores-compra">
-                   <div class="contenido-valores">
-                    <span>SubTotal:</span>
-                    <span class="subt" id="subtotalC"></span>
-                    
-                   </div>
-                   <div class="divtotal">
-                  <label class="total" ><strong>Total:</strong></label> 
-                  <label class="total" id="totalC"><strong></strong></label> 
-                   </div>
-                  <button class="btn btn-danger" id="DetalleC" type="submit">Detalle de compra</button>
-                  </div>
-        </div>
-
       <div class="wrapper">
 
         <!-- header area start -->
@@ -143,46 +116,15 @@
                                   <div class="header-mini-cart">
                                       <div class="mini-cart-btn">
                                           <i class="fa fa-shopping-cart"></i>
-                                          <span class="cart-notification">2</span>
+                                          <span class="cart-notification" id="iconoTotal"></span>
                                       </div>
                                       <div class="cart-total-price">
                                           <span>total</span>
-                                          $50.00
+                                          <span id="totalC"></span>
                                       </div>
-                                      <ul class="cart-list">
-                                          <li>
-                                              <div class="cart-img">
-                                                  <a href="product-details.html"><img src="../Usuario/img/product-img4.jpg"
-                                                          alt=""></a>
-                                              </div>
-                                              <div class="cart-info">
-                                                  <h4><a href="product-details.html">simple product 09</a></h4>
-                                                  <span>$60.00</span>
-                                              </div>
-                                              <div class="del-icon">
-                                                  <i class="fa fa-times"></i>
-                                              </div>
-                                          </li>
-                                          <li>
-                                              <div class="cart-img">
-                                                  <a href="product-details.html"><img src="../Usuario/img/product-img1.jpg"
-                                                          alt=""></a>
-                                              </div>
-                                              <div class="cart-info">
-                                                  <h4><a href="product-details.html">virtual product 10</a></h4>
-                                                  <span>$50.00</span>
-                                              </div>
-                                              <div class="del-icon">
-                                                  <i class="fa fa-times"></i>
-                                              </div>
-                                          </li>
-                                          <li class="mini-cart-price">
-                                              <span class="subtotal">subtotal : </span>
-                                              <span class="subtotal-price">$88.66</span>
-                                          </li>
-                                          <li class="checkout-btn">
-                                              <a href="#">checkout</a>
-                                          </li>
+                                      <ul class="cart-list" id="carrito">
+                                          
+                                          
                                       </ul>
                                   </div>
                               </div>
@@ -555,37 +497,14 @@
 <div class="scroll-top not-visible">
   <i class="fa fa-angle-up"></i>
 </div>
-
+<script src="../Usuario/js/cart.js"><script>
+<script src="../Usuario/js/chat.js"></script>
 <script src="../Usuario/js/modernizr-3.6.0.min.js"></script>
 <script src="../Usuario/js/jquery-3.3.1.min.js"></script>
-   
 <script src="../Usuario/js/popper.min.js"></script>
-
 <script src="../Usuario/js/bootstrap.min.js"></script>
-
-
-    <script src="../Usuario/js/plugins.js"></script>
-    <script src="../Usuario/js/ajax-mail.js"></script>
-    <script src="../Usuario/js/validar.js"></script>
-
+<script src="../Usuario/js/plugins.js"></script>
+<script src="../Usuario/js/ajax-mail.js"></script>
 <script src="../Usuario/js/main.js"></script>
-
-<script src="../Usuario/js/detailsCart.js"></script>
-<script src="../Usuario/js/finishBuy.js"></script>
-<script src="../Usuario/pushbar/js/pushbar.js"></script>    
-<script>
-    let pushbar= new Pushbar({
-     blur:true,
-     overlay:true
-    });
-</script>
- <script src="../Usuario/js/jquery-1.8.3.min.js"></script>
- <script src="../Usuario/js/jquery.zoom.js"></script>
-
- <script>
-   $('#ex1').zoom();
- </script>
- <script src="../Usuario/js/chat.js"></script>
-
   </body>
 </html>
