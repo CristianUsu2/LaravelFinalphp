@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\ControladorUsuario;
+use App\Models\User;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -17,11 +19,14 @@ class MailerController extends Controller {
 
     // ========== [ Compose Email ] ================
     public function composeEmail(Request $request) {
+        $dt = "";
         $email = $request->emailBcc;
+        $busquedaEmail=User::where('email','=',$request->emailBcc)->value('email');
 
         require base_path("vendor/autoload.php");
             $mail = new PHPMailer(true);     // Passing `true` enables exceptions
             // Email server settings
+            if($email == $busquedaEmail){
             $mail->SMTPDebug = 0;
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';            //  smtp host
@@ -41,10 +46,12 @@ class MailerController extends Controller {
             <button class="btn btn-success" type="submit">Recuperar Contraseña</button></a>';
             $dt = $mail->send();
 
+            }
+
             // $mail->AltBody = plain text version of email body;
 
             if(!$dt ) {
-                return back()->with("failed", "Ocurrio un error en el envio, favor ingrese de nuevo el correo.")->withErrors($mail->ErrorInfo);
+                return back()->with("failed", "Ocurrio un error en el envio, no encontramos el correo $email favor ingrese de nuevo el correo.")->withErrors($mail->ErrorInfo);
             }
             
             else {

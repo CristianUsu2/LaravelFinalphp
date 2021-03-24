@@ -14,19 +14,17 @@
                             <div class="alert alert-danger alert-dismissible"><button type="button" class="close">&times;</button>{{Session::get('failed')}}</div>
                         @endif
 
-                        <div class="card-header">
-                            <h4 class="card-title">RECUPERAR CONTRASEÑA</h4>
-                        </div>
+                        <div class="login-reg-form-wrap  pr-lg-50">
+                        <h2>Recuperar Contraseña</h2>
 
-                            <div class="form-group">
-                                <label for="emailBcc">Ingrese el Correo </label>
-                                <input type="email" name="emailBcc" id="emailBcc" class="form-control" placeholder="Ingrese Su Correo">
+                            <div class="single-input-item">
+                                <input type="email" name="emailBcc" id="emailBcc" placeholder="Ingrese su Correo"/>
                             </div>
 
+                            <div class="single-input-item">
+                                <button class="sqr-btn" type="submit">Recuperar Contraseña</button>
+                            </div>
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-success">Recuperar Contraseña</button>
-                        </div>
                     </div>
                 </form>
             </div>

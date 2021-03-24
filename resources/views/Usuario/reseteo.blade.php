@@ -1,19 +1,21 @@
 @extends('Layout.plantillaU')
 @section('paginas')
-
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Contraseña</label>
-    <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Confirmar Conraseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Recuperar Contraseña</button>
-</form>
-
-
+                <div class="col-lg-6">
+                    <div class="login-reg-form-wrap  pr-lg-50">
+                        <h2>Cambiar Contraseña</h2>
+                        <form action="" method="post">
+                            @csrf
+                            <div class="single-input-item">
+                                <input type="password" placeholder="Ingrese la nueva contraseña" name="pass"/>
+                            </div>
+                            <div class="single-input-item">
+                                <input type="password" placeholder="Confirmar contraseña" name="password"/>
+                            </div>
+                           
+                            <div class="single-input-item">
+                                <button class="sqr-btn">CAMBIAR CONTRASEÑA</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 @endsection
