@@ -3,6 +3,7 @@
 use App\Http\Controllers\ControladorAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorUsuario;
+use App\Http\Controllers\MailerController;
 
 
 /*-----Rutas de las vistas del Usuario ----------------------- */
@@ -11,6 +12,13 @@ Route::get('index', [ControladorUsuario::class, "index"]);
 Route::get('/InicioSesion', [ControladorUsuario::class, "login"])->name('login');
 Route::post('/InicioSesion', [ControladorUsuario::class, "loginV"]);
 Route::post('/InicioSesionR', [ControladorUsuario::class, "register"]);
+Route::get("RecuperarContraseña", [MailerController::class, "email"])->name("email");
+Route::get('/CambiarContraseña', [ControladorUsuario::class, "cambioC"]);
+
+Route::post("Envio", [MailerController::class, "composeEmail"])->name("send-email");
+
+
+
 
 Route::get('/Productos/detalleProducto', [ControladorUsuario::class, "detalleProd"]);
 Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"]);

@@ -16,6 +16,9 @@ class ControladorUsuario extends Controller
    public function detalleCompra(){
        return view('Usuario/detalleCompra');
    }
+   public function cambioC(){
+     return view('Usuario/reseteo');
+   }
 
    public function detalleProd(){
        return view('Usuario/detalleProd');

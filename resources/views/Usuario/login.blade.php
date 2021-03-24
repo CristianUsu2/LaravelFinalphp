@@ -25,7 +25,7 @@
                                             <label class="custom-control-label" for="rememberMe">Remember Me</label>
                                         </div>
                                     </div>
-                                    <a href="#" class="forget-pwd">¿Olvidaste tu Contraseña?</a>
+                                    <a href="{{route('email')}}" class="forget-pwd">¿Olvidaste tu Contraseña?</a>
                                 </div>
                             </div>
                             <div class="single-input-item">
