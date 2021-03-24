@@ -1,188 +1,212 @@
 @extends('.Layout.plantillaU')
 @section('paginas')
-<div class="row">
-  <div class="col-lg-8">
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingOne">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-           1. Datos de envio
-          </button>
-        </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">
-              <form>
-                <div class="row form-row">
-                 <div class="form-group col-6">
-                  <label>Nombre</label>
-                  <input class="form-control" type="" />
-                 </div>
-
-                 <div class="form-group col-6">
-                  <label>Apellido</label>
-                  <input class="form-control" type="" />
-                 </div>
-
-                 <div class="form-group col-6">
-                  <label>Correo</label>
-                  <input class="form-control" type="text" />
-                 </div>
-
-                 <div class="form-group col-6">
-                  <label>Cedula</label>
-                  <input class="form-control" type="text" />
-                 </div>
-
-                 <div class="form-group col-6">
-                  <label>Telefono/Celular</label>
-                  <input class="form-control" type="text" />
-                 </div>
-
-                 <div class="form-group col-6">
-                  <label>Departamento</label>
-                  <input class="form-control" type="text" disabled value="Antioquia"/>
-                 </div>
-                  
-                  <div class="form-group col-6">
-                   <label>Ciudad/Municipio</label>
-                   <select  class="form-select" aria-label="Default select example">
-                     <option selected>Selecciona el municipio o ciudad</option>
-                     <option></option>
-                   </select>
-                  </div>
-
-                  <div class="form-group col-6">
-                    <label>Barrio</label>
-                    <input class="form-control" type="text"/>
-                  </div>
-                  
-                   <div class="row">
-                     <label>Direccion</label>
-                    <div class="col-sm-4 form-group">
-                     <select class="form-select">
-                          <option></option>
-                     </select>
-                    </div>
-                    <div class="col-sm-2 form-group">
-                      <input class="form-control" type="text"/>
-                    </div>
-                    <div class="col-sm-2 form-group">
-                     <input class="form-control" type="text" />
-                    </div>
-                    <div class="col-sm-4 form-group">
-                     <input class="form-control" type="text"/>
-                    </div>
-                  </div> 
-                  <div class="col-12">
-                   <label>Detalles de la direccion</label>
-                   <input class="form-control" type="text"/>
-                  </div>
-                </div>
-                <button class="mt-2 btn btn-dark" type="submit">Continuar</button>
-              </form>
-             
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-            2. Factura de envio
-          </button>
-        </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim quam voluptatibus laudantium, voluptate vel, aliquid ipsum, cumque quas nemo culpa officia reprehenderit neque quo? Ex necessitatibus id doloremque quod sequi!</p>
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingThree">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-           3. Informacion de envio 
-          
-          </button>
-        </h2>
-        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body"><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim quam voluptatibus laudantium, voluptate vel, aliquid ipsum, cumque quas nemo culpa officia reprehenderit neque quo? Ex necessitatibus id doloremque quod sequi!</p></div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingFour">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-           4.  Metodos de pago
-          </button>
-        </h2>
-        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
-              <label class="form-check-label" for="exampleRadios1">
-                Pago Contra entrega
-              </label>
-            </div>
-            <div class="form-check mt-2">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-              <label class="form-check-label" for="exampleRadios2">
-               <img class="iconoPayU" src="../Usuario/img/iconoPayU.png"/>
-              </label>
-            </div>
-            <button class="mt-2 btn btn-dark" type="submit">Continuar</button>
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingFive">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-            5. Terminos y condiciones
-          </button>
-        </h2>
-        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Acepto Terminos y condiciones</label>
-            </div>
-          </div>
-          <button class="btn btn-dark mb-2 mr-4">Finalizar Compra</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4">
-  <div class="col-factura">
-    <div class="div-titulo-finalizarC">
-     <h4 class="titulo-finalizarC">Resumen Pedido</h4>
-    </div>
-    <div class="producto-seccion modifi" id="divContenedorCards">
+<div class="checkout-page-wrapper">
+            <div class="container">             
+        
+                <div class="row">
+                    <!-- Checkout Billing Details -->
+                    <div class="col-lg-6">
+                        <div class="checkout-billing-details-wrap">
+                            <h2>Billing Details</h2>
+                            <div class="billing-form-wrap">
+                                <form action="#">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="single-input-item">
+                                                <label for="f_name" class="required">First Name</label>
+                                                <input type="text" id="f_name" placeholder="First Name" required />
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-md-6">
+                                            <div class="single-input-item">
+                                                <label for="l_name" class="required">Last Name</label>
+                                                <input type="text" id="l_name" placeholder="Last Name" required />
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <label for="email" class="required">Email Address</label>
+                                        <input type="email" id="email" placeholder="Email Address" required />
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <label for="com-name">Company Name</label>
+                                        <input type="text" id="com-name" placeholder="Company Name" />
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <label for="country" class="required">Country</label>
+                                        <select name="country nice-select" id="country">
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Algeria">Algeria</option>
+                                            <option value="Armenia">Armenia</option>
+                                            <option value="Bangladesh">Bangladesh</option>
+                                            <option value="India">India</option>
+                                            <option value="Pakistan">Pakistan</option>
+                                            <option value="England">England</option>
+                                            <option value="London">London</option>
+                                            <option value="London">London</option>
+                                            <option value="Chaina">China</option>
+                                        </select>
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <label for="street-address" class="required pt-20">Street address</label>
+                                        <input type="text" id="street-address" placeholder="Street address Line 1" required />
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <input type="text"  placeholder="Street address Line 2 (Optional)" />
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <label for="town" class="required">Town / City</label>
+                                        <input type="text" id="town"  placeholder="Town / City" required />
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <label for="state">State / Divition</label>
+                                        <input type="text" id="state"  placeholder="State / Divition" />
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <label for="postcode" class="required">Postcode / ZIP</label>
+                                        <input type="text" id="postcode"  placeholder="Postcode / ZIP" required />
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <label for="phone">Phone</label>
+                                        <input type="text" id="phone"  placeholder="Phone" />
+                                    </div>
       
-    </div>
-  </div>
-  <div class="divIconoDerecha">
-    <span class="icon-derecha" id="iconoDerecho"><i class="fas fa-arrow-alt-circle-right"></i></span>
-    </div>
-    <div class="divIconoIzquierda">
-    <span class="icon-izquierda" id="iconoIzquierdo"><i class="fas fa-arrow-alt-circle-left"></i></span>
-    </div>
-  <div class="valores-compra">
-    <div class="contenido-valores">
-     <span>SubTotal:</span>
-     <span class="subt" id="subtotalC">$744333</span><br>
-     <div  class="separadorLinea">
-      <hr>
-    </div>
-     <span>Valor de envio:</span>
-     <span class="subt" id="EnvioC">$0</span>
-    </div>
-    <div class="divtotal">
-   <label class="total" ><strong>Total:</strong></label> 
-   <label class="total" id="totalC">$56565<strong></strong></label> 
-    </div>
-  </div>
-  <!--<a class="btn btn-primary">Volver a la bolsa</a>-->
-</div>
-  
-
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Order Summary Details -->
+                    <div class="col-lg-6">
+                        <div class="order-summary-details mt-md-26 mt-sm-26">
+                            <h2>Your Order Summary</h2>
+                            <div class="order-summary-content mb-sm-4">
+                                <!-- Order Summary Table -->
+                                <div class="order-summary-table table-responsive text-center">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Products</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="single-product.html">Suscipit Vestibulum <strong> × 1</strong></a></td>
+                                                <td>$165.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="single-product.html">Ami Vestibulum suscipit <strong> × 4</strong></a></td>
+                                                <td>$165.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="single-product.html">Vestibulum suscipit <strong> × 2</strong></a></td>
+                                                <td>$165.00</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td>Sub Total</td>
+                                                <td><strong>$400</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Shipping</td>
+                                                <td class="d-flex justify-content-center">
+                                                    <ul class="shipping-type">
+                                                        <li>
+                                                            <div class="custom-control custom-radio">
+                                                                <input type="radio" id="flatrate" name="shipping" class="custom-control-input" checked />
+                                                                <label class="custom-control-label" for="flatrate">Flat Rate: $70.00</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="custom-control custom-radio">
+                                                                <input type="radio" id="freeshipping" name="shipping" class="custom-control-input" />
+                                                                <label class="custom-control-label" for="freeshipping">Free Shipping</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Amount</td>
+                                                <td><strong>$470</strong></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- Order Payment Method -->
+                                <div class="order-payment-method">
+                                    <div class="single-payment-method show">
+                                        <div class="payment-method-name">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="cashon" name="paymentmethod" value="cash" class="custom-control-input" checked  />
+                                                <label class="custom-control-label" for="cashon">Cash On Delivery</label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method-details" data-method="cash">
+                                            <p>Pay with cash upon delivery.</p>
+                                        </div>
+                                    </div>
+                                    <div class="single-payment-method">
+                                        <div class="payment-method-name">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="directbank" name="paymentmethod" value="bank" class="custom-control-input" />
+                                                <label class="custom-control-label" for="directbank">Direct Bank Transfer</label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method-details" data-method="bank">
+                                            <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account..</p>
+                                        </div>
+                                    </div>
+                                    <div class="single-payment-method">
+                                        <div class="payment-method-name">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="checkpayment" name="paymentmethod" value="check" class="custom-control-input" />
+                                                <label class="custom-control-label" for="checkpayment">Pay with Check</label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method-details" data-method="check">
+                                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                                        </div>
+                                    </div>
+                                    <div class="single-payment-method">
+                                        <div class="payment-method-name">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="paypalpayment" name="paymentmethod" value="paypal" class="custom-control-input" />
+                                                <label class="custom-control-label" for="paypalpayment">Paypal <img src="../Usuario/img/paypal-card.jpg" class="img-fluid paypal-card" alt="Paypal" /></label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method-details" data-method="paypal">
+                                            <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                                        </div>
+                                    </div>
+                                    <div class="summary-footer-area">
+                                        <div class="custom-control custom-checkbox mb-14">
+                                            <input type="checkbox" class="custom-control-input" id="terms" required />
+                                            <label class="custom-control-label" for="terms">I have read and agree to the website <a
+                                                href="index.html">terms and conditions.</a></label>
+                                        </div>
+                                        <button type="submit" class="check-btn sqr-btn">Place Order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 @endsection
