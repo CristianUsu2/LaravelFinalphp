@@ -6,13 +6,8 @@ let articulo = document.getElementById("titulo");
 let precio = document.getElementById("precio");
 let DivTallas = document.getElementById("seccionTallas");
 let color = document.getElementById("color");
-let divCarrito = document.getElementById("CartProductos");
+let listaProductos = document.getElementById("carrito");
 let tallaP;
-let DetalleC = document.getElementById("DetalleC");
-
-DetalleC.addEventListener("click", () => {
-  window.location = "/Productos/detalleCompra";
-})
 
 if (botonCompra != null && DivTallas != null) {
   botonCompra.addEventListener("click", () => {
@@ -68,32 +63,41 @@ let AñadirElementoLocalStorage = () => {
 
 let MostrarProductos = () => {
   let productos = JSON.parse(localStorage.getItem("productos"));
-  divCarrito.innerHTML = '';
+  listaProductos.innerHTML = '';
   if (productos != null) {
     productos.forEach(Element => {
-      divCarrito.innerHTML += `
-   <div class="producto-seccion">
-      <div class="producto-seccimg">
-       <img class="prod-secc-img" src="${Element.imgP}" id="img"/> 
-      </div> 
-      <div class="producto-secc-titulo">
-        <p class="prod-secc-title" id="nombreC">${Element.nombreP}</p> 
-        <a class="remove" onclick="EliminarProducto(${Element.itemP})"><i class="fas fa-trash-alt"></i></a>
-      </div>     
-      <div class="producto-secc-descrip">
-        <p class="prod-secc-descrip" id="idProductoC">Item:${Element.itemP}</p>
-        <p class="prod-secc-descrip" id="colorC">Color:${Element.colorP}</p>
-        <p class="prod-secc-descrip" id="precioC">Precio:${Element.precioP}</p>
-        <p class="prod-secc-descrip" id="tallaC">Talla:${Element.tallaP}</p>
+      listaProductos.innerHTML += `
+      <li>
+      <div class="cart-img">
+          <a><img src="${Element.imgP}"
+                  alt=""></a>
       </div>
-   </div>
+      <div class="cart-info">
+          <h4><a>${Element.nombreP}</a></h4>
+          <span>${Element.precioP}</span>
+      </div>
+      <div class="del-icon">
+          <i class="fa fa-times"></i>
+      </div>
    `;
     });
   }
+  MostrarFinalLista();
   NumeroProductos();
   CalculoCompra();
 }
 
+const MostrarFinalLista=()=>{
+  listaProductos.innerHTML+=`
+  <li class="mini-cart-price">
+  <span class="subtotal">subtotal : </span>
+  <span class="subtotal-price" id="subtotalC"></span>
+</li>
+<li class="checkout-btn">
+  <a href="/Productos/detalleCompra">Detalle Pedido</a>
+</li>
+  `;
+}
 
 let NumeroProductos = () => {
   let objetos = JSON.parse(localStorage.getItem("productos"));
@@ -121,11 +125,12 @@ let EliminarProducto = (e) => {
 let CalculoCompra = () => {
   let subtotal = document.getElementById("subtotalC");
   let total = document.getElementById("totalC");
+  console.log(subtotal);
   let objetos = JSON.parse(localStorage.getItem("productos"));
   if (objetos != null) {
-    let valorSubtotal = objetos.reduce((e, i) => e + Number(i.precioP.replace('.', '')) * Number(i.cantidadP), 0);
-    subtotal.textContent = '$' + valorSubtotal;
-    total.textContent = '$' + valorSubtotal;
+    let valorSubtotal = objetos.reduce((e, i) =>  Number(i.precioP.replace('.', '')) * Number(i.cantidadP), 0);
+   subtotal.textContent= '$' + valorSubtotal;
+    total.textContent= '$' + valorSubtotal;
   }
 }
 

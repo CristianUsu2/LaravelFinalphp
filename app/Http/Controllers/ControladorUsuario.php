@@ -80,17 +80,23 @@ class ControladorUsuario extends Controller
             if($DatosUsuario[0]== $request->correo){
               if(password_verify($request->password, $DatosUsuario[1])){ 
                  if($DatosUsuario[2]== 1){
-                    array_push($DatosSession,$DatosUsuario[2],$DatosUsuario[3]);
-                   $_SESSION["sesion"]=$DatosSession;
+                  $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
+                    session(['datosU' => $usuario]);
                    return redirect()->action([ControladorUsuario::class,"index"]);
                  }else if($DatosUsuario[2]==2){
-                    array_push($DatosSession,$DatosUsuario[2],$DatosUsuario[3]);
-                    $_SESSION["sesion"]=$DatosSession;
+                  $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
+                    session(['datosU' => $usuario]);
+                    
                     return redirect()->action([ControladorAdmin::class,"index"]);
                  }
               }
             }
         }
          return redirect()->action([ControladorUsuario::class, "login"]);
+    }
+
+    public function loginC(){
+      session()->forget('datosU');
+      return redirect()->action([ControladorUsuario::class, "index"]);
     }
 }

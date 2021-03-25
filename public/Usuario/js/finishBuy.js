@@ -1,13 +1,16 @@
 let botonDerecho = document.getElementById("iconoDerecho");
 let botonIzquierdo = document.getElementById("iconoIzquierdo");
 let divContenedorCards = document.getElementById("divContenedorCards");
+if(botonDerecho!=null){
 botonDerecho.addEventListener('click', () => {
     MovimientoDerecho();
 });
-
+}
+if(botonIzquierdo!=null){
 botonIzquierdo.addEventListener('click', () => {
     MovimientoIzquierdo();
 });
+}
 
 let MovimientoDerecho = () => {
     console.log("me presiono el boton derecho");
