@@ -35,15 +35,29 @@ class MailerController extends Controller {
             $mail->Password = env('EMAIL_PASSWORD');   // sender password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;                          // port - 587/465
-            $mail->setFrom($email);
+            $mail->setFrom($email, 'Tienda Axes');
             $mail->addAddress($email);
             $mail->isHTML(true);                // Set email content format to HTML
 
             $mail->Subject = 'Recuperar Contraseña';
-            $mail->Body    = 'Usted solicito recuperar su contraseña 
-            <br> Por favor de click aquí para recuperar su contraseña
+            $mail->Body    = '<p style="text-aling:center;
+            color:#000000;
+            font-size:18px;
+            padding:50px;">Usted solicito recuperar su contraseña 
+             Por favor de click aquí para recuperar su contraseña</p>
              <a href="http://127.0.0.1:8000/CambiarContrase%C3%B1a">
-            <button class="btn btn-success" type="submit">Recuperar Contraseña</button></a>';
+            <button class="btn btn-success" type="submit" style="
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 150;
+            font-size: 15px;
+            color: #ffffff;
+            margin-left: 450px;
+            margin-bottom: -5px;
+            background-color: #1883ba;
+            border-radius: 6px;
+            cursor:pointer;
+            border: 2px solid #0016b0;">Recuperar Contraseña</button></a>';
             $dt = $mail->send();
 
             }
