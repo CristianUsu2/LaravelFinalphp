@@ -44,20 +44,43 @@
                                             <div class="dropdown header-top-dropdown">
                                                 <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
                                                     aria-haspopup="true" aria-expanded="false">
-                                                    Mi Cuenta
+                                                    @php 
+                                                    $datosS=session('datosU')
+                                                    @endphp
+                                                    @if (($datosS!=null))
+                                                       @foreach ($datosS as $item)
+                                                        {{$item->name}}
+                                                       @endforeach 
+                                                       
+                                                        <i class="fa fa-angle-down"></i>
+                                                    @else
+                                                     
+                                                     Mi cuenta
                                                     <i class="fa fa-angle-down"></i>
+                                                    @endif
+                                                   
                                                 </a>
+                                               @if ($datosS==null)
+                                               <div class="dropdown-menu" aria-labelledby="myaccount">
+                                                <a class="dropdown-item" href="{{route('login')}}">Iniciar Sesión</a>
+                                               </div>
+                                               @else
+                                                @if (session()->has('datosU'))
                                                 <div class="dropdown-menu" aria-labelledby="myaccount">
-                                                    <a class="dropdown-item" href="{{route('login')}}">Iniciar Sesión</a>
-                                                </div>
+                                                    <a class="dropdown-item" href="">Mi informacion</a>
+                                                    <a class="dropdown-item" href="">Mis pedidos</a>
+                                                    <a class="dropdown-item" href="{{route('loginCerrar')}}">Cerrar Sesión</a>
+                                                   </div>    
+                                                @endif
+                                                 
+                                               @endif
+                                                
                                             </div>
                                         </li>
                                         <li>
-                                            <a href="#">Carrito</a>
+                                            <a href="{{route('detalleCompra')}}">Carrito</a>
                                         </li>
-                                        <li>
-                                            <a href="#">checkout</a>
-                                        </li>
+                                        
                                     </ul>
                                 </nav>
                             </div>
@@ -419,6 +442,24 @@
 <div class="scroll-top not-visible">
   <i class="fa fa-angle-up"></i>
 </div>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCMzY42dtyJgXPfzCKZzKp-W2sOvvJcQAM",
+    authDomain: "pruebatiendaaxes-4d509.firebaseapp.com",
+    projectId: "pruebatiendaaxes-4d509",
+    storageBucket: "pruebatiendaaxes-4d509.appspot.com",
+    messagingSenderId: "664697906282",
+    appId: "1:664697906282:web:4f91c9d720ef40bfb75613",
+    measurementId: "G-KTH3MNV6R9"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth();
+</script>
+<script src="../Usuario/js/configFirebase.js"></script>
 <script src="../Usuario/js/cart.js"><script>
 <script src="../Usuario/js/chat.js"></script>
 <script src="../Usuario/js/modernizr-3.6.0.min.js"></script>
@@ -428,5 +469,6 @@
 <script src="../Usuario/js/plugins.js"></script>
 <script src="../Usuario/js/ajax-mail.js"></script>
 <script src="../Usuario/js/main.js"></script>
+
   </body>
 </html>

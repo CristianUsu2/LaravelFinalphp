@@ -30,6 +30,7 @@
                             </div>
                             <div class="single-input-item">
                                 <button class="sqr-btn">INGRESAR</button>
+                                <button type="button" class="sqr-btn" id="google">Google</button>
                             </div>
                         </form>
                     </div>

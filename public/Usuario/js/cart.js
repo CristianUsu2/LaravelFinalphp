@@ -94,7 +94,7 @@ const MostrarFinalLista=()=>{
   <span class="subtotal-price" id="subtotalC"></span>
 </li>
 <li class="checkout-btn">
-  <a href="#">checkout</a>
+  <a href="/Productos/detalleCompra">Detalle Pedido</a>
 </li>
   `;
 }

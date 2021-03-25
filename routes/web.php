@@ -16,12 +16,9 @@ Route::get("RecuperarContraseña", [MailerController::class, "email"])->name("em
 Route::get('/CambiarContraseña', [ControladorUsuario::class, "cambioC"]);
 
 Route::post("Envio", [MailerController::class, "composeEmail"])->name("send-email");
-
-
-
-
+Route::get('/Productos/login',[ControladorUsuario::class, "loginC"])->name("loginCerrar");
 Route::get('/Productos/detalleProducto', [ControladorUsuario::class, "detalleProd"]);
-Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"]);
+Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"])->name("detalleCompra");
 
 Route::get('/Productos/finalizarCompra',[ControladorUsuario::class,"FinalizarCompra"]);
 
