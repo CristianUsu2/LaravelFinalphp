@@ -14,6 +14,7 @@ Route::post('/InicioSesion', [ControladorUsuario::class, "loginV"]);
 Route::post('/InicioSesionR', [ControladorUsuario::class, "register"]);
 Route::get("RecuperarContraseña", [MailerController::class, "email"])->name("email");
 Route::get('/CambiarContraseña', [ControladorUsuario::class, "cambioC"]);
+Route::get('/Categorias', [ControladorUsuario::class, "categoriaU"])->name("categorias");
 
 Route::post("Envio", [MailerController::class, "composeEmail"])->name("send-email");
 

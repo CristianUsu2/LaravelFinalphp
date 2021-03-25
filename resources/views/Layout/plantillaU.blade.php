@@ -206,14 +206,14 @@
                                 </div>
                                 <nav class="category-menu hm-1">
                                     <ul>
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fas fa-shoe-prints"></i>
+                                        <li><a href="{{route('categorias')}}"><i class="fas fa-shoe-prints"></i>
                                             Zapatos</a></li>
                                                                               
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fas fa-suitcase-rolling"></i>
+                                        <li><a href="{{route('categorias')}}"><i class="fas fa-suitcase-rolling"></i>
                                                Bolsos</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fas fa-graduation-cap"></i>
+                                        <li><a href="{{route('categorias')}}"><i class="fas fa-graduation-cap"></i>
                                                 Gorras</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-tshirt"></i>
+                                        <li><a href="{{route('categorias')}}"><i class="fa fa-tshirt"></i>
                                                 Camisas</a></li>
                                        
                                     </ul>
