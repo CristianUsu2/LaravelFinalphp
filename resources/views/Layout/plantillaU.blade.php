@@ -80,7 +80,9 @@
                                         <li>
                                             <a href="{{route('detalleCompra')}}">Carrito</a>
                                         </li>
-                                        
+                                        <li>
+                                        <button id="alerta" type="button" style="border:none; background:none;"><i class="fas fa-bell"></i></button>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -180,64 +182,57 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-widget mb-sm-30">
                         <div class="widget-title mb-10 mb-sm-6">
-                            <h4>contact us</h4>
+                            <h4>Contactanos</h4>
                         </div>
                         <div class="widget-body">
                             <ul class="location">
-                                <li><i class="fa fa-envelope"></i>support@galio.com</li>
-                                <li><i class="fa fa-phone"></i>(800) 0123 456 789</li>
-                                <li><i class="fa fa-map-marker"></i>Address: 1234 - Bandit Tringi Aliquam
-                                    Vitae. New York</li>
+                                <li><i class="fa fa-envelope"></i>axesskateboarding@gmail.com</li>
+                                <li><i class="fa fa-phone"></i>+57 301 6729248</li>
+                                <li><i class="fa fa-map-marker"></i>CC EL DIAMANTE</li>
                             </ul>
-                            <a class="map-btn" href="contact-us.html">open in google map</a>
+                            <a class="map-btn" href="https://www.google.com/maps/place/El+diamante/@6.2612102,-75.5918983,17z/data=!3m1!4b1!4m5!3m4!1s0x8e442911a47ade77:0x43ad415a11e85407!8m2!3d6.2612102!4d-75.5897096?hl=es">Abrir en Google Maps</a>
                         </div>
                     </div> <!-- single widget end -->
                 </div> <!-- single widget column end -->
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-widget mb-sm-30">
                         <div class="widget-title mb-10 mb-sm-6">
-                            <h4>my account</h4>
+                            <h4>Redes Sociales</h4>
                         </div>
                         <div class="widget-body">
                             <ul>
-                                <li><a href="#">my account</a></li>
-                                <li><a href="#">my cart</a></li>
-                                <li><a href="#">checkout</a></li>
-                                <li><a href="#">my wishlist</a></li>
-                                <li><a href="#">login</a></li>
+                                <li><a href="https://www.facebook.com/AXES-Skateboarding-100422468179966"><i style="color:blue; margin-right:5px;" class="fab fa-facebook-f"></i>Siguenos en Facebook</a></li>
+                                <li><a href="https://www.instagram.com/axes_sb/?hl=es"><i style="color:orange; margin-right:5px;" class="fab fa-instagram"></i>Siguenos en Instagram</a></li>
+                                <li><a href="https://www.youtube.com/"><i style="color:red; margin-right:5px;" class="fab fa-youtube"></i>Siguenos en Youtube</a></li>
+
                             </ul>
                         </div>
                     </div> <!-- single widget end -->
                 </div> <!-- single widget column end -->
+           
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-widget mb-sm-30">
                         <div class="widget-title mb-10 mb-sm-6">
-                            <h4>short code</h4>
+                            <h4>Métodos de Pago</h4>
                         </div>
                         <div class="widget-body">
                             <ul>
-                                <li><a href="#">gallery</a></li>
-                                <li><a href="#">accordion</a></li>
-                                <li><a href="#">carousel</a></li>
-                                <li><a href="#">map</a></li>
-                                <li><a href="#">tab</a></li>
+                                <li><i style="color:gray; margin-right:5px;" class="fas fa-credit-card"></i>Tarjeta de crédito</li>
+                                <li><i style="color:orange; margin-right:5px;" class="fab fa-cc-mastercard"></i>Mastercard</li>
+                                <li><i style="color:blue; margin-right:5px;" class="fab fa-cc-visa"></i>Visa</li>
+                                <li><i style="color:green; margin-right:5px;" class="fas fa-motorcycle"></i>Domicilio</li>
                             </ul>
                         </div>
                     </div> <!-- single widget end -->
                 </div> <!-- single widget column end -->
+
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-widget mb-sm-30">
                         <div class="widget-title mb-10 mb-sm-6">
-                            <h4>product tags</h4>
+                            <h4>Mas Información de la Empresa</h4>
                         </div>
                         <div class="widget-body">
-                            <ul>
-                                <li><a href="#">computer</a></li>
-                                <li><a href="#">camera</a></li>
-                                <li><a href="#">smart phone</a></li>
-                                <li><a href="#">watch</a></li>
-                                <li><a href="#">tablet</a></li>
-                            </ul>
+                           <p style="text-aling:center; justify-content:center;"> Esta empresa se dedica a la venta de productos 100% colombianos para el deporte Skateboar.</p>
                         </div>
                     </div> <!-- single widget end -->
                 </div> <!-- single widget column end -->
@@ -251,10 +246,10 @@
         <div class="container">
             <div class="footer-bottom-wrap">
                 <div class="copyright-text">
-                    <p><strong> AXES SKATEBOARDING</strong></p>
+                    <p>©2021 Todos los Derechos Reservados |  <strong>AXES SKATEBOARDING</strong></p>
                 </div>
                 <div class="payment-method-img">
-                    <img src="../Usuario/img/payment.png" alt="">
+                   <a style="color:#000;" href="#"><p>Términos y Condiciones | </a> <a style="color:#000;" href="x">Política y Privacidad</a> </p>
                 </div>
             </div>
         </div>
@@ -358,6 +353,7 @@
 <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 <script>
+
   var firebaseConfig = {
     apiKey: "AIzaSyCMzY42dtyJgXPfzCKZzKp-W2sOvvJcQAM",
     authDomain: "pruebatiendaaxes-4d509.firebaseapp.com",
