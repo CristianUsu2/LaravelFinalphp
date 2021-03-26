@@ -16,6 +16,28 @@ class ControladorUsuario extends Controller
    public function categoriaU(){
      return view('Usuario/categoriaU');
    }
+   public function datosU($id){
+    $UserB=User::find($id);
+     return view('Usuario/informacion')->with('usuario',$UserB);;
+   }
+
+   public function informacionU(Request $request){
+    $usuM=User::find($request->IdUsuario);
+    if($usuM !=null){
+        try{
+          $usuM->identificacion=$request->identificacion;
+          $usuM->name=$request->nombre;
+          $usuM->email=$request->email;
+          $usuM->apellido=$request->apellido;
+          $usuM->telefono=$request->telefono;
+          $usuM->save();
+          return redirect()->action([ControladorUsuario::class, "index"]);
+        }catch(Exception $e){
+           return redirect()->json($e.getMessage());
+        }
+    }
+  } 
+
    public function detalleCompra(){
        return view('Usuario/detalleCompra');
    }

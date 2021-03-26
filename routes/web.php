@@ -4,7 +4,7 @@ use App\Http\Controllers\ControladorAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorUsuario;
 use App\Http\Controllers\MailerController;
-
+use App\Http\Controllers\PDFController;
 
 /*-----Rutas de las vistas del Usuario ----------------------- */
 Route::resource('/', ControladorUsuario::class);
@@ -15,6 +15,8 @@ Route::post('/InicioSesionR', [ControladorUsuario::class, "register"]);
 Route::get("RecuperarContraseña", [MailerController::class, "email"])->name("email");
 Route::get('/CambiarContraseña', [ControladorUsuario::class, "cambioC"]);
 Route::get('/Categorias', [ControladorUsuario::class, "categoriaU"])->name("categorias");
+Route::get('/Informacion/{Id_Usuarios}', [ControladorUsuario::class, "datosU"]);
+Route::post('/Informacion', [ControladorUsuario::class, "informacionU"])->name('Modificar');
 
 Route::post("Envio", [MailerController::class, "composeEmail"])->name("send-email");
 Route::get('/Productos/login',[ControladorUsuario::class, "loginC"])->name("loginCerrar");
@@ -30,6 +32,8 @@ Route::post('/Administrador/usuarios/crear', [ControladorAdmin::class, "crear"])
 Route::get('/Administrador/usuarios/{Id_Usuarios}', [ControladorAdmin::class, "estado"]);
 Route::get('/Administrador/usuariosE/{Id_Usuarios}',[ControladorAdmin::class, "editarUsuario"]);
 Route::post('/Administrador/usuariosE',[ControladorAdmin::class,"ModificarUsuario"])->name('ModificarUsuario');
+Route::get('/Administrador/generarPDF', [PDFController::class, 'generatePDF'])->name('PDF');
+
 
 /*-----------Rutas de las categorias ----------- */
 

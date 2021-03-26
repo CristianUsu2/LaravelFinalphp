@@ -3658,6 +3658,10 @@ input[type="button"].btn-block {
   border-bottom-left-radius: 0;
 }
 
+ .fas{
+  margin-right:5px;
+}
+
 .input-group > .custom-file {
   display: -ms-flexbox;
   display: flex;

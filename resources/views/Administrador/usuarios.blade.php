@@ -16,7 +16,9 @@
                     <h3><strong>Usuarios Registrados</strong></h3>
 
                 </div>
-               <button class="btn btn-success mb-2 ml-2" data-toggle="modal" data-target="#btnUsuario">Crear Usuario</button>
+               <button class="btn btn-success mb-2 ml-2" data-toggle="modal" data-target="#btnUsuario"><i style="margin-right:5px;" class="fas fa-plus"></i>Crear Usuario</button>
+                <a href="{{route('PDF')}}"><button class="btn btn-danger mb-2 ml-2"><i style="margin-right:5px;" class="fas fa-file-import"></i>Generar PDF</button></a>
+
             </div>
 
             <div class="col-md-12 mt-5">

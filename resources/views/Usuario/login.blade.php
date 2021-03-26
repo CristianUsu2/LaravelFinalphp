@@ -41,7 +41,7 @@
                 <div class="col-lg-6">
                     <div class="login-reg-form-wrap mt-md-34 mt-sm-34">
                         <h2>REGISTRO</h2>
-                        <form action="{{url('/InicioSesionR')}}" method="post">
+                        <form action="{{url('/InicioSesionR')}}" method="post" id="registro">
                             @csrf
                             <div class="single-input-item">
                                 <input type="text" name="identificacion" placeholder="Documento Identidad" />
@@ -95,3 +95,4 @@
 </div>
 
 @endsection
+
