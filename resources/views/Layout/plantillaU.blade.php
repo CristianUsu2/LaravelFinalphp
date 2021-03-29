@@ -61,12 +61,12 @@
                                                    
                                                 </a>
                                                @if ($datosS==null)
-                                               <div class="dropdown-menu" aria-labelledby="myaccount">
+                                               <div class="dropdown-menu" aria-labelledby="myaccount" id="OpcionesU">
                                                 <a class="dropdown-item" href="{{route('login')}}">Iniciar Sesión</a>
                                                </div>
                                                @else
                                                 @if (session()->has('datosU'))
-                                                <div class="dropdown-menu" aria-labelledby="myaccount">
+                                                <div class="dropdown-menu" aria-labelledby="myaccount" >
                                                     <a class="dropdown-item" href="{{url('/Informacion/'.$item->Id_Usuarios)}}">Mi informacion</a>
                                                     <a class="dropdown-item" href="">Mis pedidos</a>
                                                     <a class="dropdown-item" href="{{route('loginCerrar')}}">Cerrar Sesión</a>
