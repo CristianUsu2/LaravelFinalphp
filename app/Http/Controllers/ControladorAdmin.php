@@ -18,6 +18,28 @@ class ControladorAdmin extends Controller
         return view('Administrador/usuarios',compact('users'));
 
     }
+
+    public function datosA($id){
+      $UserA=User::find($id);
+       return view('Administrador/editarA')->with('administrador',$UserA);;
+     }
+
+    public function perfil(Request $request){
+      $usuA=User::find($request->IdUsuario);
+      if($usuA !=null){
+          try{
+            $usuA->identificacion=$request->identificacion;
+            $usuA->name=$request->nombre;
+            $usuA->email=$request->email;
+            $usuA->apellido=$request->apellido;
+            $usuA->telefono=$request->telefono;
+            $usuA->save();
+            return redirect()->action([ControladorAdmin::class, "index"]);
+          }catch(Exception $e){
+             return redirect()->json($e.getMessage());
+          }
+      }
+    }
     public function estado($Id_Usuarios){
        $UsuB=User::Where("Id_Usuarios","=",$Id_Usuarios)->first();
        try{

@@ -68,13 +68,8 @@
                                                </div>
                                                @else
                                                 @if (session()->has('datosU'))
-<<<<<<< HEAD
-                                                <div class="dropdown-menu" aria-labelledby="myaccount">
-                                                    <a class="dropdown-item" href="{{url('/Informacion/'.$item->Id_Usuarios)}}">Mi Perfil</a>
-=======
                                                 <div class="dropdown-menu" aria-labelledby="myaccount" >
                                                     <a class="dropdown-item" href="{{url('/Informacion/'.$item->Id_Usuarios)}}">Mi informacion</a>
->>>>>>> 93fd624287e4bfce3bb5bdf2b8b2a571969db46c
                                                     <a class="dropdown-item" href="">Mis pedidos</a>
                                                     <a class="dropdown-item" href="{{route('loginCerrar')}}">Cerrar Sesión</a>
                                                    </div>    

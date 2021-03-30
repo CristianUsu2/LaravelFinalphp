@@ -27,8 +27,10 @@ Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"
 Route::get('/Productos/finalizarCompra',[ControladorUsuario::class,"FinalizarCompra"]);
 
 /*-------------Rutas de Administrador Usuarios---------------------- */
-Route::get('/Administrador', [ControladorAdmin::class, "index"]);
+Route::get('/Administrador', [ControladorAdmin::class, "index"])->name('inicio');
 Route::get('/Administrador/usuarios', [ControladorAdmin::class, "usuarios"])->name('usuarios');
+Route::get('/Administrador/perfil/{Id_Usuarios}', [ControladorAdmin::class, "datosA"])->name('datos');
+Route::post('/Administrador/perfil', [ControladorAdmin::class, "perfil"])->name('editarD');
 Route::post('/Administrador/usuarios/crear', [ControladorAdmin::class, "crear"]);
 Route::get('/Administrador/usuarios/{Id_Usuarios}', [ControladorAdmin::class, "estado"]);
 Route::get('/Administrador/usuariosE/{Id_Usuarios}',[ControladorAdmin::class, "editarUsuario"]);

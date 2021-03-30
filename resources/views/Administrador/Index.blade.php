@@ -8,6 +8,9 @@
 @stop
 
 @section('content')
+
+
+
     <section class="content">
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
@@ -571,9 +574,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-
-    <link rel="icon" href="favicon.icon">
+<link rel="icon" href="favicon.icon">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -582,6 +583,8 @@
     <link rel="stylesheet" href="assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="../Usuario/css/bootstrap.min.css">
+
     <!-- JQVMap -->
     <link rel="stylesheet" href="assets/plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
@@ -597,9 +600,8 @@
 @stop
 
 @section('js')
-<script src="assets/plugins/jquery/jquery.min.js"></script>
-        <!-- jQuery UI 1.11.4 -->
-        <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
         <script>
         $.widget.bridge('uibutton', $.ui.button)
@@ -625,12 +627,11 @@
         <!-- overlayScrollbars -->
         <script src="assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
         <!-- AdminLTE App -->
-        <script src="assets/dist/js/adminlte.js"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="assets/dist/js/pages/dashboard.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="assets/dist/js/demo.js"></script>
-
-    <!-- Bootstrap 4 -->
-
 @stop
+
+
+

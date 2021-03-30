@@ -187,7 +187,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/Administrador',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -234,34 +234,23 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        ['header' => 'Cuenta y Opciones'],
         [
-            'text'        => 'pages',
-            'url'         => 'Administrador/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            
+            'text' => 'Perfil',
+            'url'  => '/Administrador/perfil/{2}',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
+            'text'    => 'Secciones',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Sección Tallas',
+                    'url'  => '/Administrador/tallas/MostrarTallas',
                 ],
                 [
-                    'text'    => 'level_one',
+                    'text'    => 'Sección Productos',
                     'url'     => '#',
                     'submenu' => [
                         [
@@ -285,8 +274,8 @@ return [
                     ],
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Sección Colores',
+                    'url'  => '/Administrador/colores/MostrarColor',
                 ],
             ],
         ],
