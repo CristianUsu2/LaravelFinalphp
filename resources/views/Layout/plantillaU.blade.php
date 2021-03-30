@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="../Usuario/css/plugins.css">
     <link rel="stylesheet" href="../Usuario/css/style.css">
     <link rel="stylesheet" href="../Usuario/css/skin-default.css">
+    <link rel="stylesheet" href="../assets/plugins/sweetalert2/sweetalert2.css">
 
     <link rel="icon" href="../Usuario/img/logo.jpeg" />
     <title>Tienda Axes</title>
   </head>
   <body>
       <div class="wrapper">
+      @include('sweet::alert')
 
         <!-- header area start -->
         <header>
@@ -67,7 +69,7 @@
                                                @else
                                                 @if (session()->has('datosU'))
                                                 <div class="dropdown-menu" aria-labelledby="myaccount">
-                                                    <a class="dropdown-item" href="{{url('/Informacion/'.$item->Id_Usuarios)}}">Mi informacion</a>
+                                                    <a class="dropdown-item" href="{{url('/Informacion/'.$item->Id_Usuarios)}}">Mi Perfil</a>
                                                     <a class="dropdown-item" href="">Mis pedidos</a>
                                                     <a class="dropdown-item" href="{{route('loginCerrar')}}">Cerrar Sesión</a>
                                                    </div>    
@@ -377,6 +379,7 @@
 <script src="../Usuario/js/plugins.js"></script>
 <script src="../Usuario/js/ajax-mail.js"></script>
 <script src="../Usuario/js/main.js"></script>
+<script src="../assets/plugins/sweetalert2/sweetalert2.min.js"></script>
 
   </body>
 </html>

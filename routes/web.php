@@ -17,6 +17,7 @@ Route::get('/CambiarContraseña', [ControladorUsuario::class, "cambioC"]);
 Route::get('/Categorias', [ControladorUsuario::class, "categoriaU"])->name("categorias");
 Route::get('/Informacion/{Id_Usuarios}', [ControladorUsuario::class, "datosU"]);
 Route::post('/Informacion', [ControladorUsuario::class, "informacionU"])->name('Modificar');
+Route::get('/prueba', [ControladorUsuario::class, "prueba"]);
 
 Route::post("Envio", [MailerController::class, "composeEmail"])->name("send-email");
 Route::get('/Productos/login',[ControladorUsuario::class, "loginC"])->name("loginCerrar");

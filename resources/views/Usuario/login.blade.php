@@ -5,6 +5,8 @@
     <div class="container">
         <div class="member-area-from-wrap">
             <div class="row">
+            @include('sweet::alert')
+
                 <!-- Login Content Start -->
                 <div class="col-lg-6">
                     <div class="login-reg-form-wrap  pr-lg-50">
