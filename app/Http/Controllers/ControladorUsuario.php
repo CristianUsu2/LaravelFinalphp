@@ -66,7 +66,7 @@ class ControladorUsuario extends Controller
         $busquedaEmail=User::where('email','=',$request->correo)->value('email');
         $busquedaEncrip=User::where('email','=',$request->correo)->value('password');
         $busquedaRol=User::where('email','=',$request->correo)->value('id_rol');
-        $busquedaId=User::where('email','=',$request->correo)->value('Id_Usuarios');
+        $busquedaId=User::where('email','=',$request->correo)->value('Id_Usuarios'); 
         $DatosUsuario=[];
         $DatosSession=[];
         if($busquedaEmail !=null && $busquedaEncrip !=null && $busquedaRol!=null && $busquedaId!=null ){
