@@ -57,7 +57,7 @@
                                                         <i class="fa fa-angle-down"></i>
                                                     @else
                                                      
-                                                    <i class="fas fa-user"></i>   Mi cuenta
+                                                    <i class="fas fa-user"></i>   Mi Cuenta
                                                     <i class="fa fa-angle-down"></i>
                                                     @endif
                                                    
@@ -70,7 +70,7 @@
                                                 @if (session()->has('datosU'))
                                                 <div class="dropdown-menu" aria-labelledby="myaccount" >
                                                     <a class="dropdown-item" href="{{url('/Informacion/'.$item->Id_Usuarios)}}"><i style="margin-right:5px;" class="fas fa-user"></i>Mi Perfil</a>
-                                                    <a class="dropdown-item" href=""><i style="margin-right:5px;" class="fa fa-truck"></i>Mis pedidos</a>
+                                                    <a class="dropdown-item" href=""><i style="margin-right:5px;" class="fa fa-truck"></i>Mis Pedidos</a>
                                                     <a class="dropdown-item" href="{{route('loginCerrar')}}"><i style="margin-right:5px;" class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                                                    </div>    
                                                 @endif

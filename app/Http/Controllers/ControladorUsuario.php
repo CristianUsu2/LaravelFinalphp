@@ -37,6 +37,8 @@ class ControladorUsuario extends Controller
           $usuM->email=$request->email;
           $usuM->apellido=$request->apellido;
           $usuM->telefono=$request->telefono;
+          $usuM->password=$request->pass;
+          $contra=Crypt::decryptString($usuM->password);
           $usuM->save();
           return redirect()->action([ControladorUsuario::class, "index"]);
         }catch(Exception $e){
@@ -73,19 +75,19 @@ class ControladorUsuario extends Controller
        $request->validate([
             'nombre' => 'required|min:2|max:20',
             'apellido'=> 'required|min:2|max:20',
-            'email' => 'required|email|min:4|max:50|',
+            'correo' => 'required|email|min:4|max:50|',
             'identificacion' => 'required|min:7|max:12|',
-             'password' => 'required|min:2|max:30',
-             'passwordR'=>'required|min:2|max:30',
+             'contraseña' => 'required|min:2|max:30',
+             'ConfirmarContraseña'=>'required|min:2|max:30',
              'telefono' => 'required|min:2|max:11'
         ]);
         try{
-          if($request->password== $request->passwordR){
+          if($request->contraseña== $request->ConfirmarContraseña){
              $registro = new User();
              $registro->name = $request->nombre;
-             $registro->email = $request->email;
+             $registro->email = $request->correo;
              $registro->identificacion = $request->identificacion;
-             $incriptado= bcrypt($request->password);
+             $incriptado= bcrypt($request->contraseña);
              $registro->password=$incriptado; 
              $registro->apellido = $request->apellido;
              $registro->telefono = $request->telefono;
@@ -95,12 +97,17 @@ class ControladorUsuario extends Controller
            }
         }catch(Exception $e){
           alert()->error('Error Message', 'Optional Title');
-            return response()->json($e.getMessage());
+            return response()->json($e.getMessage())->with('error','login');
           }
           return redirect()->action([ControladorUsuario::class, "index"]);     
     }
 
     public function loginV(Request $request){
+      $request->validate([
+        'Correo' => 'required|email|min:4|max:50|',
+         'Contraseña' => 'required|min:2|max:30'
+     
+    ]);
         $busquedaEmail=User::where('email','=',$request->correo)->value('email');
         $busquedaEncrip=User::where('email','=',$request->correo)->value('password');
         $busquedaRol=User::where('email','=',$request->correo)->value('id_rol');
@@ -115,16 +122,12 @@ class ControladorUsuario extends Controller
                 if($DatosUsuario[2]== 2){
                   $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
                   session(['datosU' => $usuario]);
-                  return "admin";
                   return redirect()->action([ControladorAdmin::class,"index"]);
                 }  
-
-
 
                 else  if($DatosUsuario[2]== 1){
                     $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
                     session(['datosU' => $usuario]);
-                    return "user";
                     return redirect()->action([ControladorUsuario::class,"index"]);
                   }
                 

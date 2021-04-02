@@ -79,7 +79,7 @@
                         <td class="text-center">{{$item->estado==1?"Activo":"Inactivo"}}</td>
                         <td class="text-center">{{$item->created_at}}</td>
                         <td>
-                            <a href="{{url('/Administrador/tallas/ModificarTalla/'.$item->id)}}" class="btn btn-primary">Editar</a>
+                            <a href="{{url('/Administrador/tallas/ModificarTallas/'.$item->id)}}" class="btn btn-primary">Editar</a>
                             <a href="{{url('/Administrador/tallas/Estado/'.$item->id)}}" class="btn btn-dark">Cambiar Estado</a>
                         </td>
 

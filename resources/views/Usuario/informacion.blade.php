@@ -29,6 +29,9 @@
                             <div class="single-input-item">
                                 <input type="text" name="telefono"  value="{{$usuario->telefono}}" placeholder="Telefono / Celular" />
                             </div>
+                            <div class="single-input-item">
+                                <input type="text" name="pass"  value="{{$usuario->password}}" placeholder="Telefono / Celular" />
+                            </div>
      
                             <div class="single-input-item">
                                 <div class="login-reg-form-meta">

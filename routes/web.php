@@ -58,6 +58,6 @@ Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class, 
 /*----------Rutas de las tallas------------ */
 Route::get('/Administrador/tallas/MostrarTallas',[ControladorAdmin::class, "MostrarTallas"])->name('MostrarTallas');
 Route::post('/Administrador/tallas/GuardarTalla',[ControladorAdmin::class,"GuardarTalla"])->name('GuardarTalla');
-Route::get('/Administrador/tallas/ModificarTalla/{id}',[ControladorAdmin::class,"ModificarTalla"]);
+Route::get('/Administrador/tallas/ModificarTallas/{id}',[ControladorAdmin::class,"ModificarTalla"]);
 Route::post('/Administrador/tallas/MostrarTallas',[ControladorAdmin::class,"EditarTalla"])->name('EditarTalla');
 Route::get('/Administrador/tallas/Estado/{id}',[ControladorAdmin::class,"EstadoTalla"]);

@@ -277,7 +277,20 @@ return [
                     'text' => 'Sección Colores',
                     'url'  => '/Administrador/colores/MostrarColor',
                 ],
+                
             ],
+        ],
+        [
+            
+            'text' => 'Usuarios',
+            'url'  => '/Administrador/usuarios',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            
+            'text' => 'Categorias',
+            'url'  => '/Administrador/categorias',
+            'icon' => 'fas fa-fw fa-bars',
         ],
         ['header' => 'labels'],
         [

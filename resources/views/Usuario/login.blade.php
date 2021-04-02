@@ -15,16 +15,21 @@
                             @csrf
                             <div class="single-input-item">
                                 <input type="email" placeholder="Ingrese su Correo" name="correo"/>
+                                @if($errors->has('Correo'))
+                                <span class="error text-danger">{{$errors->first('Correo')}}</span>
+                                @endif
                             </div>
                             <div class="single-input-item">
                                 <input type="password" placeholder="Ingrese su Contraseña" name="password"/>
+                                @if($errors->has('Contraseña'))
+                                <span class="error text-danger">{{$errors->first('Contraseña')}}</span>
+                                @endif
                             </div>
                             <div class="single-input-item">
                                 <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
                                     <div class="remember-meta">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="rememberMe">
-                                            <label class="custom-control-label" for="rememberMe">Remember Me</label>
                                         </div>
                                     </div>
                                     <a href="{{route('email')}}" class="forget-pwd">¿Olvidaste tu Contraseña?</a>
@@ -43,34 +48,57 @@
                 <div class="col-lg-6">
                     <div class="login-reg-form-wrap mt-md-34 mt-sm-34">
                         <h2>REGISTRO</h2>
+
+                
                         <form action="{{url('/InicioSesionR')}}" method="post" id="registro">
                             @csrf
                             <div class="single-input-item">
                                 <input type="text" name="identificacion" placeholder="Documento Identidad" />
+                                @if($errors->has('identificacion'))
+                                <span class="error text-danger">{{$errors->first('identificacion')}}</span>
+                                @endif
                             </div>
                             <div class="single-input-item">
                                 <input type="text" name="nombre" placeholder="Nombre" />
+                                @if($errors->has('nombre'))
+                                <span class="error text-danger">{{$errors->first('nombre')}}</span>
+                                @endif
                             </div>
                             <div class="single-input-item">
                                 <input type="text" name="apellido" placeholder="Apellido" />
+                                @if($errors->has('apellido'))
+                                <span class="error text-danger">{{$errors->first('apellido')}}</span>
+                                @endif
                             </div>
 
                             <div class="single-input-item">
-                                <input type="email" name="email" placeholder="Correo"  />
+                                <input type="email" name="correo" placeholder="Correo"  />
+                                @if($errors->has('correo'))
+                                <span class="error text-danger">{{$errors->first('correo')}}</span>
+                                @endif
                             </div>
 
                             <div class="single-input-item">
                                 <input type="text" name="telefono" placeholder="Telefono / Celular" />
+                                @if($errors->has('telefono'))
+                                <span class="error text-danger">{{$errors->first('telefono')}}</span>
+                                @endif
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="single-input-item">
-                                        <input type="password" name="password" placeholder="Contraseña" />
+                                        <input type="password" name="contraseña" placeholder="Contraseña" />
+                                        @if($errors->has('contraseña'))
+                                <span class="error text-danger">{{$errors->first('contraseña')}}</span>
+                                @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="single-input-item">
-                                        <input type="password" name="passwordR" placeholder="Confirmar contraseña" />
+                                        <input type="password" name="ConfirmarContraseña" placeholder="Confirmar contraseña" />
+                                        @if($errors->has('ConfirmarContraseña'))
+                                <span class="error text-danger">{{$errors->first('ConfirmarContraseña')}}</span>
+                                @endif
                                     </div>
                                 </div>
                             </div>
@@ -96,21 +124,18 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 9f18b000d4f087a72869bb60a3b3e0d3a53425c1
 <script src="../Usuario/js/jquery-3.3.1.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
-@if (session('boton') == 'lola')
+@if (session('error') == 'login')
         <script>
-                    $('#registros').click(function(e){
-                        e.preventDefault();
-                    });     
-
+                    Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!',
+  footer: '<a href>Why do I have this issue?</a>'
+})
         </script>
 @endif
 
@@ -118,19 +143,13 @@
    
 
         $('#registros').click(function(e){
-
          Swal.fire(
         '¡Registro Éxitoso!',
         'Tu Cuenta Ha Sido Creada Correctamente',
         'success'
         )
-        this.submit();
     });     
     </script>
 
-<<<<<<< HEAD
->>>>>>> b60f10b477993a4139f761cf3129c57c507ab820
-=======
->>>>>>> 9f18b000d4f087a72869bb60a3b3e0d3a53425c1
 @endsection
 

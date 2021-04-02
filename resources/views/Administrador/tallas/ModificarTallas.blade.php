@@ -26,6 +26,7 @@
          <div class="col-lg-12">
              <form action="{{route('EditarTalla')}}" method="POST" class="form-group-lg">
               @csrf
+              
               <input type="hidden" name="idTalla" value="{{$tallaB->id}}"/>
               <label>Talla</label>
               <input clase="form-control" type="text" name="tallaN" value="{{$tallaB->talla}}"/>
