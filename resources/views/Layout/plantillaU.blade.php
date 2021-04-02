@@ -356,6 +356,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 <script>
 
+<<<<<<< HEAD
   var firebaseConfig = {
     apiKey: "AIzaSyCMzY42dtyJgXPfzCKZzKp-W2sOvvJcQAM",
     authDomain: "pruebatiendaaxes-4d509.firebaseapp.com",
@@ -372,6 +373,10 @@
 <script src="../Usuario/js/configFirebase.js"></script>
 <script src="../Usuario/js/cart.js"><script>
 <script src="../Usuario/js/chat.js"></script>
+=======
+<script src="../Usuario/js/jquery-3.3.1.min.js"></script>
+
+>>>>>>> b60f10b477993a4139f761cf3129c57c507ab820
 <script src="../Usuario/js/modernizr-3.6.0.min.js"></script>
 <script src="../Usuario/js/jquery-3.3.1.min.js"></script>
 <script src="../Usuario/js/popper.min.js"></script>
@@ -379,7 +384,31 @@
 <script src="../Usuario/js/plugins.js"></script>
 <script src="../Usuario/js/ajax-mail.js"></script>
 <script src="../Usuario/js/main.js"></script>
+<<<<<<< HEAD
 <script src="../assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+=======
+
+<script src="../Usuario/js/detailsCart.js"></script>
+<script src="../Usuario/js/finishBuy.js"></script>
+<script src="../Usuario/pushbar/js/pushbar.js"></script>   
+
+
+
+
+<script>
+    let pushbar= new Pushbar({
+     blur:true,
+     overlay:true
+    });
+</script>
+ <script src="../Usuario/js/jquery-1.8.3.min.js"></script>
+ <script src="../Usuario/js/jquery.zoom.js"></script>
+
+ <script>
+   $('#ex1').zoom();
+ </script>
+ <script src="../Usuario/js/chat.js"></script>
+>>>>>>> b60f10b477993a4139f761cf3129c57c507ab820
 
   </body>
 </html>
