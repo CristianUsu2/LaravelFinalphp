@@ -4,75 +4,91 @@
 
 @section('content')
 <div class="container">
-    
-    <div class="row">
+
+    <div class="row mt-2">
 
         <div class="col-md-12 mt-5">
-            <div class="modal fade" id="btnAgregarTalla" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Crear Talla</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                    <form action="{{route('GuardarTalla')}}" method="POST" class="form-group">
-                        @csrf
-                      <label>Ingresar la talla</label>
-                      <input type="text" name="talla" class="form-control" placeholder="XL,L,M ..."/>
-                    
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                      <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                  </form>
-                  </div>
-                </div>
-              </div>
-
 
             <div class="row">
 
                 <div class="col-md-12 text-center">
 
-                    <h3 class="mb-2"><strong>Tallas registrados</strong></h3>
+                    <h3><strong>Tallas Registradas</strong></h3>
 
                 </div>
-                <a  class="btn btn-success mb-2 ml-2" data-toggle="modal" data-target="#btnAgregarTalla">Agregar Talla</a>
-              <div class="col-lg-12">
-                <table class="table" id="colores">
-                    <thead>
-                      <tr>
-                        <th scope="col">Id de la talla</th>
-                        <th scope="col">Talla</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($tallas as $item)
-                        <tr>
-                            <th scope="row">{{$item->id}}</th>
-                            <td>{{$item->talla}}</td>
-                            <td>{{$item->estado==1? "Activo":"Inactivo"}}</td>
-                            <td><a class="btn btn-primary" href="{{url('/Administrador/colores/ModificarTalla/'.$item->id)}}">Editar</a>
-                                <a class="btn btn-dark" href="{{url('/Administrador/colores/Estado/'.$item->id)}}">Cambiar Estado</a>
-                            </td>
-                            
-                          </tr>
-                        @endforeach
-                      
-                     
-                    </tbody>
-                  </table>
-                  {{$tallas->links()}}
+               <button class="btn btn-success mb-2 ml-2" data-toggle="modal" data-target="#btnUsuario"><i style="margin-right:5px;" class="fas fa-plus"></i>Crear Talla</button>
+            </div>
+
+            <div class="col-md-12 mt-5">
+                <div class="modal  fade" id="btnUsuario" tabindex="-1" role="dialog"  aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Agregar Talla</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form action="{{route('GuardarTalla')}}" method="POST" class="form-group">
+                            @csrf
+                           <div class="row">
+                             <div class="col-12"> 
+                                <label>Talla</label>
+                                <input type="text" name="talla" class="form-control" placeholder="S - L - M - XL......"/>
+                              </div>  
+                              
+                           </div>  
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                          <button type="submit" class="btn btn-primary">Crear</button>
+                        </div>
+                      </form>
+                      </div>
+                    </div>
+                  </div>
                 </div> 
             </div>
-            
-          
+
+            <table class="table table-bordered data-table" id="usuarios">
+
+                <thead>
+
+                    <tr>
+
+                        <th width="50">Id</th>
+
+                        <th width="100px">Talla</th>
+
+                        <th width="200px">Estado</th>
+                        
+                        <th width="220px">Fecha de creacion</th> 
+                        <th width="220px">Acciones</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    @foreach ($tallas as $item)
+                        
+                    <tr>
+                        <td class="text-center">{{$item->id}}</td>
+                        <td class="text-center">{{$item->talla}}</td>
+                        <td class="text-center">{{$item->estado==1?"Activo":"Inactivo"}}</td>
+                        <td class="text-center">{{$item->created_at}}</td>
+                        <td>
+                            <a href="{{url('/Administrador/tallas/ModificarTalla/'.$item->id)}}" class="btn btn-primary">Editar</a>
+                            <a href="{{url('/Administrador/tallas/Estado/'.$item->id)}}" class="btn btn-dark">Cambiar Estado</a>
+                        </td>
+
+                    </tr>
+                    @endforeach
+
+                </tbody>
+
+            </table>
 
         </div>
 
@@ -94,7 +110,17 @@
 
 @section('js')
 
- 
+  <script>
+    $(document).ready(function () {
+        $('#usuarios').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+
+            }
+
+        });
+    });
+</script>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  

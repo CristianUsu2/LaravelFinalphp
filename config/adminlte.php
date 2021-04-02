@@ -238,7 +238,7 @@ return [
         [
             
             'text' => 'Perfil',
-            'url'  => '/Administrador/perfil/{2}',
+            'url'  => '/Administrador/perfil/2',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

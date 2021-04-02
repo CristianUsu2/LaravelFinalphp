@@ -57,21 +57,21 @@
                                                         <i class="fa fa-angle-down"></i>
                                                     @else
                                                      
-                                                     Mi cuenta
+                                                    <i class="fas fa-user"></i>   Mi cuenta
                                                     <i class="fa fa-angle-down"></i>
                                                     @endif
                                                    
                                                 </a>
                                                @if ($datosS==null)
                                                <div class="dropdown-menu" aria-labelledby="myaccount" id="OpcionesU">
-                                                <a class="dropdown-item" href="{{route('login')}}">Iniciar Sesión</a>
+                                                <a class="dropdown-item" href="{{route('login')}}"><i style="margin-right:3px;" class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
                                                </div>
                                                @else
                                                 @if (session()->has('datosU'))
                                                 <div class="dropdown-menu" aria-labelledby="myaccount" >
-                                                    <a class="dropdown-item" href="{{url('/Informacion/'.$item->Id_Usuarios)}}">Mi informacion</a>
-                                                    <a class="dropdown-item" href="">Mis pedidos</a>
-                                                    <a class="dropdown-item" href="{{route('loginCerrar')}}">Cerrar Sesión</a>
+                                                    <a class="dropdown-item" href="{{url('/Informacion/'.$item->Id_Usuarios)}}"><i style="margin-right:5px;" class="fas fa-user"></i>Mi Perfil</a>
+                                                    <a class="dropdown-item" href=""><i style="margin-right:5px;" class="fa fa-truck"></i>Mis pedidos</a>
+                                                    <a class="dropdown-item" href="{{route('loginCerrar')}}"><i style="margin-right:5px;" class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                                                    </div>    
                                                 @endif
                                                  
@@ -80,7 +80,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href="{{route('detalleCompra')}}">Carrito</a>
+                                        <i class="fas fa-shopping-cart"></i>    <a href="{{route('detalleCompra')}}">Mi Carrito</a>
                                         </li>
                                         <li>
                                         <button id="alerta" type="button" style="border:none; background:none;"><i class="fas fa-bell"></i></button>
@@ -356,7 +356,6 @@
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 <script>
 
-<<<<<<< HEAD
   var firebaseConfig = {
     apiKey: "AIzaSyCMzY42dtyJgXPfzCKZzKp-W2sOvvJcQAM",
     authDomain: "pruebatiendaaxes-4d509.firebaseapp.com",
@@ -373,21 +372,15 @@
 <script src="../Usuario/js/configFirebase.js"></script>
 <script src="../Usuario/js/cart.js"><script>
 <script src="../Usuario/js/chat.js"></script>
-=======
 <script src="../Usuario/js/jquery-3.3.1.min.js"></script>
-
->>>>>>> b60f10b477993a4139f761cf3129c57c507ab820
+<script src="../Usuario/js/jquery-3.3.1.min.js"></script>
 <script src="../Usuario/js/modernizr-3.6.0.min.js"></script>
-<script src="../Usuario/js/jquery-3.3.1.min.js"></script>
 <script src="../Usuario/js/popper.min.js"></script>
 <script src="../Usuario/js/bootstrap.min.js"></script>
 <script src="../Usuario/js/plugins.js"></script>
 <script src="../Usuario/js/ajax-mail.js"></script>
 <script src="../Usuario/js/main.js"></script>
-<<<<<<< HEAD
 <script src="../assets/plugins/sweetalert2/sweetalert2.min.js"></script>
-=======
-
 <script src="../Usuario/js/detailsCart.js"></script>
 <script src="../Usuario/js/finishBuy.js"></script>
 <script src="../Usuario/pushbar/js/pushbar.js"></script>   
@@ -408,7 +401,5 @@
    $('#ex1').zoom();
  </script>
  <script src="../Usuario/js/chat.js"></script>
->>>>>>> b60f10b477993a4139f761cf3129c57c507ab820
-
-  </body>
+   </body>
 </html>

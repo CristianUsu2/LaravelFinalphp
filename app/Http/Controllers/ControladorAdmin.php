@@ -206,7 +206,7 @@ class ControladorAdmin extends Controller
     /*-----------------------Acciones tallas------------------- */
 
     public function MostrarTallas(){
-        $registros=Tallas::paginate(5);
+        $registros=Tallas::all();
        return view('Administrador/tallas/MostrarTallas')->with("tallas",$registros);
     }
 

@@ -97,7 +97,10 @@
 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 9f18b000d4f087a72869bb60a3b3e0d3a53425c1
 <script src="../Usuario/js/jquery-3.3.1.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -125,6 +128,9 @@
     });     
     </script>
 
+<<<<<<< HEAD
 >>>>>>> b60f10b477993a4139f761cf3129c57c507ab820
+=======
+>>>>>>> 9f18b000d4f087a72869bb60a3b3e0d3a53425c1
 @endsection
 
