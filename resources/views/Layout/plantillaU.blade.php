@@ -353,7 +353,6 @@
 <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 <script>
-
   var firebaseConfig = {
     apiKey: "AIzaSyCMzY42dtyJgXPfzCKZzKp-W2sOvvJcQAM",
     authDomain: "pruebatiendaaxes-4d509.firebaseapp.com",
@@ -370,8 +369,8 @@
 <script src="../Usuario/js/configFirebase.js"></script>
 <script src="../Usuario/js/cart.js"><script>
 <script src="../Usuario/js/chat.js"></script>
-<script src="../Usuario/js/modernizr-3.6.0.min.js"></script>
 <script src="../Usuario/js/jquery-3.3.1.min.js"></script>
+<script src="../Usuario/js/modernizr-3.6.0.min.js"></script>
 <script src="../Usuario/js/popper.min.js"></script>
 <script src="../Usuario/js/bootstrap.min.js"></script>
 <script src="../Usuario/js/plugins.js"></script>

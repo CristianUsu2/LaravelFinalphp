@@ -94,26 +94,33 @@ class ControladorUsuario extends Controller
         $busquedaEmail=User::where('email','=',$request->correo)->value('email');
         $busquedaEncrip=User::where('email','=',$request->correo)->value('password');
         $busquedaRol=User::where('email','=',$request->correo)->value('id_rol');
-        $busquedaId=User::where('email','=',$request->correo)->value('Id_Usuarios');
+        $busquedaId=User::where('email','=',$request->correo)->value('Id_Usuarios'); 
         $DatosUsuario=[];
-        $DatosSession=[];
-        if($busquedaEmail !=null && $busquedaEncrip !=null && $busquedaRol!=null && $busquedaId!=null ){
-            array_push($DatosUsuario, $busquedaEmail,$busquedaEncrip, $busquedaRol, $busquedaId);     
-            if($DatosUsuario[0]== $request->correo){
-              if(password_verify($request->password, $DatosUsuario[1])){ 
-                 if($DatosUsuario[2]== 1){
+       
+           if($busquedaEmail !=null && $busquedaEncrip !=null && $busquedaRol!=null && $busquedaId!=null ){
+             array_push($DatosUsuario, $busquedaEmail,$busquedaEncrip, $busquedaRol, $busquedaId);     
+             if($DatosUsuario[0]== $request->correo){
+               if(password_verify($request->password, $DatosUsuario[1])){ 
+
+                if($DatosUsuario[2]== 2){
                   $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
+                  session(['datosU' => $usuario]);
+                  return "admin";
+                  return redirect()->action([ControladorAdmin::class,"index"]);
+                }  
+
+
+
+                else  if($DatosUsuario[2]== 1){
+                    $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
                     session(['datosU' => $usuario]);
-                   return redirect()->action([ControladorUsuario::class,"index"]);
-                 }else if($DatosUsuario[2]==2){
-                  $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
-                    session(['datosU' => $usuario]);
-                    
-                    return redirect()->action([ControladorAdmin::class,"index"]);
-                 }
+                    return "user";
+                    return redirect()->action([ControladorUsuario::class,"index"]);
+                  }
+                
+                }
               }
             }
-        }
          return redirect()->action([ControladorUsuario::class, "login"]);
     }
 
