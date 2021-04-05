@@ -17,6 +17,7 @@ Route::get('/CambiarContraseña', [ControladorUsuario::class, "cambioC"]);
 Route::get('/Categorias', [ControladorUsuario::class, "categoriaU"])->name("categorias");
 Route::get('/Informacion/{Id_Usuarios}', [ControladorUsuario::class, "datosU"]);
 Route::post('/Informacion', [ControladorUsuario::class, "informacionU"])->name('Modificar');
+Route::get('/prueba', [ControladorUsuario::class, "prueba"]);
 
 Route::post("Envio", [MailerController::class, "composeEmail"])->name("send-email");
 Route::get('/Productos/login',[ControladorUsuario::class, "loginC"])->name("loginCerrar");
@@ -26,8 +27,10 @@ Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"
 Route::get('/Productos/finalizarCompra',[ControladorUsuario::class,"FinalizarCompra"]);
 
 /*-------------Rutas de Administrador Usuarios---------------------- */
-Route::get('/Administrador', [ControladorAdmin::class, "index"]);
+Route::get('/Administrador', [ControladorAdmin::class, "index"])->name('inicio');
 Route::get('/Administrador/usuarios', [ControladorAdmin::class, "usuarios"])->name('usuarios');
+Route::get('/Administrador/perfil/{Id_Usuarios}', [ControladorAdmin::class, "datosA"])->name('datos');
+Route::post('/Administrador/perfil', [ControladorAdmin::class, "perfil"])->name('editarD');
 Route::post('/Administrador/usuarios/crear', [ControladorAdmin::class, "crear"]);
 Route::get('/Administrador/usuarios/{Id_Usuarios}', [ControladorAdmin::class, "estado"]);
 Route::get('/Administrador/usuariosE/{Id_Usuarios}',[ControladorAdmin::class, "editarUsuario"]);
@@ -61,3 +64,7 @@ Route::get('/Administrador/colores/ModificarTalla/{id}',[ControladorAdmin::class
 Route::post('/Administrador/colores/MostrarTallas',[ControladorAdmin::class,"EditarTalla"])->name('EditarTalla');
 Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class, "EstadoColor"]);
 Route::get('/Administrador/colores/Estado/{id}',[ControladorAdmin::class,"EstadoTalla"]);
+
+/*----------------------Rutas de productos---------------------- */
+Route::get('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,"MostrarProductos"]);
+Route::post('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,"GuardarProductos"]);

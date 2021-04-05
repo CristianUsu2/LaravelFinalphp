@@ -94,32 +94,5 @@
     </div>
 </div>
 
-<script src="../Usuario/js/jquery-3.3.1.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-
-@if (session('boton') == 'lola')
-        <script>
-                    $('#registros').click(function(e){
-                        e.preventDefault();
-                    });     
-
-        </script>
-@endif
-
-    <script>
-   
-
-        $('#registros').click(function(e){
-
-         Swal.fire(
-        '¡Registro Éxitoso!',
-        'Tu Cuenta Ha Sido Creada Correctamente',
-        'success'
-        )
-        this.submit();
-    });     
-    </script>
-
 @endsection
 

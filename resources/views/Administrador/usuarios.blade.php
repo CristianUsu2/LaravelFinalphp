@@ -82,9 +82,9 @@
 
                     <tr>
 
-                        <th width="50">Id</th>
+                        <th width="10">Id</th>
 
-                        <th>Numero de identificacion</th>
+                        <th width="60">N° de identificacion</th>
 
                         <th>Nombre</th>
 
@@ -96,8 +96,8 @@
 
                         <th>Estado</th>
                         
-                        <th width="220px">Fecha de creacion</th> 
-                        <th width="100px">Acciones</th>
+                    
+                        <th width="80px">Acciones</th>
 
                     </tr>
 
@@ -114,7 +114,7 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->telefono}}</td>
                         <td>{{$user->estado==1?"Activo":"Inactivo"}}</td>
-                        <td>{{$user->created_at}}</td>
+                      
                         <td>
                             <a href="{{url('/Administrador/usuariosE/'.$user->Id_Usuarios)}}" class="btn btn-primary mb-2">Editar</a>
                             <a href="{{url('/Administrador/usuarios/'.$user->Id_Usuarios)}}" class="btn btn-dark">Cambio Estado</a>

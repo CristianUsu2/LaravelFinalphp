@@ -6,12 +6,19 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use UxWeb\SweetAlert\SweetAlert;
 
 class ControladorUsuario extends Controller
 {
     public function index(){
         
         return view('Usuario/index');
+        SweetAlert::message('Robots are working!');
+
+   }
+   public function prueba(){
+    alert()->success('You have been logged out.', 'Good bye!');
+    return view('Usuario/prueba');
    }
    public function categoriaU(){
      return view('Usuario/categoriaU');
@@ -83,8 +90,11 @@ class ControladorUsuario extends Controller
              $registro->apellido = $request->apellido;
              $registro->telefono = $request->telefono;
              $registro->save();
+             alert()->success('You have been logged out.', 'Good bye!');
+
            }
         }catch(Exception $e){
+          alert()->error('Error Message', 'Optional Title');
             return response()->json($e.getMessage());
           }
           return redirect()->action([ControladorUsuario::class, "index"]);     
@@ -105,7 +115,7 @@ class ControladorUsuario extends Controller
                 if($DatosUsuario[2]== 2){
                   $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
                   session(['datosU' => $usuario]);
-                  return "admin";
+                 
                   return redirect()->action([ControladorAdmin::class,"index"]);
                 }  
 
@@ -114,7 +124,7 @@ class ControladorUsuario extends Controller
                 else  if($DatosUsuario[2]== 1){
                     $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
                     session(['datosU' => $usuario]);
-                    return "user";
+                   
                     return redirect()->action([ControladorUsuario::class,"index"]);
                   }
                 
