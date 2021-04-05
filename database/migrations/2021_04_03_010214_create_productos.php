@@ -20,6 +20,7 @@ class CreateProductos extends Migration
             $table->float('precio');
             $table->decimal('descuento',5,4)->nullable();
             $table->integer('estado');
+            $table->string('descripcion');
             $table->unsignedBigInteger('id_color');
             $table->unsignedBigInteger('id_categoria');
             $table->foreign('id_color')->references('id')->on('colores');

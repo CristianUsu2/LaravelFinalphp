@@ -148,7 +148,7 @@
                  </div>
                 </div>
                 @endforeach
-                {{$productos->links()}}
+                
             </div>
 
     </div>
@@ -185,6 +185,7 @@
        multiSelect.children(':selected').each((a,v)=>{
            let talla={
                'idTalla':v.value
+               //'talla': v
            }
            tallas.push(talla);
        });

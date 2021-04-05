@@ -288,8 +288,8 @@ class ControladorAdmin extends Controller
                            ->join('colores','colores.id','=','productos.id_color')
                            ->join('categorias','categorias.id','=','productos.id_categoria')
                            ->join('producto_talla','producto_talla.id_producto','=','productos.id')
-                           ->select("*")
-                           ->paginate(6);
+                          
+                           ->distinct()->get();
      return view('Administrador/productos/MostrarProductos')
                                           ->with('colores',$colores)
                                           ->with('categorias',$categorias)
