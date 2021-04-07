@@ -5,8 +5,6 @@
     <div class="container">
         <div class="member-area-from-wrap">
             <div class="row">
-            @include('sweet::alert')
-
                 <!-- Login Content Start -->
                 <div class="col-lg-6">
                     <div class="login-reg-form-wrap  pr-lg-50">
@@ -123,33 +121,6 @@
         </div>
     </div>
 </div>
-
-<script src="../Usuario/js/jquery-3.3.1.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-
-@if (session('error') == 'login')
-        <script>
-                    Swal.fire({
-  icon: 'error',
-  title: 'Oops...',
-  text: 'Something went wrong!',
-  footer: '<a href>Why do I have this issue?</a>'
-})
-        </script>
-@endif
-
-    <script>
-   
-
-        $('#registros').click(function(e){
-         Swal.fire(
-        '¡Registro Éxitoso!',
-        'Tu Cuenta Ha Sido Creada Correctamente',
-        'success'
-        )
-    });     
-    </script>
 
 @endsection
 

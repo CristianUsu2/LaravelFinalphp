@@ -10,14 +10,12 @@
     <link rel="stylesheet" href="../Usuario/css/plugins.css">
     <link rel="stylesheet" href="../Usuario/css/style.css">
     <link rel="stylesheet" href="../Usuario/css/skin-default.css">
-    <link rel="stylesheet" href="../assets/plugins/sweetalert2/sweetalert2.css">
 
     <link rel="icon" href="../Usuario/img/logo.jpeg" />
     <title>Tienda Axes</title>
   </head>
   <body>
       <div class="wrapper">
-      @include('sweet::alert')
 
         <!-- header area start -->
         <header>
@@ -355,7 +353,6 @@
 <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 <script>
-
   var firebaseConfig = {
     apiKey: "AIzaSyCMzY42dtyJgXPfzCKZzKp-W2sOvvJcQAM",
     authDomain: "pruebatiendaaxes-4d509.firebaseapp.com",
@@ -373,33 +370,12 @@
 <script src="../Usuario/js/cart.js"><script>
 <script src="../Usuario/js/chat.js"></script>
 <script src="../Usuario/js/jquery-3.3.1.min.js"></script>
-<script src="../Usuario/js/jquery-3.3.1.min.js"></script>
 <script src="../Usuario/js/modernizr-3.6.0.min.js"></script>
 <script src="../Usuario/js/popper.min.js"></script>
 <script src="../Usuario/js/bootstrap.min.js"></script>
 <script src="../Usuario/js/plugins.js"></script>
 <script src="../Usuario/js/ajax-mail.js"></script>
 <script src="../Usuario/js/main.js"></script>
-<script src="../assets/plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="../Usuario/js/detailsCart.js"></script>
-<script src="../Usuario/js/finishBuy.js"></script>
-<script src="../Usuario/pushbar/js/pushbar.js"></script>   
 
-
-
-
-<script>
-    let pushbar= new Pushbar({
-     blur:true,
-     overlay:true
-    });
-</script>
- <script src="../Usuario/js/jquery-1.8.3.min.js"></script>
- <script src="../Usuario/js/jquery.zoom.js"></script>
-
- <script>
-   $('#ex1').zoom();
- </script>
- <script src="../Usuario/js/chat.js"></script>
-   </body>
+  </body>
 </html>

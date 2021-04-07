@@ -4,20 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTallas extends Migration
+class CreateFotoProducto extends Migration
 {
     /**
      * Run the migrations.
-     * 
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('tallas', function (Blueprint $table) {
+        Schema::create('foto_producto', function (Blueprint $table) {
             $table->id();
-            $table->string('talla', 5)->unique();
-            $table->integer('estado');
+            $table->string('foto',80);
+            $table->unsignedBigInteger('id_producto'); 
+            $table->foreign('id_producto')->references('id')->on('productos');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateTallas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tallas');
+        Schema::dropIfExists('foto_producto');
     }
 }

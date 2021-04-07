@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tallas extends Model
+class ProductosTallas extends Model
 {
+    public $table = "producto_talla";
     use HasFactory;
 
-    public function Productos(){
-        return $this->belongsToMany('App\Models\Productos');
-    }
 }

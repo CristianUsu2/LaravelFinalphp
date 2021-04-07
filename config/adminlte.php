@@ -222,7 +222,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/8.-Menu-Configuration
     |
     */
-
+    
     'menu' => [
         [
             'text' => 'Buscar',
@@ -254,8 +254,8 @@ return [
                     'url'     => '#',
                     'submenu' => [
                         [
-                            'text' => 'level_two',
-                            'url'  => '#',
+                            'text' => 'Mostrar Productos',
+                            'url'  => '/Administrador/productos/MostrarProductos',
                         ],
                         [
                             'text'    => 'level_two',

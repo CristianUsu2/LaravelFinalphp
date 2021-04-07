@@ -9,4 +9,7 @@ class Colores extends Model
 {
     use HasFactory;
     
+    public function productos(){
+        return $this->hasMany('App\Models\Productos');
+    }
 }

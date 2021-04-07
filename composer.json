@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.2",
         "phpmailer/phpmailer": "^6.3",
+        "snapappointments/bootstrap-select": "^1.13",
         "uxweb/sweet-alert": "^2.0"
     },
     "require-dev": {

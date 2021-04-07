@@ -122,12 +122,14 @@ class ControladorUsuario extends Controller
                 if($DatosUsuario[2]== 2){
                   $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
                   session(['datosU' => $usuario]);
+                 
                   return redirect()->action([ControladorAdmin::class,"index"]);
                 }  
 
                 else  if($DatosUsuario[2]== 1){
                     $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();
                     session(['datosU' => $usuario]);
+                   
                     return redirect()->action([ControladorUsuario::class,"index"]);
                   }
                 

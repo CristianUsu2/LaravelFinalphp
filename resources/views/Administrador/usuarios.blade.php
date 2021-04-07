@@ -82,9 +82,13 @@
 
                     <tr>
 
-                        <th width="50">Id</th>
+                        <th width="10">Id</th>
 
+<<<<<<< HEAD
                         <th>Documento</th>
+=======
+                        <th width="60">N° de identificacion</th>
+>>>>>>> 50cf7903c6c7c53843a6350981d49643e860eda1
 
                         <th>Nombre</th>
 
@@ -96,7 +100,12 @@
 
                         <th>Estado</th>
                         
+<<<<<<< HEAD
                         <th width="220px">Acciones</th>
+=======
+                    
+                        <th width="80px">Acciones</th>
+>>>>>>> 50cf7903c6c7c53843a6350981d49643e860eda1
 
                     </tr>
 
@@ -113,6 +122,7 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->telefono}}</td>
                         <td>{{$user->estado==1?"Activo":"Inactivo"}}</td>
+                      
                         <td>
                             <a href="{{url('/Administrador/usuariosE/'.$user->Id_Usuarios)}}" class="btn btn-primary">Editar</a>
                             <a href="{{url('/Administrador/usuarios/'.$user->Id_Usuarios)}}" class="btn btn-dark">Cambio Estado</a>

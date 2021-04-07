@@ -57,7 +57,12 @@ Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class, 
 
 /*----------Rutas de las tallas------------ */
 Route::get('/Administrador/tallas/MostrarTallas',[ControladorAdmin::class, "MostrarTallas"])->name('MostrarTallas');
-Route::post('/Administrador/tallas/GuardarTalla',[ControladorAdmin::class,"GuardarTalla"])->name('GuardarTalla');
-Route::get('/Administrador/tallas/ModificarTallas/{id}',[ControladorAdmin::class,"ModificarTalla"]);
-Route::post('/Administrador/tallas/MostrarTallas',[ControladorAdmin::class,"EditarTalla"])->name('EditarTalla');
-Route::get('/Administrador/tallas/Estado/{id}',[ControladorAdmin::class,"EstadoTalla"]);
+Route::post('/Administrador/colores/GuardarTalla',[ControladorAdmin::class,"GuardarTalla"])->name('GuardarTalla');
+Route::get('/Administrador/colores/ModificarTalla/{id}',[ControladorAdmin::class,"ModificarTalla"]);
+Route::post('/Administrador/colores/MostrarTallas',[ControladorAdmin::class,"EditarTalla"])->name('EditarTalla');
+Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class, "EstadoColor"]);
+Route::get('/Administrador/colores/Estado/{id}',[ControladorAdmin::class,"EstadoTalla"]);
+
+/*----------------------Rutas de productos---------------------- */
+Route::get('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,"MostrarProductos"]);
+Route::post('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,"GuardarProductos"]);

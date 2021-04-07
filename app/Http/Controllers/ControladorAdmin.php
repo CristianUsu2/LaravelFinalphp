@@ -5,13 +5,17 @@ use App\Models\Colores;
 use App\Models\Categorias;
 use App\Models\User;
 use App\Models\Tallas;
+use App\Models\Productos;
+use App\Models\FotoProducto;
+use App\Models\ProductosTallas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ControladorAdmin extends Controller
 {
   /*------------Acciones Usuarios ------------------- */
     public function index(){
-        return view('Administrador/index');
+        return view('Administrador/Index');
     }
     public function usuarios(){
          $users = User::all();
@@ -28,29 +32,35 @@ class ControladorAdmin extends Controller
       $usuA=User::find($request->IdUsuario);
       if($usuA !=null){
           try{
+            
             $usuA->identificacion=$request->identificacion;
             $usuA->name=$request->nombre;
             $usuA->email=$request->email;
             $usuA->apellido=$request->apellido;
             $usuA->telefono=$request->telefono;
             $usuA->save();
+          
             return redirect()->action([ControladorAdmin::class, "index"]);
+
           }catch(Exception $e){
-             return redirect()->json($e.getMessage());
+          
           }
       }
     }
     public function estado($Id_Usuarios){
        $UsuB=User::Where("Id_Usuarios","=",$Id_Usuarios)->first();
        try{
+      
           if($UsuB->estado==1){
              $UsuB->estado=0;       
           }else{
             $UsuB->estado=1;
           }        
           $UsuB->save();
+         
         return redirect()->action([ControladorAdmin::class, "usuarios"]);
        }catch(Exception $e){
+        
          return response()->json($e.getMessage());
        }
     }
@@ -64,13 +74,16 @@ class ControladorAdmin extends Controller
       $usuM=User::find($request->IdUsuario);
       if($usuM !=null){
           try{
+         
             $usuM->name=$request->NombreN;
             $usuM->email=$request->CorreoN;
             $usuM->Apellido=$request->ApellidoN;
             $usuM->telefono=$request->TelefonoN;
             $usuM->save();
+          
             return redirect()->action([ControladorAdmin::class, "usuarios"]);
           }catch(Exception $e){
+           
              return redirect()->json($e.getMessage());
           }
       }
@@ -87,6 +100,7 @@ class ControladorAdmin extends Controller
      ]);
       try{
       if($request->passwordNu== $request->passwordNuR){
+      
        $registro = new User();
        $registro->name = $request->nombreNu;
        $registro->email = $request->emailNu;
@@ -96,9 +110,11 @@ class ControladorAdmin extends Controller
        $registro->apellido = $request->apellidoNu;
        $registro->telefono = $request->telefonoNu;
        $registro->save();
+      
       }
       }catch(Exception $e){
-      return response()->json($e.getMessage());
+        
+        return response()->json($e.getMessage());
       }
       return redirect()->action([ControladorAdmin::class, "usuarios"]);
     }
@@ -261,6 +277,82 @@ class ControladorAdmin extends Controller
       }
       return redirect()->action([ControladorAdmin::class, "MostrarTallas"]);
     }
+
+   /*----------Accciones productos------------ */
+  
+   public function MostrarProductos(){
+     
+      $colores=Colores::where("estado","=", "1")->get();
+      $categorias=Categorias::where("estado","=","1")->get();
+      $tallas=Tallas::where("estado","=","1")->get();
+      $producto=Productos::join('foto_producto','foto_producto.id_producto','=','productos.id')
+                           ->join('colores','colores.id','=','productos.id_color')
+                           ->join('categorias','categorias.id','=','productos.id_categoria')
+                           ->join('producto_talla','producto_talla.id_producto','=','productos.id')
+                            ->paginate(6);                          
+     return view('Administrador/productos/MostrarProductos')
+                                          ->with('colores',$colores)
+                                          ->with('categorias',$categorias)
+                                          ->with('tallas',$tallas)
+                                          ->with('productos',$producto);
+   }
+
+   public function GuardarTablaFotoProducto($e,$producto){
+     foreach($e as $imagen){
+      $fotoProducto=new FotoProducto();
+      $fotoProducto->foto=$imagen->store('uploads','public');
+      $fotoProducto->id_producto=$producto->id;
+      $fotoProducto->save();
+     }
+     return true;
+  }
+
+  public function GuardarTallaIntermedia($tallas,$cantidadesTallas,$producto){
+  foreach($tallas as $filas =>$talla){
+     $producto_talla= new ProductosTallas();
+     $producto_talla->cantidad=$cantidadesTallas[$filas];
+     $producto_talla->id_talla=$talla;
+     $producto_talla->id_producto=$producto->id;
+     $producto_talla->save();
+   }
+   return true;
+  }
+
+   public function GuardarProductos(Request $request){
+     try{
+       $tallas=$request->tallas;
+       $cantidadesTallas=$request->cantidadTalla;
+        $producto= new Productos(); 
+        $producto->nombre=$request->nombre;
+        $producto->stock=$request->stock;
+        $producto->precio=$request->precio;
+        $producto->descuento=$request->descuento;
+        $producto->estado=1;
+        $producto->descripcion = $request->descripcion;
+        $producto->id_color=$request->color;
+        $producto->id_categoria=$request->categoria;
+        $producto->save();
+
+        if($request->hasFile('imagenes')){
+          $imagenes=$request->imagenes;
+          $r=ControladorAdmin::GuardarTablaFotoProducto($imagenes,$producto);
+          if($r){
+            $res=ControladorAdmin::GuardarTallaIntermedia($tallas,$cantidadesTallas,$producto);
+            if($res){
+              return redirect()->action([ControladorAdmin::class, "MostrarProductos"]);
+            }
+          }
+        }
+     
+     }catch(Exception $e){
+     
+      return "no golio";
+     }
+     
+    return response()->json($request);
+   }
+
+   
 }
 
                     
