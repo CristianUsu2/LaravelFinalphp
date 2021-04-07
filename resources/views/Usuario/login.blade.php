@@ -12,13 +12,13 @@
                         <form action="{{url('/InicioSesion')}}" method="post">
                             @csrf
                             <div class="single-input-item">
-                                <input type="email" placeholder="Ingrese su Correo" name="correo"/>
+                                <input type="email" placeholder="Ingrese su Correo" name="Correo"/>
                                 @if($errors->has('Correo'))
                                 <span class="error text-danger">{{$errors->first('Correo')}}</span>
                                 @endif
                             </div>
                             <div class="single-input-item">
-                                <input type="password" placeholder="Ingrese su Contraseña" name="password"/>
+                                <input type="password" placeholder="Ingrese su Contraseña" name="Contraseña"/>
                                 @if($errors->has('Contraseña'))
                                 <span class="error text-danger">{{$errors->first('Contraseña')}}</span>
                                 @endif

@@ -28,6 +28,33 @@ class ControladorUsuario extends Controller
      return view('Usuario/informacion')->with('usuario',$UserB);;
    }
 
+   public function update(Request $request){
+    $request->validate([
+       'pass' => 'required|min:2|max:30',
+       'passC' => 'required|min:2|max:30'
+       ]);
+
+    $correoC=User::where('email','=',$request->correo)->first();
+
+    if($correoC && $request->pass == $request->passC){
+      $password = bcrypt($request->pass);
+      $correoC->password = $password; 
+      $correoC->save();
+    }
+
+    if(!$correoC ) {
+      return back()->with("failed", "Ocurrio un error, no pudimos cambiar su contraseña, por favor vuelva a intentarlo.")->withError();
+  }
+  
+  else {
+      return back()->with("success", "Su contraseña fue cambiada exitosamente.");
+  }
+
+
+   return back()->with('error','No se pudo modificar la contraseña.');   
+
+   }
+
    public function informacionU(Request $request){
     $usuM=User::find($request->IdUsuario);
     if($usuM !=null){
@@ -108,16 +135,16 @@ class ControladorUsuario extends Controller
          'Contraseña' => 'required|min:2|max:30'
      
     ]);
-        $busquedaEmail=User::where('email','=',$request->correo)->value('email');
-        $busquedaEncrip=User::where('email','=',$request->correo)->value('password');
-        $busquedaRol=User::where('email','=',$request->correo)->value('id_rol');
-        $busquedaId=User::where('email','=',$request->correo)->value('Id_Usuarios'); 
+        $busquedaEmail=User::where('email','=',$request->Correo)->value('email');
+        $busquedaEncrip=User::where('email','=',$request->Correo)->value('password');
+        $busquedaRol=User::where('email','=',$request->Correo)->value('id_rol');
+        $busquedaId=User::where('email','=',$request->Correo)->value('Id_Usuarios'); 
         $DatosUsuario=[];
        
            if($busquedaEmail !=null && $busquedaEncrip !=null && $busquedaRol!=null && $busquedaId!=null ){
              array_push($DatosUsuario, $busquedaEmail,$busquedaEncrip, $busquedaRol, $busquedaId);     
-             if($DatosUsuario[0]== $request->correo){
-               if(password_verify($request->password, $DatosUsuario[1])){ 
+             if($DatosUsuario[0]== $request->Correo){
+               if(password_verify($request->Contraseña, $DatosUsuario[1])){ 
 
                 if($DatosUsuario[2]== 2){
                   $usuario=User::where('Id_Usuarios','=',$DatosUsuario[3])->get();

@@ -22,7 +22,7 @@ class MailerController extends Controller {
         $dt = "";
         $email = $request->emailBcc;
         $busquedaEmail=User::where('email','=',$request->emailBcc)->value('email');
-
+        $contra = User::where('password','=',$busquedaEmail)->value('password');
         require base_path("vendor/autoload.php");
             $mail = new PHPMailer(true);     // Passing `true` enables exceptions
             // Email server settings

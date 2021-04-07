@@ -17,7 +17,7 @@ Route::get('/CambiarContraseña', [ControladorUsuario::class, "cambioC"]);
 Route::get('/Categorias', [ControladorUsuario::class, "categoriaU"])->name("categorias");
 Route::get('/Informacion/{Id_Usuarios}', [ControladorUsuario::class, "datosU"]);
 Route::post('/Informacion', [ControladorUsuario::class, "informacionU"])->name('Modificar');
-Route::get('/prueba', [ControladorUsuario::class, "prueba"]);
+Route::post('/CambiarContraseña', [ControladorUsuario::class, "update"])->name('cambiarC');
 
 Route::post("Envio", [MailerController::class, "composeEmail"])->name("send-email");
 Route::get('/Productos/login',[ControladorUsuario::class, "loginC"])->name("loginCerrar");
@@ -66,3 +66,15 @@ Route::get('/Administrador/colores/Estado/{id}',[ControladorAdmin::class,"Estado
 /*----------------------Rutas de productos---------------------- */
 Route::get('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,"MostrarProductos"]);
 Route::post('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,"GuardarProductos"]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
