@@ -99,6 +99,7 @@ class ControladorUsuario extends Controller
    }
     
     public function register(Request $request){
+      $registro ="";
        $request->validate([
             'nombre' => 'required|min:2|max:20',
             'apellido'=> 'required|min:2|max:20',
@@ -108,7 +109,7 @@ class ControladorUsuario extends Controller
              'ConfirmarContraseña'=>'required|min:2|max:30',
              'telefono' => 'required|min:2|max:11'
         ]);
-        try{
+        
           if($request->contraseña== $request->ConfirmarContraseña){
              $registro = new User();
              $registro->name = $request->nombre;
@@ -119,15 +120,14 @@ class ControladorUsuario extends Controller
              $registro->apellido = $request->apellido;
              $registro->telefono = $request->telefono;
              $registro->save();
-             alert()->success('You have been logged out.', 'Good bye!');
 
            }
-        }catch(Exception $e){
-          alert()->error('Error Message', 'Optional Title');
-            return response()->json($e.getMessage())->with('error','login');
-          }
-          return redirect()->action([ControladorUsuario::class, "index"]);     
-    }
+           if($registro) {
+            return back()->with("success", "Su cuenta ha sido creada exitosamente.");
+        }
+        
+         return back()->with('error','No se pudo crear tu cuenta.');  
+        } 
 
     public function loginV(Request $request){
       $request->validate([

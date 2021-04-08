@@ -46,7 +46,9 @@
                 <div class="col-lg-6">
                     <div class="login-reg-form-wrap mt-md-34 mt-sm-34">
                         <h2>REGISTRO</h2>
-
+                        @if(Session::has("success"))
+                            <div class="alert alert-success alert-dismissible"><button type="button" class="close">&times;</button>{{Session::get('success')}}</div>
+                        @endif
                 
                         <form action="{{url('/InicioSesionR')}}" method="post" id="registro">
                             @csrf

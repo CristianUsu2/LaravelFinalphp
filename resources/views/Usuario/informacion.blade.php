@@ -10,7 +10,7 @@
                         <h2>EDITAR PERFIL</h2>
                         <form action="{{route('Modificar')}}" method="POST">
                             @csrf
-                            <input type="hidden" value="{{$usuario->Id_Usuarios}}" name="IdUsuario"/>
+                            <input type="hidden" value="{{$usuario->Id_Usuarios}}" name="id"/>
 
                             <div class="single-input-item">
                                 <input type="text" name="identificacion" value="{{$usuario->identificacion}}" placeholder="Documento Identidad" />

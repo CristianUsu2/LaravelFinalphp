@@ -13,6 +13,8 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('users');
+
         Schema::create('users', function (Blueprint $table) {
             $table->id('Id_Usuarios');
             $table->string('name',30);
@@ -24,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('id_rol')->default(1);
             $table->string('apellido', 20);
             $table->string('telefono', 10);
-            $table->foreign('id_rol')->references('Id_Usuarios')->on('users');
+            $table->foreign('id_rol')->references('id_rol')->on('roles');
             $table->rememberToken();
             $table->timestamps();
         });
