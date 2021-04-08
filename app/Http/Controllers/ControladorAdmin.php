@@ -281,21 +281,25 @@ class ControladorAdmin extends Controller
    /*----------Accciones productos------------ */
   
    public function MostrarProductos(){
-     
-      $colores=Colores::where("estado","=", "1")->get();
-      $categorias=Categorias::where("estado","=","1")->get();
-      $tallas=Tallas::where("estado","=","1")->get();
-      $producto=Productos::join('foto_producto','foto_producto.id_producto','=','productos.id')
-                           ->join('colores','colores.id','=','productos.id_color')
-                           ->join('categorias','categorias.id','=','productos.id_categoria')
-                           ->join('producto_talla','producto_talla.id_producto','=','productos.id')
-                            ->paginate(6);                          
-     return view('Administrador/productos/MostrarProductos')
-                                          ->with('colores',$colores)
-                                          ->with('categorias',$categorias)
-                                          ->with('tallas',$tallas)
-                                          ->with('productos',$producto);
-   }
+    $colores=Colores::where("estado","=", "1")->get();
+    $categorias=Categorias::where("estado","=","1")->get();
+    $tallas=Tallas::where("estado","=","1")->get();
+    $producto=Productos::all();
+    $imagenes= Productos::select('productos.id','foto_producto.foto')
+                         ->join('foto_producto','foto_producto.id_producto','=','productos.id')
+                         ->get();
+                        
+    $tallasP=Productos::join('producto_talla','producto_talla.id_producto','=','productos.id')
+                         ->select("*")
+                         ->get();
+   return view('Administrador/productos/MostrarProductos')
+                                        ->with('colores',$colores)
+                                        ->with('categorias',$categorias)
+                                        ->with('tallas',$tallas)
+                                        ->with('productos',$producto)
+                                        ->with('imagenes',$imagenes)
+                                        ->with('tallasP', $tallasP);
+ }
 
    public function GuardarTablaFotoProducto($e,$producto){
      foreach($e as $imagen){
@@ -352,6 +356,22 @@ class ControladorAdmin extends Controller
     return response()->json($request);
    }
 
+   public function EstadoProductos($id){
+    $busquedaProducto=Productos::find($id);
+    try{
+      if($busquedaProducto!=null){
+        if($busquedaProducto->estado==1){
+           $busquedaProducto->estado=0;
+         }else{
+          $busquedaProducto->estado=1;  
+         }
+        $busquedaProducto->save();
+        return redirect()->action([ControladorAdmin::class, "MostrarProductos"]);
+       } 
+     }catch(Exception $e){
+      return $e.getMensagge();
+     }   
+   }
    
 }
 

@@ -118,42 +118,58 @@
                 </div> 
             </div>
 
-            <div class="row">
-                @foreach ($productos as $p)
-                <div class="col-4">
-                 <div class="card">
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{ asset('storage').'/'.$p->foto }}" alt="First slide">
-                          </div>
+            <div class="row" id="contenedorImagenes">
+              @foreach ($productos as $p)
+              <div class="col-4">
+               <div class="card">
+                  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"> 
+                    <div class="carousel-inner">
+                         @foreach ($imagenes as $imagen)
+                          @if($imagen->id == $p->id)
                           <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ asset('storage').'/'.$p->foto }}" alt="Second slide">
+                            <img class="d-block w-100" src="{{asset('storage').'/'.$imagen->foto}}" alt="First slide">
                           </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ asset('storage').'/'.$p->foto }}" alt="Third slide">
-                          </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a>
+                           
+                          @endif
+                        @endforeach
+                       
                       </div>
-                    <div class="card-body">
-                      <h5 class="card-title">{{$p->nombre}}</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Editar</a>
-                      <a href="#" class="btn btn-dark">Cambiar estado</a>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
                     </div>
-                 </div>
-                </div>
-                @endforeach
-                {{$productos->links()}}
-            </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Nombre:{{$p->nombre}}</h5>
+                    <p class="card-text">Descripcion:{{$p->descripcion}}</p>
+                    <p class="card-text">Descuento:@if($p->descuento==0.0000) No tiene descuento @endif</p>
+                    <p class="card-text">Precio:${{$p->precio}}</p>
+                    <p class="card-text">Categoria:@foreach($categorias as $categoria)@if($p->id_categoria==$categoria->id){{$categoria->Nombre_Categoria}}@endif @endforeach</p>
+                    <p class="card-text">Color:@foreach($colores as $c)@if($p->id_color==$c->id){{$c->color}}@endif @endforeach</p>
+                    <p class="card-text">Stock:{{$p->stock}} </p>
+                     @foreach($tallasP as $tallaP)
+                      @if($p->id==$tallaP->id_producto)
+                      @foreach ($tallas as $t)
+                          @if($t->id == $tallaP->id_talla)
+                            <p class="card-text">Tallas:{{$t->talla}}</p>
+                            <p>cantidades:{{$tallaP->cantidad}}</p>
+                          @endif
+                      @endforeach
+                       @endif
+                      @endforeach 
+                     <p class="card-text">Estado:@if($p->estado==1)Activo @else Inactivo @endif</p> 
+                    <a href="#" class="btn btn-primary">Editar</a>
+                    <a href="{{url('/Administrador/productos/MostrarProductos/'.$p->id)}}" class="btn btn-dark">Cambiar estado</a>
+                  </div>
+               </div>
+              </div>
+              @endforeach
+              
+          </div>
 
     </div>
 
@@ -221,7 +237,11 @@
     } 
 
 </script>
-
+<script>
+  const divsImagenes=document.querySelector("#contenedorImagenes");
+  const nodos=divsImagenes.querySelectorAll(".carousel-inner");
+  nodos.forEach(e=>e.firstElementChild.classList.add("active"));
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>

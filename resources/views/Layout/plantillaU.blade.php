@@ -369,6 +369,7 @@
 <script src="../Usuario/js/configFirebase.js"></script>
 <script src="../Usuario/js/cart.js"><script>
 <script src="../Usuario/js/chat.js"></script>
+<script src="../Usuario/js/detailsCart.js"></script>
 <script src="../Usuario/js/jquery-3.3.1.min.js"></script>
 <script src="../Usuario/js/modernizr-3.6.0.min.js"></script>
 <script src="../Usuario/js/popper.min.js"></script>

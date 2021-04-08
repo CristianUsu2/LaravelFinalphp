@@ -27,13 +27,14 @@ let SacarTalla = (e) => {
 
 
 let AñadirElementoLocalStorage = () => {
+  tallaP="M";
   if (tallaP != null) {
     let itemP = id.value;
-    let nombreP = articulo.textContent;
+    let nombreP =articulo.textContent;
     let precioS = precio.textContent;
-    let imgP = imgE.src;
+    let imgP =imgE.src;
     let colorP = color.textContent;
-    let precioP = precioS.substring(1);
+    let precioP =precioS.substring(1);
     let cantidadP = 1;
     const producto = {
       itemP,
@@ -77,7 +78,7 @@ let MostrarProductos = () => {
           <span>${Element.precioP}</span>
       </div>
       <div class="del-icon">
-          <i class="fa fa-times"></i>
+          <i class="fa fa-times" onclick="EliminarProducto(${Element.itemP})"></i>
       </div>
    `;
     });
@@ -119,7 +120,7 @@ let EliminarProducto = (e) => {
   objetos.splice(indice, 1);
   localStorage.setItem("productos", JSON.stringify(objetos));
   MostrarProductos();
-  MostrarProductosDetalle();
+  CalculoCompra();
 }
 
 let CalculoCompra = () => {
@@ -128,7 +129,7 @@ let CalculoCompra = () => {
   console.log(subtotal);
   let objetos = JSON.parse(localStorage.getItem("productos"));
   if (objetos != null) {
-    let valorSubtotal = objetos.reduce((e, i) =>  Number(i.precioP.replace('.', '')) * Number(i.cantidadP), 0);
+    let valorSubtotal = objetos.reduce((e, i) => Number(i.precioP) * Number(i.cantidadP),0);
    subtotal.textContent= '$' + valorSubtotal;
     total.textContent= '$' + valorSubtotal;
   }

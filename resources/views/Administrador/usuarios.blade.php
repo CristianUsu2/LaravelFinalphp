@@ -84,11 +84,7 @@
 
                         <th width="10">Id</th>
 
-<<<<<<< HEAD
                         <th>Documento</th>
-=======
-                        <th width="60">N° de identificacion</th>
->>>>>>> 50cf7903c6c7c53843a6350981d49643e860eda1
 
                         <th>Nombre</th>
 
@@ -100,12 +96,7 @@
 
                         <th>Estado</th>
                         
-<<<<<<< HEAD
                         <th width="220px">Acciones</th>
-=======
-                    
-                        <th width="80px">Acciones</th>
->>>>>>> 50cf7903c6c7c53843a6350981d49643e860eda1
 
                     </tr>
 

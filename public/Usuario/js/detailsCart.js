@@ -1,33 +1,29 @@
 
-let tbody = document.getElementById("tbody");
+let tbody = document.getElementById("tbodyC");
 let botonFinalizar=document.getElementById("btnFinalizarC");
 let productos = JSON.parse(localStorage.getItem("productos"));
+
 let MostrarProductosDetalle = () => {
   if (tbody != null) {
     tbody.innerHTML = '';
     if (productos != null) {
       productos.forEach(Element => {
         tbody.innerHTML += `
-     <tr>
-     <td><img class="prod-secc-img" src="${Element.imgP}" /></td>
-      <input type="hidden" value="${Element.itemP}" />
-      <td><div class="div-descripDet">
-      <p class="nombreP-Details">${Element.nombreP}</p>
-      <p class="colorP-Details">${Element.colorP}</p>
-      </div></td>
-      <td><p class="precio-Details">${Element.precioP}</p></td>
-      <td>
-      <div class="Div-Cantidad-details">
-      <div class="qty mt-5" id="inputDiv">
-      <input type="hidden" value="${Element.itemP}"/>
-      <span  class="minus bg-dark">-</span>
-      <input id="inputD" type="text" class="count" name="qty" value="1" disabled>
-      <span  class="plus bg-dark">+</span>
-      </div>
-      </div>
-      </td>
-      <td><p class="remove-details"><a class="remove" onclick="EliminarProducto(${Element.itemP})"><i class="fas fa-trash-alt"></i></a></p></td>
-     </tr>
+        <tr>
+        <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="${Element.imgP}" alt="Product"/></a></td>
+        <td class="pro-title"><a href="#">${Element.nombreP}</a></td>
+        <td class="pro-price"><span>$${Element.precioP}</span></td>
+        <td class="pro-quantity">
+            <div class="pro-qty">
+            <div class="col-1">
+            <input type="hidden" value="${Element.itemP}"/>
+            </div>
+                <input type="text" value="1" />
+            </div>
+           
+        </td>
+        <td class="pro-remove" onclick="EliminarProducto(${Element.itemP})"><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+    </tr>
              
      `;
       });
@@ -45,68 +41,40 @@ if(botonFinalizar!=null){
 
 if(tbody!=null){
 tbody.addEventListener('click',(e)=>{
-    capturar(e)
+  AumentarValor(e)
 });
-}
-
-let capturar=(e)=>{
-    if(e.target.classList.contains('minus','bg-dark')){
-        if(e.target.textContent == '-'){
-          SumarRestarCantidad(e.target.parentElement, e.target);
-        }
-    }else if(e.target.classList.contains('plus','bg-dark')){
-      SumarRestarCantidad(e.target.parentElement, e.target);
-    }
- }
-
-let SumarRestarCantidad = (e,i) => {
-  let signo=i.textContent;
-  let valor=e.querySelector('input[name="qty"]').value;
-  if(signo==="-"){
-    valor--;
-    if(valor<=0){
-      valor=0;
-    }
-    e.querySelector('input[name="qty"]').value=valor;
-    AumentarValor(e,valor);
-  }else{
-   valor++;
-   if(valor>=20){
-     valor=20;
-   }
-   e.querySelector('input[name="qty"]').value=valor;
-   AumentarValor(e,valor);
-  }
-  
 }
 
 let CalculoCompraD=()=>{
   let subtotalD = document.getElementById("subtotalD");
   let totalD = document.getElementById("totalD");
   if (productos != null) {
-    let valorSubtotal = productos.reduce((e, i) => e + Number(i.precioP.replace('.', '')) * Number(i.cantidadP), 0);
-    subtotalD.textContent = 'Subtotal: $' + valorSubtotal;
+    let valorSubtotal = productos.reduce((e, i) => e + Number(i.precioP) * Number(i.cantidadP), 0);
+    subtotalD.textContent = '$' + valorSubtotal;
     let valorTotal = valorSubtotal;
-    totalD.textContent = 'Total: $' + valorTotal;
+    totalD.textContent = '$' + valorTotal;
   }
 }
 
-let AumentarValor=(e,value)=>{
-  let itemB=e.querySelector('input[type="hidden"]').value;
-  let busqueda=productos.findIndex(i=>i.itemP==itemB);
-  if(busqueda!=-1){
-    let valor=Number(value);
-     productos[busqueda].cantidadP=valor;
-     localStorage.setItem("productos", JSON.stringify(productos));  
-     CalculoCompraD();
-  } 
+let AumentarValor=(e)=>{
+  let card=e.target.parentElement
+  let itemB=card.querySelector('input[type="hidden"]').value;
+  if(itemB!=null){
+    let busqueda=productos.findIndex(i=>i.itemP==itemB);
+    if(busqueda!=-1){
+      let valor=card.querySelector('input[type="text"]').value;
+       productos[busqueda].cantidadP=valor;
+       localStorage.setItem("productos", JSON.stringify(productos));  
+       CalculoCompraD();
+    }  
+  }
 }
 
 let ValidacionDeItemsCard=()=>{
-  productos.reduce((e,i,o)=>{
+  /*productos.reduce((e,i,o)=>{
     console.log(i,o)
     
-  },[]) 
+  },[])*/ 
 }
 ValidacionDeItemsCard()
 MostrarProductosDetalle();
