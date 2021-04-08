@@ -68,4 +68,5 @@ Route::get('/Administrador/colores/Estado/{id}',[ControladorAdmin::class,"Estado
 Route::get('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,"MostrarProductos"]);
 Route::post('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,"GuardarProductos"]);
 Route::get('/Administrador/productos/MostrarProductos/{id}',[ControladorAdmin::class,"EstadoProductos"]);
-
+Route::get('/Administrador/productos/EditarProductos/{id}',[ControladorAdmin::class,"EditarProductos"]);
+Route::post('/Administrador/productos/ModificarProductos/{id}',[ControladorAdmin::class,"ModificarProductos"]);

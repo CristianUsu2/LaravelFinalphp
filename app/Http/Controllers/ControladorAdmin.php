@@ -372,6 +372,33 @@ class ControladorAdmin extends Controller
       return $e.getMensagge();
      }   
    }
+
+   public function EditarProductos($id){
+     $productoB=Productos::find($id);
+     $colores=Colores::all();
+     $categorias=Categorias::all();
+     $talla=Tallas::all();
+      $tallasE=Productos::join('producto_talla',function($join) use ($productoB){
+                               $join->on('producto_talla.id_producto','=','productos.id')
+                               ->where('producto_talla.id_producto','=',$productoB->id);
+                              })
+                               ->select("*")
+                               ->get();
+
+      $imagenesE=Productos::join('foto_producto',function($join) use ($productoB){
+                                 $join->on('foto_producto.id_producto','=','productos.id')
+                                 ->where('foto_producto.id_producto','=',$productoB->id);
+                                })
+                                  ->select("*")
+                                  ->get();
+      return view('Administrador/productos/EditarProducto')
+                                                     ->with('tallasE',$tallasE)
+                                                     ->with('productoB',$productoB)
+                                                     ->with('colores',$colores)
+                                                     ->with('categorias',$categorias)
+                                                     ->with('tallas',$talla)
+                                                     ->with('imagenesE',$imagenesE);
+   }
    
 }
 

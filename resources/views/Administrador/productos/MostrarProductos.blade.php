@@ -117,6 +117,11 @@
                   </div>
                 </div> 
             </div>
+    
+
+          
+
+
 
             <div class="row" id="contenedorImagenes">
               @foreach ($productos as $p)
@@ -162,7 +167,7 @@
                        @endif
                       @endforeach 
                      <p class="card-text">Estado:@if($p->estado==1)Activo @else Inactivo @endif</p> 
-                    <a href="#" class="btn btn-primary">Editar</a>
+                    <a href="{{url('/Administrador/productos/EditarProductos/'.$p->id)}}" class="btn btn-primary">Editar</a>
                     <a href="{{url('/Administrador/productos/MostrarProductos/'.$p->id)}}" class="btn btn-dark">Cambiar estado</a>
                   </div>
                </div>
