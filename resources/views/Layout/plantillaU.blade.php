@@ -25,14 +25,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-5">
-                            <div class="header-call-action">
-                                <a href="#">
+                        <div class="header-call-action">
+                                <a href="mailto:axesskateboarding@gmail.com">
                                     <i class="fa fa-envelope"></i>
-                                    axesskateboarding@gmail.com
+                                  Comúnicate axesskateboarding@gmail.com
                                 </a>
-                                <a href="#">
+                                <a href="https://wa.me/573016729248">
                                     <i class="fa fa-phone"></i>
-                                    +57 301 6729248
+                                   Comúnicate WhatsApp +57 301 6729248
                                 </a>
                             </div>
                         </div>
@@ -110,8 +110,8 @@
                                           <i class="far fa-clock"></i>
                                       </div>
                                       <div class="shipping-content">
-                                          <h5>Horario de Trabajo</h5>
-                                          <span>Lunes - Sábado: 7:00 A.M - 5:00 P.M</span>
+                                      <h5>Horario de Atención</h5>
+                                          <span>Lunes - Sábado: 7:00 A.M - 6:00 P.M</span>
                                       </div>
                                   </div> <!-- end single shipping -->
                                   <div class="single-block-shipping">
@@ -120,7 +120,7 @@
                                       </div>
                                       <div class="shipping-content">
                                           <h5>Costo del Envío</h5>
-                                          <span>El valor del envío es de $6.000 COP</span>
+                                          <span>El valor del envío es de $10.000 COP</span>
                                       </div>
                                   </div> <!-- end single shipping -->
                                   <div class="single-block-shipping">

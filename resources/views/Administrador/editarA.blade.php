@@ -14,7 +14,7 @@
 
             <div class="col-md-12 text-center">
 
-                <h3><strong>Editar Usuario</strong></h3>
+                <h3><strong>Editar Perfil</strong></h3>
 
             </div>
 
@@ -27,7 +27,7 @@
      <div class="col-lg-12">
         <form action="{{route('editarD')}}" method="POST">
             @csrf
-            <input type="hidden" value="{{$administrador->Id_Usuarios/}}" name="IdUsuario"/>
+            <input type="hidden" value="{{$administrador->Id_Usuarios}}" name="IdUsuario"/>
             <div class="row form-row">
                 <div class="form-group col-12">
                     <label>Identificacion</label>

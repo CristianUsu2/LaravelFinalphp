@@ -250,6 +250,10 @@ return [
                     'url'  => '/Administrador/tallas/MostrarTallas',
                 ],
                 [
+                    'text' => 'Sección Categorías',
+                    'url'  => '/Administrador/categorias',
+                ],
+                [
                     'text'    => 'Sección Productos',
                     'url'     => '#',
                     'submenu' => [
@@ -286,12 +290,7 @@ return [
             'url'  => '/Administrador/usuarios',
             'icon' => 'fas fa-fw fa-users',
         ],
-        [
-            
-            'text' => 'Categorias',
-            'url'  => '/Administrador/categorias',
-            'icon' => 'fas fa-fw fa-bars',
-        ],
+        
         ['header' => 'labels'],
         [
             'text'       => 'important',

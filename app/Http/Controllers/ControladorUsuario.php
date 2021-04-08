@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use UxWeb\SweetAlert\SweetAlert;
-
+use Crypt;
 class ControladorUsuario extends Controller
 {
     public function index(){
@@ -30,28 +30,28 @@ class ControladorUsuario extends Controller
 
    public function update(Request $request){
     $request->validate([
-       'pass' => 'required|min:2|max:30',
-       'passC' => 'required|min:2|max:30'
-       ]);
+      'pass' => 'required|min:2|max:30',
+      'passC' => 'required|min:2|max:30'
+      ]);
 
-    $correoC=User::where('email','=',$request->correo)->first();
+   $correoC=User::where('email','=',$request->correo)->first();
 
-    if($correoC && $request->pass == $request->passC){
-      $password = bcrypt($request->pass);
-      $correoC->password = $password; 
-      $correoC->save();
-    }
+   if($correoC && $request->pass == $request->passC){
+     $password = bcrypt($request->pass);
+     $correoC->password = $password; 
+     $correoC->save();
+   }
 
-    if(!$correoC ) {
-      return back()->with("failed", "Ocurrio un error, no pudimos cambiar su contraseña, por favor vuelva a intentarlo.")->withError();
-  }
-  
-  else {
-      return back()->with("success", "Su contraseña fue cambiada exitosamente.");
-  }
+   if(!$correoC ) {
+     return back()->with("failed", "Ocurrio un error, no pudimos cambiar su contraseña, por favor vuelva a intentarlo.")->withError();
+ }
+ 
+ else {
+     return back()->with("success", "Su contraseña fue cambiada exitosamente.");
+ }
 
 
-   return back()->with('error','No se pudo modificar la contraseña.');   
+  return back()->with('error','No se pudo modificar la contraseña.');   
 
    }
 
@@ -65,7 +65,7 @@ class ControladorUsuario extends Controller
           $usuM->apellido=$request->apellido;
           $usuM->telefono=$request->telefono;
           $usuM->password=$request->pass;
-          $contra=Crypt::decryptString($usuM->password);
+          $decrypted = Crypt::decrypt($usuM->password);
           $usuM->save();
           return redirect()->action([ControladorUsuario::class, "index"]);
         }catch(Exception $e){

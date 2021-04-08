@@ -20,6 +20,7 @@ Route::post('/Informacion', [ControladorUsuario::class, "informacionU"])->name('
 Route::post('/CambiarContraseña', [ControladorUsuario::class, "update"])->name('cambiarC');
 
 Route::post("Envio", [MailerController::class, "composeEmail"])->name("send-email");
+
 Route::get('/Productos/login',[ControladorUsuario::class, "loginC"])->name("loginCerrar");
 Route::get('/Productos/detalleProducto', [ControladorUsuario::class, "detalleProd"]);
 Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"])->name("detalleCompra");

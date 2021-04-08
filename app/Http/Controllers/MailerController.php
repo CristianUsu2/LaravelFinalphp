@@ -39,13 +39,25 @@ class MailerController extends Controller {
             $mail->addAddress($email);
             $mail->isHTML(true);                // Set email content format to HTML
 
-            $mail->Subject = 'Recuperar Contraseña';
-            $mail->Body    = '<p style="text-aling:center;
+            $mail->Subject = 'Recuperar Clave';
+            $mail->Body    = '<p;
             color:#000000;
             font-size:18px;
-            padding:50px;">Usted solicito recuperar su contraseña 
-             Por favor de click aquí para recuperar su contraseña</p>
+            padding:50px;">
+            ¡Hola!<br><br>
+            Gracias por comunicarte con Tienda Axes.<br><br>
+            Usted solicitó recuperar su contraseña <br><br>
+            --------------------------------------------------------------------------------------
+            Este es un correo generado automáticamente. Si desea más información
+            conteste a esta dirección de correo. O si desea información
+            sobre nuestros productos se puede comunicar
+            con nosotros mediante el chat de la Aplicación o a nuestro WhatsApp. ¡Siempre a la orden, Tienda Axes!.
+            ---------------------------------------------------------------------
+            <br><br>
+             Por favor, haga click en el botón para recuperar su contraseña</p>
+             <br><br>
              <a href="http://127.0.0.1:8000/CambiarContrase%C3%B1a">
+
             <button class="btn btn-success" type="submit" style="
             text-decoration: none;
             padding: 10px;
@@ -56,8 +68,8 @@ class MailerController extends Controller {
             margin-bottom: -5px;
             background-color: #1883ba;
             border-radius: 6px;
-            cursor:pointer;
             border: 2px solid #0016b0;">Recuperar Contraseña</button></a>';
+            
             $dt = $mail->send();
 
             }

@@ -30,7 +30,7 @@
                                 <input type="text" name="telefono"  value="{{$usuario->telefono}}" placeholder="Telefono / Celular" />
                             </div>
                             <div class="single-input-item">
-                                <input type="text" name="pass"  value="{{$usuario->password}}" placeholder="Telefono / Celular" />
+                                <input type="text" name="pass"  value="{{$usuario->password}}" placeholder="Contraseña" />
                             </div>
      
                             <div class="single-input-item">
