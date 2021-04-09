@@ -16,7 +16,7 @@ class CreateComprobanteVentaTable extends Migration
         Schema::create('comprobante_venta', function (Blueprint $table) {
             $table->id('Id_Comprobante');
             $table->date('Fecha');
-            $table->unsignedBigInteger('id_pedido')->default(1);
+            $table->unsignedBigInteger('id_pedido')->unique();
             $table->foreign('id_pedido')->references('Id_Pedido')->on('pedido');
             $table->timestamps();
         });

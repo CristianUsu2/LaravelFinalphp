@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Models\Pedidos;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -44,4 +44,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     protected $primaryKey = "Id_Usuarios";
+    
+    public function pedidos(){
+        return $this->belongsToMany('App\Models\Pedidos');
+    }
 }

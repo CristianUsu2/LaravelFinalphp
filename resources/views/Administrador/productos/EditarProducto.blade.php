@@ -6,115 +6,124 @@
 @section('content')
 <div class="container">
 
-    <div class="row">
+  <div class="row">
 
-        <div class="col-md-12 mt-5">
+      <div class="col-md-12 mt-5">
 
-            <div class="row">
+          <div class="row">
 
-                <div class="col-md-12 text-center">
+              <div class="col-md-12 text-center">
 
-                    <h3><strong>Editar Producto</strong></h3>
+                  <h3><strong>Editar Producto</strong></h3>
 
-                </div>
+              </div>
 
-            </div>
-        </div>
-         
-        <div class="col-lg-12">
-            <form action="{{route('ModificarUsuario')}}" method="POST">
-                @csrf
-                <input type="hidden" value="{{$productoB->Id_Usuarios}}" name="IdUsuario"/>
-                <div class="row">
-                    <div class="col-12"> 
-                       <label>Nombre</label>
-                       <input type="text" name="nombre" class="form-control" id="nombre" value="{{$productoB->nombre}}"/>
-                     </div>  
-                     <div class="col-6 mt-2">
-                       <label>Stock</label>
-                       <input type="number" name="stock" class="form-control" value="{{$productoB->stock}}"/>
-                     </div>
-                     <div class="col-6 mt-2">
-                        <label>Precio</label>
-                        <input type="number" name="precio" class="form-control" value="{{$productoB->precio}}" />
-                     </div>
-                     <div class="col-12 mt-2">
-                         <label>Descuento</label>
-                         <input type="text" name="descuento" class="form-control" value="{{$productoB->descuento}}"/>
-                     </div>
-                     <div class="col-12"> 
-                       <label>Descripcion</label>
-                       <textarea type="text" name="descripcion" class="form-control" id="desc" value="{{$productoB->descripcion}}"></textarea>
-                     </div> 
-                     <div class="col-4 mt-2" id="divColor">
-                         <label>Color</label>
-                         <select class="custom-select" id="colores" onchange="selectValores(0)" name="color">
-                           <option>Escoger Color</option>
-                           @foreach ($colores as $item)
-                           @if ($item->id==$productoB->id_color)
-                           <option selected value="{{$item->id}}">{{$item->color}}</option> 
-                           @endif    
-                           <option value="{{$item->id}}">{{$item->color}}</option> 
-                           @endforeach
-                          
-                           
-                         </select>
-                         <!--<input type="hidden" name="color" id="color"/>-->
-                     </div>
-                     <div class="col-4 mt-2" id="divCategori">
-                        <label>Categorias</label>
-                        <select class="custom-select" id="selectCategori" onchange="selectValores(1)" name="categoria">
-                           <option selected>Escoger Categoria</option>
-                           @foreach ($categorias as $cate)
-                           @if ($cate->id == $productoB->id_categoria )
-                           <option selected value="{{$cate->id}}">{{$cate->Nombre_Categoria}}</option>                       
-                           @endif
-                           <option value="{{$cate->id}}">{{$cate->Nombre_Categoria}}</option>        
-                           @endforeach                                    
-                         </select>
-                         <!--<input type="hidden" name="categoria" id="categoria"/>-->
-                     </div>
-                     <div class="col-4 mt-2" id="divTallas">   
-                        <label>Tallas</label>
-                          <select id="multi" class="selectpicker" name="tallas[]" onchange="TallasOrganizacion()" multiple>
-                                @foreach ($tallas as $talla)
-                                @if ($talla->id)
+          </div>
+      </div>
+       
+      <div class="col-lg-12">
+          <form action="{{url('/Administrador/productos/ModificarProductos')}}" method="POST" enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" value="{{$productoB->id}}" name="idProducto"/>
+              <div class="row">
+                  <div class="col-12"> 
+                     <label>Nombre</label>
+                     <input type="text" name="nombre" class="form-control" id="nombre" value="{{$productoB->nombre}}"/>
+                   </div>  
+                   <div class="col-6 mt-2">
+                     <label>Stock</label>
+                     <input type="number" name="stock" class="form-control" value="{{$productoB->stock}}"/>
+                   </div>
+                   <div class="col-6 mt-2">
+                      <label>Precio</label>
+                      <input type="number" name="precio" class="form-control" value="{{$productoB->precio}}" />
+                   </div>
+                   <div class="col-12 mt-2">
+                       <label>Descuento</label>
+                       <input type="text" name="descuento" class="form-control" value="{{$productoB->descuento}}"/>
+                   </div>
+                   <div class="col-12"> 
+                     <label>Descripcion</label>
+                     <textarea type="text" name="descripcion" class="form-control" id="desc" value="{{$productoB->descripcion}}"></textarea>
+                   </div> 
+                   <div class="col-4 mt-2" id="divColor">
+                       <label>Color</label>
+                       <select class="custom-select" id="colores" onchange="selectValores(0)" name="color">
+                         <option>Escoger Color</option>
+                         @foreach ($colores as $item)
+                         @if ($item->id==$productoB->id_color)
+                         <option selected value="{{$item->id}}">{{$item->color}}</option> 
+                         @endif    
+                         @if($item->id != $productoB->id_color)
+                         <option value="{{$item->id}}">{{$item->color}}</option> 
+                         @endif
+                         @endforeach
+                        
+                         
+                       </select>
+                       <!--<input type="hidden" name="color" id="color"/>-->
+                   </div>
+                   <div class="col-4 mt-2" id="divCategori">
+                      <label>Categorias</label>
+                      <select class="custom-select" id="selectCategori" onchange="selectValores(1)" name="categoria">
+                         <option selected>Escoger Categoria</option>
+                         @foreach ($categorias as $cate)
+                            @if ($cate->id == $productoB->id_categoria )
+                             <option selected value="{{$cate->id}}">{{$cate->Nombre_Categoria}}</option>                       
+                            @endif
+                            @if($cate->id != $productoB->id_categoria)
+                              <option value="{{$cate->id}}">{{$cate->Nombre_Categoria}}</option>   
+                            @endif     
+                         @endforeach                                    
+                       </select>
+                       <!--<input type="hidden" name="categoria" id="categoria"/>-->
+                   </div>
+                   <div class="col-4 mt-2" id="divTallas">   
+                      <label>Tallas</label>
+                        <select id="multi" class="selectpicker" name="tallas[]" onchange="TallasOrganizacion()" multiple>
+                          @foreach($tallas as $t) 
+                               @foreach($tallasE as $tallae) 
+                                  @if($tallae->id_producto == $productoB->id)
+                                       @if($t->id == $tallae->id_talla) 
+                                         <option selected value="{{$t->id}}">{{$t->talla}}</option>
+                                       @endif          
+                                                                                                                         
+                                  @endif     
                                     
-                                @endif
-                                <option value="{{$talla->id}}">{{$talla->talla}}</option>
-                              @endforeach
-                          </select>
-                    </div>
-                     <div class="col-6 mt-2">
-                        <label>Imagen 1</label>
-                        <input  type="file" class="form-control-file"  name="imagenes[]" id="imagen1"/>
-                     </div>
-                     <div class="col-6 mt-2">
-                      <label>Imagen 2</label>
-                      <input type="file" class="form-control-file"  name="imagenes[]" id="imagen2"/>
+                               @endforeach  
+                           <option value="{{$t->id}}">{{$t->talla}}</option>
+                          @endforeach  
+                        </select>
+                  </div>
+                   <div class="col-6 mt-2">
+                      <label>Imagen 1</label>
+                      <input  type="file" class="form-control-file"  name="imagenes[]" id="imagen1"/>
                    </div>
                    <div class="col-6 mt-2">
-                    <label>Imagen 3</label>
-                    <input class="form-control-file" type="file" name="imagenes[]" id="imagen3" />
-                   </div>
-                   <div class="col-6 mt-2">
-                     <label>Imagen 4</label>
-                     <input class="form-control-file" type="file"  name="imagenes[]" id="imagen4"/>
-                   </div>
-                   </div>
-                   <div class="row" id="inputTallaC">
-                    
-                   </div>
-           
-               </div>
-                 <button type="submit" class="btn btn-success">Enviar</button>
-                 <a href="{{route('usuarios')}}" class="btn btn-primary">Cancelar</a>
-                </form>   
+                    <label>Imagen 2</label>
+                    <input type="file" class="form-control-file"  name="imagenes[]" id="imagen2"/>
+                 </div>
+                 <div class="col-6 mt-2">
+                  <label>Imagen 3</label>
+                  <input class="form-control-file" type="file" name="imagenes[]" id="imagen3" />
+                 </div>
+                 <div class="col-6 mt-2">
+                   <label>Imagen 4</label>
+                   <input class="form-control-file" type="file"  name="imagenes[]" id="imagen4"/>
+                 </div>
+                 </div>
+                 <div class="row" id="inputTallaC">
                   
-         </div>
-
+                 </div>
+         
+             </div>
+               <button type="submit" class="btn btn-success mt-3 mr-2 mb-3">Enviar</button>
+               <a href="{{url('/Administrador/productos/MostrarProductos')}}" class="btn btn-primary mt-3 mb-3">Cancelar</a>
+        </form>             
     </div>
-</div>           
+
+  </div>
+</div>                    
 @stop
 
 @section('css')

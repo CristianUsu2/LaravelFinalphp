@@ -22,7 +22,7 @@ Route::post('/CambiarContraseña', [ControladorUsuario::class, "update"])->name(
 Route::post("Envio", [MailerController::class, "composeEmail"])->name("send-email");
 
 Route::get('/Productos/login',[ControladorUsuario::class, "loginC"])->name("loginCerrar");
-Route::get('/Productos/detalleProducto', [ControladorUsuario::class, "detalleProd"]);
+Route::get('/Productos/detalleProducto/id={idProducto}', [ControladorUsuario::class, "detalleProd"]);
 Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"])->name("detalleCompra");
 
 Route::get('/Productos/finalizarCompra',[ControladorUsuario::class,"FinalizarCompra"]);
@@ -69,4 +69,4 @@ Route::get('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,
 Route::post('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,"GuardarProductos"]);
 Route::get('/Administrador/productos/MostrarProductos/{id}',[ControladorAdmin::class,"EstadoProductos"]);
 Route::get('/Administrador/productos/EditarProductos/{id}',[ControladorAdmin::class,"EditarProductos"]);
-Route::post('/Administrador/productos/ModificarProductos/{id}',[ControladorAdmin::class,"ModificarProductos"]);
+Route::post('/Administrador/productos/ModificarProductos',[ControladorAdmin::class,"ModificarProductos"]);

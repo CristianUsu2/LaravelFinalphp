@@ -385,31 +385,74 @@ class ControladorAdmin extends Controller
    }
 
    public function EditarProductos($id){
-     $productoB=Productos::find($id);
-     $colores=Colores::all();
-     $categorias=Categorias::all();
-     $talla=Tallas::all();
-      $tallasE=Productos::join('producto_talla',function($join) use ($productoB){
-                               $join->on('producto_talla.id_producto','=','productos.id')
-                               ->where('producto_talla.id_producto','=',$productoB->id);
-                              })
-                               ->select("*")
-                               ->get();
+    $productoB=Productos::find($id);
+    $colores=Colores::all();
+    $categorias=Categorias::all();
+    $talla=Tallas::all();
+     $tallasE=Productos::join('producto_talla',function($join) use ($productoB){
+                              $join->on('producto_talla.id_producto','=','productos.id')
+                              ->where('producto_talla.id_producto','=',$productoB->id);
+                             })
+                              ->select("*")
+                              ->get();
 
-      $imagenesE=Productos::join('foto_producto',function($join) use ($productoB){
-                                 $join->on('foto_producto.id_producto','=','productos.id')
-                                 ->where('foto_producto.id_producto','=',$productoB->id);
-                                })
-                                  ->select("*")
-                                  ->get();
-      return view('Administrador/productos/EditarProducto')
-                                                     ->with('tallasE',$tallasE)
-                                                     ->with('productoB',$productoB)
-                                                     ->with('colores',$colores)
-                                                     ->with('categorias',$categorias)
-                                                     ->with('tallas',$talla)
-                                                     ->with('imagenesE',$imagenesE);
-   }
+     $imagenesE=Productos::join('foto_producto',function($join) use ($productoB){
+                                $join->on('foto_producto.id_producto','=','productos.id')
+                                ->where('foto_producto.id_producto','=',$productoB->id);
+                               })
+                                 ->select("*")
+                                 ->get();
+     return view('Administrador/productos/EditarProducto')
+                                                    ->with('tallasE',$tallasE)
+                                                    ->with('productoB',$productoB)
+                                                    ->with('colores',$colores)
+                                                    ->with('categorias',$categorias)
+                                                    ->with('tallas',$talla)
+                                                    ->with('imagenesE',$imagenesE);
+  }
+
+  public function ModificarTablasIntermedias($idProducto,$request){
+     $arrayIdTallaEditar=[];
+     $arrayIdImagenesEditar=[];
+     $productoTallaE=ProductosTallas::where('id_producto','=',$idProducto)->get();
+     $productoImagenE=FotoProducto::where('id_producto','=',$idProducto)->get();
+     foreach($productoTallaE as $productoE){
+     array_push($arrayIdTallaEditar, $productoE->id);
+     }
+     foreach($productoImagenE as $productoImagE){
+    array_push($arrayIdImagenesEditar,$productoImagE->id);
+     }
+     foreach($arrayIdTallaEditar as $fila=>$value){
+     $buscarDetalleE=ProductosTallas::find($value);
+     $buscarDetalleE->id_talla=$request->tallas[$fila];
+     $buscarDetalleE->save();
+     }
+     foreach ($arrayIdImagenesEditar as $key => $value) {
+      $buscarImagenProducto=FotoProducto::find($value);
+      $buscarImagenProducto->foto=$request->imagenes[$key]->store('uploads','public');
+      $buscarImagenProducto->save();  
+     }
+     return true;
+  }
+  
+  public function ModificarProductos(Request $request){
+     $productoE=Productos::find($request->idProducto);
+     if($productoE !=null){
+       $productoE->nombre=$request->nombre;
+       $productoE->precio=$request->precio;
+       $productoE->descuento=$request->descuento;
+       $productoE->descripcion=$request->descripcion;
+       $productoE->id_color=$request->color;
+       $productoE->id_categoria=$request->categoria;  
+       $productoE->save();
+       $res= ControladorAdmin::ModificarTablasIntermedias($productoE->id,$request);
+       if($res){
+         return "yo quiero es un hijupueta perreo por ser buen programador";
+       }
+     }  
+     
+    return response()->json($productoTallaE);
+  }
    
 }
 

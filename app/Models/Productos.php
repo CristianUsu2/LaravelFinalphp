@@ -32,4 +32,8 @@ class Productos extends Model
     public function tallas(){
         return $this->belongsToMany('Apps\Models\Tallas');
     }
+
+    public function Pedidos(){
+        return $this->belongsToMany('App\Models\Pedidos');
+    }
 }

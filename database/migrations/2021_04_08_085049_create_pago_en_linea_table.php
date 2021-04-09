@@ -18,9 +18,9 @@ class CreatePagoEnLineaTable extends Migration
             $table->string('Tipo_Pago');
             $table->float('Valor_Pago');
             $table->date('Fecha');
-            $table->unsignedBigInteger('id_tipo_pago')->default(1);
+            $table->unsignedBigInteger('id_tipo_pago')->unique();
             $table->foreign('id_tipo_pago')->references('Id_Tipo_Pago')->on('tipo_pago');
-            $table->unsignedBigInteger('id_pedido')->default(1);
+            $table->unsignedBigInteger('id_pedido')->unique();
             $table->foreign('id_pedido')->references('Id_Pedido')->on('pedido');
             $table->timestamps();
         });

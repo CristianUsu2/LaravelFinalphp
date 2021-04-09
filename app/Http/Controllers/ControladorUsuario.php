@@ -3,16 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Colores;
+use App\Models\Categorias;
+use App\Models\Tallas;
+use App\Models\Productos;
+use App\Models\FotoProducto;
+use App\Models\ProductosTallas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use UxWeb\SweetAlert\SweetAlert;
+
 use Exception;
 
 class ControladorUsuario extends Controller
 {
     public function index(){
-        return view('Usuario/index');
+      $colores=Colores::where("estado","=", "1")->get();
+      $categorias=Categorias::where("estado","=","1")->get();
+      $tallas=Tallas::where("estado","=","1")->get();
+      $producto=Productos::where("estado","=","1")->get();
+      $imagenes= Productos::select('productos.id','foto_producto.foto')
+                           ->join('foto_producto','foto_producto.id_producto','=','productos.id')
+                           ->get();
+                          
+      $tallasP=Productos::join('producto_talla','producto_talla.id_producto','=','productos.id')
+                           ->select("*")
+                           ->get();                                        
+        return view('Usuario/index')->with('colores',$colores)
+                                    ->with('categorias',$categorias)
+                                    ->with('tallas',$tallas)
+                                    ->with('productos',$producto)
+                                    ->with('imagenes',$imagenes)
+                                    ->with('tallasP', $tallasP);
    }
    public function prueba(){
     alert()->success('You have been logged out.', 'Good bye!');
@@ -183,4 +206,6 @@ else {
       session()->forget('datosU');
       return redirect()->action([ControladorUsuario::class, "index"]);
     }
+
+    
 }

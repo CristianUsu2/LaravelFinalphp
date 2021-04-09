@@ -349,6 +349,13 @@
 <div class="scroll-top not-visible">
   <i class="fa fa-angle-up"></i>
 </div>
+<script>
+  const divsImagenes=document.querySelector("#divPadreProductos");
+  const nodos=divsImagenes.querySelectorAll("#imagenes");
+  nodos.forEach(e=>{e.firstElementChild.classList.remove("img-sec")
+                    e.firstElementChild.classList.add("img-pri")  
+  });
+</script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>

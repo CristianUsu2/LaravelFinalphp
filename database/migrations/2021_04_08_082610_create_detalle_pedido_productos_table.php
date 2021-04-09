@@ -20,7 +20,7 @@ class CreateDetallePedidoProductosTable extends Migration
             $table->float('Total');
             $table->float('Sub_Total');
             $table->integer('EstadoD');
-            $table->unsignedBigInteger('id_pedido')->default(1);
+            $table->unsignedBigInteger('id_pedido')->unique();
             $table->foreign('id_pedido')->references('Id_Pedido')->on('pedido');
             $table->unsignedBigInteger('id_producto')->default(1);
             $table->foreign('id_producto')->references('id')->on('productos');
