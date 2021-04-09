@@ -97,7 +97,7 @@
                   <div class="row align-items-center">
                       <div class="col-lg-3">
                           <div class="brand-logo">
-                              <a href="index.html">
+                              <a href="/">
                                   <img src="../Usuario/img/logo.jpeg" alt="brand logo">
                               </a>
                           </div>

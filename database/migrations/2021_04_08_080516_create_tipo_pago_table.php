@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Colores extends Migration
+class CreateTipoPagoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class Colores extends Migration
      */
     public function up()
     {
-    
-            Schema::create('colores', function (Blueprint $table) {
-                $table->id();
-                $table->string('color',15)->unique();
-                $table->integer('estado');
-                $table->timestamps();
-            });
-        
-    
-    
+        Schema::create('tipo_pago', function (Blueprint $table) {
+            $table->id('Id_Tipo_Pago');
+            $table->string('Nombre',45);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -32,7 +27,6 @@ class Colores extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colores');
-        //
+        Schema::dropIfExists('tipo_pago');
     }
 }

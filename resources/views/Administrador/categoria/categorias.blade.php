@@ -15,7 +15,7 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Crear Color</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Crear Categoria</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -52,7 +52,11 @@
                 <div class="col-md-12 text-center">
 
                     <h3><strong>Categorías</strong></h3>
-
+                    @if(Session::has("success"))
+                            <div class="alert alert-success alert-dismissible"><button type="button" class="close">&times;</button>{{Session::get('success')}}</div>
+                        @elseif(Session::has("failed"))
+                            <div class="alert alert-danger alert-dismissible"><button type="button" class="close">&times;</button>{{Session::get('failed')}}</div>
+                        @endif
                 </div>
 
             </div>

@@ -586,8 +586,8 @@
                         <!-- product single item start -->
                         <div class="product-item fix">
                             <div class="product-thumb">
-                                <a href="product-details.html">
-                                    <img src="../Usuario/img/product-img1.jpg" class="img-pri" alt="">
+                                <a href="/Productos/detalleProducto">
+                                    <img src="../Usuario/img/product-img1.jpg" class="img-pri"  alt="">
                                     <img src="../Usuario/img/product-img2.jpg" class="img-sec" alt="">
                                 </a>
                                 <div class="product-label">

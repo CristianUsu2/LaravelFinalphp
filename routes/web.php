@@ -32,7 +32,7 @@ Route::get('/Administrador', [ControladorAdmin::class, "index"])->name('inicio')
 Route::get('/Administrador/usuarios', [ControladorAdmin::class, "usuarios"])->name('usuarios');
 Route::get('/Administrador/perfil/{Id_Usuarios}', [ControladorAdmin::class, "datosA"])->name('datos');
 Route::post('/Administrador/perfil', [ControladorAdmin::class, "perfil"])->name('editarD');
-Route::post('/Administrador/usuarios/crear', [ControladorAdmin::class, "crear"]);
+Route::post('/Administrador/usuarios/crear', [ControladorAdmin::class, "crear"])->name('agregarU');
 Route::get('/Administrador/usuarios/{Id_Usuarios}', [ControladorAdmin::class, "estado"]);
 Route::get('/Administrador/usuariosE/{Id_Usuarios}',[ControladorAdmin::class, "editarUsuario"]);
 Route::post('/Administrador/usuariosE',[ControladorAdmin::class,"ModificarUsuario"])->name('ModificarUsuario');
@@ -58,11 +58,11 @@ Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class, 
 
 /*----------Rutas de las tallas------------ */
 Route::get('/Administrador/tallas/MostrarTallas',[ControladorAdmin::class, "MostrarTallas"])->name('MostrarTallas');
-Route::post('/Administrador/colores/GuardarTalla',[ControladorAdmin::class,"GuardarTalla"])->name('GuardarTalla');
-Route::get('/Administrador/colores/ModificarTalla/{id}',[ControladorAdmin::class,"ModificarTalla"]);
-Route::post('/Administrador/colores/MostrarTallas',[ControladorAdmin::class,"EditarTalla"])->name('EditarTalla');
-Route::get('/Administrador/colores/MostrarColor/{id}',[ControladorAdmin::class, "EstadoColor"]);
-Route::get('/Administrador/colores/Estado/{id}',[ControladorAdmin::class,"EstadoTalla"]);
+Route::post('/Administrador/tallas/GuardarTalla',[ControladorAdmin::class,"GuardarTalla"])->name('GuardarTalla');
+Route::get('/Administrador/tallas/ModificarTalla/{id}',[ControladorAdmin::class,"ModificarTalla"]);
+Route::post('/Administrador/tallas/MostrarTallas',[ControladorAdmin::class,"EditarTalla"])->name('EditarTalla');
+Route::get('/Administrador/tallas/MostrarColor/{id}',[ControladorAdmin::class, "EstadoColor"]);
+Route::get('/Administrador/tallas/Estado/{id}',[ControladorAdmin::class,"EstadoTalla"]);
 
 /*----------------------Rutas de productos---------------------- */
 Route::get('/Administrador/productos/MostrarProductos',[ControladorAdmin::class,"MostrarProductos"]);

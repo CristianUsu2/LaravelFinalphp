@@ -15,7 +15,7 @@
                 <div class="col-md-12 text-center">
 
                     <h3><strong>Editar Color</strong></h3>
-
+                  
                 </div>
 
             </div>

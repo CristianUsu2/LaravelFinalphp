@@ -27,6 +27,11 @@
      <div class="col-lg-12">
         <form action="{{route('editarD')}}" method="POST">
             @csrf
+            @if(Session::has("success"))
+                            <div class="alert alert-success alert-dismissible"><button type="button" class="close">&times;</button>{{Session::get('success')}}</div>
+                        @elseif(Session::has("failed"))
+                            <div class="alert alert-danger alert-dismissible"><button type="button" class="close">&times;</button>{{Session::get('failed')}}</div>
+                        @endif
             <input type="hidden" value="{{$administrador->Id_Usuarios}}" name="IdUsuario"/>
             <div class="row form-row">
                 <div class="form-group col-12">
