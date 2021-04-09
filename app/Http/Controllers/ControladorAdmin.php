@@ -10,6 +10,7 @@ use App\Models\FotoProducto;
 use App\Models\ProductosTallas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Exception;
 
 class ControladorAdmin extends Controller
 {
@@ -40,10 +41,12 @@ class ControladorAdmin extends Controller
             $usuA->telefono=$request->telefono;
             $usuA->save();
           
-            return redirect()->action([ControladorAdmin::class, "index"]);
+            return back()->with("success", "Sus datos han sido modificados correctamente.");
+
 
           }catch(Exception $e){
-          
+            return back()->with("failed", "Ocurrio un error, no se pudieron modificar sus datos, vuelva a intentarlo.");
+
           }
       }
     }
@@ -81,10 +84,12 @@ class ControladorAdmin extends Controller
             $usuM->telefono=$request->TelefonoN;
             $usuM->save();
           
-            return redirect()->action([ControladorAdmin::class, "usuarios"]);
+            return back()->with("success", "Se han modificado los datos exitosamente.");
+
           }catch(Exception $e){
            
-             return redirect()->json($e.getMessage());
+            return back()->with("failed", "Ocurrio un error, no se han modificado los datos, verifique que si haya realizado modificaciones.");
+
           }
       }
     } 
@@ -96,6 +101,7 @@ class ControladorAdmin extends Controller
         'emailNu' => 'required|email|min:4|max:50|',
         'identificacion' => 'required|min:7|max:12|',
          'passwordNu' => 'required|min:2|max:30',
+         'passwordNuR'=> 'required|min:2|max:30',
          'telefonoNu' => 'required|min:2|max:11'
      ]);
       try{
@@ -110,13 +116,13 @@ class ControladorAdmin extends Controller
        $registro->apellido = $request->apellidoNu;
        $registro->telefono = $request->telefonoNu;
        $registro->save();
-      
+       return back()->with("success", "Se ha registrado el usuario exitosamente.");
+
       }
       }catch(Exception $e){
         
-        return response()->json($e.getMessage());
+        return back()->with("failed", "Ocurrio un error, ya existe este usuario o sus datos son similares, por favor ingrese diferentes datos.");
       }
-      return redirect()->action([ControladorAdmin::class, "usuarios"]);
     }
 
     /*-------------------Acciones categorias ----------------------*/
@@ -129,13 +135,15 @@ class ControladorAdmin extends Controller
         $request->validate([
             'Nombre' => 'required|min:2|max:30'
         ]);
-
+        try{
         $categoria = new Categorias();
-
         $categoria->Nombre_Categoria = $request->Nombre;
         $categoria->save();
+        return back()->with("success", "Se ha registrado la categoria exitosamente.");
+      }catch(Exception $e){
+        return back()->with("failed", "Ocurrio un error, ya existe esta categoria, ingresa una diferente.");
 
-        return redirect()->action([ControladorAdmin::class,"categorias"]);
+        }
     }
 
     public function EstadoC($id){
@@ -188,17 +196,18 @@ class ControladorAdmin extends Controller
     }
 
     public function GuardarColor(Request $request){
-      /*$request->validate([
-        'ColorN'=>'required/min:3/max:12'
-      ]);*/ 
+      $request->validate([
+        'ColorN'=>'required|min:3|max:20|'
+      ]);
         try{
         $Ncolor= new Colores();
         $Ncolor->color=$request->ColorN;
         $Ncolor->estado=1;
         $Ncolor->save();
-        return redirect()->action([ControladorAdmin::class, "MostrarColor" ]); 
-        }catch(Exception $e){
-          $e->getMessage();
+        return back()->with("success", "Se ha registrado el color exitosamente.");
+      }catch(Exception $e){
+        return back()->with("failed", "Ocurrio un error, ya existe este color, ingrese uno diferente.");
+
         }
     }
 
@@ -236,10 +245,12 @@ class ControladorAdmin extends Controller
             $talla->talla=$request->talla;
             $talla->estado=1;
             $talla->save();
-            return redirect()->action([ControladorAdmin::class,"MostrarTallas"]);
-          }catch(Exceptio $e){
-             return response()->json($e.getMessage());
+            return back()->with("success", "Su ha agregado la talla correctamente.");
+          }catch(Exception $e){
+            return back()->with("failed", "Ocurrio un error, esta talla ya existe, ingrese otra talla.");
+
           } 
+
     }
 
     public function EditarTalla(Request $request){

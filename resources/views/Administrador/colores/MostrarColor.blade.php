@@ -14,7 +14,11 @@
                 <div class="col-md-12 text-center">
 
                     <h3><strong>Colores Registrados</strong></h3>
-
+                    @if(Session::has("success"))
+                            <div class="alert alert-success alert-dismissible"><button type="button" class="close">&times;</button>{{Session::get('success')}}</div>
+                        @elseif(Session::has("failed"))
+                            <div class="alert alert-danger alert-dismissible"><button type="button" class="close">&times;</button>{{Session::get('failed')}}</div>
+                        @endif
                 </div>
                <button class="btn btn-success mb-2 ml-2" data-toggle="modal" data-target="#btnUsuario"><i style="margin-right:5px;" class="fas fa-plus"></i>Agregar Color</button>
             </div>
@@ -34,7 +38,7 @@
                             @csrf
                            <div class="row">
                              <div class="col-12"> 
-                                <label>Talla</label>
+                                <label>Color</label>
                                 <input type="text" name="ColorN" class="form-control" placeholder="Verde - Rojo - Morado - Azul......"/>
                               </div>  
                               

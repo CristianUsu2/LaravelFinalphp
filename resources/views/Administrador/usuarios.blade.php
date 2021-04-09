@@ -14,7 +14,11 @@
                 <div class="col-md-12 text-center">
 
                     <h3><strong>Usuarios Registrados</strong></h3>
-
+                    @if(Session::has("success"))
+                            <div class="alert alert-success alert-dismissible"><button type="button" class="close">&times;</button>{{Session::get('success')}}</div>
+                        @elseif(Session::has("failed"))
+                            <div class="alert alert-danger alert-dismissible"><button type="button" class="close">&times;</button>{{Session::get('failed')}}</div>
+                        @endif
                 </div>
                <button class="btn btn-success mb-2 ml-2" data-toggle="modal" data-target="#btnUsuario"><i style="margin-right:5px;" class="fas fa-plus"></i>Crear Usuario</button>
                 <a href="{{route('PDF')}}"><button class="btn btn-danger mb-2 ml-2"><i style="margin-right:5px;" class="fas fa-file-import"></i>Generar PDF</button></a>
@@ -32,7 +36,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form action="{{url('/Administrador/usuarios/crear')}}" method="POST" class="form-group">
+                          <form action="{{route('agregarU')}}" method="POST" class="form-group">
                             @csrf
                            <div class="row">
                              <div class="col-12"> 

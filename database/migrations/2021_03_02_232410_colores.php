@@ -16,7 +16,7 @@ class Colores extends Migration
     
             Schema::create('colores', function (Blueprint $table) {
                 $table->id();
-                $table->string('color',15);
+                $table->string('color',15)->unique();
                 $table->integer('estado');
                 $table->timestamps();
             });
