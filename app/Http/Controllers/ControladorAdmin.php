@@ -315,13 +315,15 @@ class ControladorAdmin extends Controller
  }
 
    public function GuardarTablaFotoProducto($e,$producto){
+     $res=false;
      foreach($e as $imagen){
       $fotoProducto=new FotoProducto();
       $fotoProducto->foto=$imagen->store('uploads','public');
       $fotoProducto->id_producto=$producto->id;
       $fotoProducto->save();
+      $res=true;
      }
-     return true;
+     return $res;
   }
 
   public function GuardarTallaIntermedia($tallas,$cantidadesTallas,$producto){
