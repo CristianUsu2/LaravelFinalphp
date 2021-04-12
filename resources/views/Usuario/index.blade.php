@@ -587,7 +587,7 @@
                         @foreach ($productos as $producto)
                         <div class="product-item fix">
                             <div class="product-thumb">
-                                <a href="{{url('/Productos/detalleProducto/id='.$producto->id)}}"  id="imagenes">
+                                <a href="{{url('/Productos/detalleProducto'.$producto->id)}}"  id="imagenes">
                                     @foreach ($imagenes as $imagen)
                                     @if($imagen->id == $producto->id)
                                     <img src="{{asset('storage').'/'.$imagen->foto}}" class="img-sec"  alt="">
@@ -603,7 +603,7 @@
                                     <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                             data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                 class="fas fa-shopping-cart"></i></span> </a>
-                                    <a href="{{url('/Productos/detalleProducto/id='.$producto->id)}}" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                    <a href="{{url('/Productos/detalleProducto'.$producto->id)}}" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
                                             class="fas fa-eye"></i></a>
                                     
                                     

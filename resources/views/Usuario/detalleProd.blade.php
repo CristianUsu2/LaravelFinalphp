@@ -10,64 +10,57 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="product-large-slider mb-20 slick-arrow-style_2">
-                                        <div class="pro-large-img img-zoom" id="img1">
-                                            <img src="../Usuario/img/product-details-img1.jpg" alt="" />
+                                        @foreach($ImagenesProducto as $imagen)
+                                       
+                                        <div class="pro-large-img img-zoom">
+                                            <img id="img" src="{{asset('storage').'/'.$imagen->foto}}" alt="" />
                                         </div>
-                                        <div class="pro-large-img img-zoom" id="img2">
-                                            <img src="../Usuario/img/product-details-img2.jpg" alt=""/>
-                                        </div>
-                                        <div class="pro-large-img img-zoom" id="img3">
-                                            <img src="../Usuario/img/product-details-img3.jpg" alt=""/>
-                                        </div>
-                                        <div class="pro-large-img img-zoom" id="img4">
-                                            <img src="../Usuario/img/product-details-img4.jpg" alt=""/>
-                                        </div>
+                                
+                                        @endforeach
                                     </div>
                                     <div class="pro-nav slick-padding2 slick-arrow-style_2">
-                                        <div class="pro-nav-thumb"><img src="../Usuario/img/product-details-img1.jpg" alt="" /></div>
-                                        <div class="pro-nav-thumb"><img src="../Usuario/img/product-details-img2.jpg" alt="" /></div>
-                                        <div class="pro-nav-thumb"><img src="../Usuario/img/product-details-img3.jpg" alt="" /></div>
-                                        <div class="pro-nav-thumb"><img src="../Usuario/img/product-details-img4.jpg" alt="" /></div>
-                                        <div class="pro-nav-thumb"><img src="../Usuario/img/product-details-img2.jpg" alt="" /></div>
+                                        @foreach($ImagenesProducto as $imagen)
+                                        <div class="pro-nav-thumb"><img src="{{asset('storage').'/'.$imagen->foto}}"  alt="" /></div>
+                                        @endforeach 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="product-details-des mt-md-34 mt-sm-34">
-                                        <h3><a href="product-details.html">external product 12</a></h3>
-                                        <div class="ratings">
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <div class="pro-review">
-                                                <span>1 review(s)</span>
-                                            </div>
-                                        </div>
-                                        <div class="customer-rev">
-                                            <a href="#">(1 customer review)</a>
-                                        </div>
+                                        <input id="idProducto" type="hidden" value="{{$ProductoSelecc->id}}" />
+                                        <h3 id="titulo">{{$ProductoSelecc->nombre}}</h3>
                                         <div class="availability mt-10">
-                                            <h5>Availability:</h5>
-                                            <span>1 in stock</span>
+                                            <h5>Stock:</h5>
+                                            <span>{{$ProductoSelecc->stock}}</span>
                                         </div>
                                         <div class="pricebox">
-                                            <span class="regular-price">$160.00</span>
+                                            <span class="regular-price" id="precio">${{$ProductoSelecc->precio}}</span>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>
-                                        Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.</p>
+                                        <p>{{$ProductoSelecc->descripcion}}</p>
+                                        <div class="quantity mt-2 mb-3">
+                                            <div class="btn-group" role="group" id="seccionTallas">
+                                                @foreach($tallasProducto as $talla)
+                                                  @foreach ($tallas as $t)
+                                                    @if($talla->id_talla == $t->id)
+                                                     <button type="button" class="btn btn-dark mr-3">{{$t->talla}}</button>
+                                                    @endif
+                                                  @endforeach
+                                                 
+                                                @endforeach
+                                              </div>
+                                        </div>
                                         <div class="quantity-cart-box d-flex align-items-center">
                                             <div class="quantity">
-                                                <div class="pro-qty"><input type="text" value="1"></div>
+                                                <div class="pro-qty"><input type="text" value="1" id="cantidad"></div>
                                             </div>
-                                            <div class="action_link">
-                                                <a class="buy-btn" href="#">add to cart<i class="fa fa-shopping-cart"></i></a>
+                                            <div class="action_link" >
+                                                <a class="buy-btn w-100 mr-3" href="#" id="botonCarrito">Añadir a la bolsa<i class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <div class="useful-links mt-20">
-                                            
-                                        </div>
-                                        
+                                            <div>
+                                                
+                                            </div>
+                                        </div>                                     
                                     </div>
                                 </div>
                             </div>
@@ -81,10 +74,10 @@
                                     <div class="product-review-info">
                                         <ul class="nav review-tab">
                                             <li>
-                                                <a class="active" data-toggle="tab" href="#tab_one">description</a>
+                                                <a class="active" data-toggle="tab" href="#tab_one">Descripcion</a>
                                             </li>
                                             <li>
-                                                <a data-toggle="tab" href="#tab_two">information</a>
+                                                <a data-toggle="tab" href="#tab_two">Informacion</a>
                                             </li>
                                          
                                         </ul>
@@ -118,11 +111,33 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>color</td>
-                                                            <td>black, blue, red</td>
+                                                            <td id="color">
+                                                                @foreach ($colores as $c)
+                                                                @if($c->id == $ProductoSelecc->id_color)
+                                                                {{$c->color}}
+                                                                @endif
+                                                                @endforeach
+                                                              
+                                                            </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>size</td>
-                                                            <td>L, M, S</td>
+                                                            <td>Tallas</td>
+                                                            <td>@foreach ($tallas as $item)
+                                                                 @foreach ($tallasProducto as $t)
+                                                                    @if($t->id_talla == $item->id) 
+                                                                    {{$item->talla}}
+                                                                    @endif
+                                                                 @endforeach 
+                                                            @endforeach</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>Categoria</td>
+                                                            <td id="categoria">@foreach ($categoria as $categoria)
+                                                                    @if($categoria->id == $ProductoSelecc->id_categoria) 
+                                                                    {{$categoria->Nombre_Categoria}}
+                                                                    @endif
+                                                            @endforeach</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

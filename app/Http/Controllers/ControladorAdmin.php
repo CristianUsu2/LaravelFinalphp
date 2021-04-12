@@ -8,6 +8,8 @@ use App\Models\Tallas;
 use App\Models\Productos;
 use App\Models\FotoProducto;
 use App\Models\ProductosTallas;
+use App\Models\Pedidos;
+use App\Models\EstadoPedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Exception;
@@ -453,7 +455,49 @@ class ControladorAdmin extends Controller
      
     return response()->json($productoTallaE);
   }
-   
+   /*Accciones pedidos */
+   public function MostrarPedidos(){
+    $productos=Productos::all();
+    $pedidosT=Pedidos::all();
+    $estadosPedido=EstadoPedido::all();
+    $pedidos=Pedidos::join("detalle_pedido_productos", "detalle_pedido_productos.id_pedido", "=", "pedidos.Id_pedido")
+                     ->join("pago_en_lineas", "pago_en_lineas.id_pedido","=","pedidos.Id_pedido")
+                     ->join("users","users.Id_Usuarios","=","pedidos.id_usuario")
+                     ->select("*")
+                     ->get();
+                    
+
+    return view('Administrador/pedidos/MostrarPedidos')->with('pedidos', $pedidos)
+                                   ->with('productos', $productos)
+                                   ->with('pedidosT',$pedidosT)
+                                   ->with('estadoPedido', $estadosPedido);  
+   }
+
+   public function EditarEstadoPedido($id){
+     $estadosPedidos=EstadoPedido::all();
+    $pedidos=Pedidos::join("detalle_pedido_productos", "detalle_pedido_productos.id_pedido", "=", "pedidos.Id_pedido")
+                     ->join("pago_en_lineas", "pago_en_lineas.id_pedido","=","pedidos.Id_pedido")
+                     ->join("users","users.Id_Usuarios","=","pedidos.id_usuario")
+                     ->where("pedidos.Id_pedido","=",$id)
+                     ->select("*")
+                     ->get();
+                     
+      return view('Administrador/pedidos/EditarPedido')->with('pedidos',$pedidos)
+                                                       ->with('estadoPedido', $estadosPedidos);               
+   }
+
+   public function CambiarEstadoPedido(Request $pedido){
+    $pedidoB=Pedidos::find($pedido->idpedido);
+    $pedidoB->id_estado=$pedido->estadoPedido;
+    $pedidoB->save();
+    
+    return redirect()->action([ControladorAdmin::class , "MostrarPedidos"]);
+   }
+
+
+   public function MostrarPagosRealizados(){
+
+   }
 }
 
                     

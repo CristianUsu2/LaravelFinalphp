@@ -9,6 +9,11 @@ use App\Models\Tallas;
 use App\Models\Productos;
 use App\Models\FotoProducto;
 use App\Models\ProductosTallas;
+use App\Models\Pedidos;
+use App\Models\DetallePedidoProducto;
+use App\Models\PagoEnLinea;
+use App\Models\ComprobanteDeVenta;
+use App\Models\EstadoPedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -107,16 +112,45 @@ else {
      return view('Usuario/reseteo');
    }
 
-   public function detalleProd(){
-       return view('Usuario/detalleProd');
-   }
+   public function detalleProd($idProducto){
+        $producto=Productos::find($idProducto);
+        $imagenes=Productos::join('foto_producto',function($join) use ($producto){
+                                   $join->on('foto_producto.id_producto','=','productos.id')
+                                   ->where('foto_producto.id_producto','=',$producto->id);
+                                 })
+                                  ->select("foto")
+                                  ->get();
+        $tallas=Productos::join('producto_talla',function($join) use ($producto){
+                                $join->on('producto_talla.id_producto','=','productos.id')
+                                ->where('producto_talla.id_producto','=',$producto->id);
+                                })
+                                ->select("*")
+                                 ->get();
+        $tallaP=Tallas::all();               
+        $colores=Colores::all();    
+        $categorias=Categorias::all();      
+       return view('Usuario/detalleProd')
+                                      ->with('ProductoSelecc', $producto)
+                                      ->with('ImagenesProducto', $imagenes)
+                                      ->with('tallasProducto', $tallas)
+                                      ->with('tallas', $tallaP)
+                                      ->with('categoria', $categorias)
+                                      ->with('colores', $colores);
+   } 
    
    public function inicio(){
        return view('Usuario/inicio');
    }
 
    public function FinalizarCompra(){
-       return view('Usuario/finalizarCompra');
+       $sesion=session('datosU');
+        if($sesion == null){
+            return view('Usuario/finalizarCompra');
+        } 
+        foreach($sesion as $u){
+          $id=$u->Id_Usuarios;
+        }
+       return view('Usuario/finalizarCompra')->with('usuario', $sesion);
    }
 
    public function login(){
@@ -154,7 +188,7 @@ else {
           }
         }
           if($registro) {
-            return back()->with("success", "Su cuenta ha sido creada exitosamente.");
+            return back()->with("success", "Su cuenta ha sido creada exitosamente, inicie sesion ");
         }
         else{
           return back()->with("failed", "Ocurrio un error, no pudimos crear su cuenta porque ya existen estos datos.");
@@ -162,14 +196,14 @@ else {
         }
         
          return back()->with('error','No se pudo crear tu cuenta.');  
-        } 
+    } 
 
     public function loginV(Request $request){
       $request->validate([
         'Correo' => 'required|email|min:4|max:50|',
          'Contraseña' => 'required|min:2|max:30'
      
-    ]);
+      ]);
         $busquedaEmail=User::where('email','=',$request->Correo)->value('email');
         $busquedaEncrip=User::where('email','=',$request->Correo)->value('password');
         $busquedaRol=User::where('email','=',$request->Correo)->value('id_rol');
@@ -206,6 +240,98 @@ else {
       session()->forget('datosU');
       return redirect()->action([ControladorUsuario::class, "index"]);
     }
+   
+     
 
+     public function GuardarCompra(Request $request){
+       $fecha=date("Y-m-d H:i:s");
+       $pedido=new Pedidos();
+       $pedido->direccion=$request->direccion;
+       $pedido->fecha=$fecha;
+       $pedido->id_estado=1;
+       $pedido->id_usuario=$request->idUsuario;
+       $pedido->save();
+
+       foreach($request->talla as $fila=>$value){
+        $detallePedido= new DetallePedidoProducto();
+        $detallePedido->cantidad=$request->cantidad[$fila];
+        $detallePedido->Total=$request->total;
+        $detallePedido->Sub_Total=$request->subtotal;
+        $detallePedido->EstadoD="Generado";
+        $detallePedido->id_pedido=$pedido->Id_Pedido;
+        $detallePedido->id_producto=$request->idProducto[$fila];
+        $detallePedido->talla=$value;
+        $detallePedido->save();
+        ControladorUsuario::ActualizarStock($request->idProducto[$fila],$request->cantidad[$fila], $value);
+        }
+         try{
+         $comprobante= new ComprobanteDeVenta();
+         $comprobante->Fecha=$fecha;
+         $comprobante->id_pedido=$pedido->Id_Pedido;
+         $comprobante->save();
+         }catch(Exception $e){
+           return "error comprobante";
+         }
+         try{
+           $pagoEnLinea= new PagoEnLinea();
+           $pagoEnLinea->Tipo_Pago="ContraEntrega Domicilio";
+           $pagoEnLinea->Valor_Pago=$request->total;
+           $pagoEnLinea->Fecha=$fecha;
+           $pagoEnLinea->id_tipo_pago =1;
+           $pagoEnLinea->id_pedido= $pedido->Id_Pedido;
+           $pagoEnLinea->save();
+         }catch(Exception $e){
+          return "Erro en pago en linea";
+         }
+       
+      return redirect()->action([ControladorUsuario::class, "PedidosUsuario"]);
+     }
+     
+     public function ActualizarStock($id,$cantidad, $talla):void{
+          $producto=Productos::find($id);
+          $tallaS=Tallas::where("talla","=",$talla)->get();
+          $tallaid=0;
+          foreach($tallaS as $ta){
+            $tallaid=$ta->id;
+          }
+          $stockAnterior=$producto->stock;
+          $stockActual=$stockAnterior-$cantidad;
+          $producto->stock=$stockActual;
+          $producto->save(); 
+          $tallasProducto=ProductosTallas::where('id_producto','=',$id)
+                                           ->where('id_talla','=',$tallaid)
+                                           ->get();
+                                              
+          $idProductoTalla=0;
+          foreach($tallasProducto as $tP){
+             $idProductoTalla=$tP->id;
+          }
+          $buscarRegistroTallaProducto=ProductosTallas::find($idProductoTalla); 
+          $buscarRegistroTallaProducto->cantidad=$buscarRegistroTallaProducto->cantidad-$cantidad;
+          $buscarRegistroTallaProducto->save();                               
+     }
+
+
+     public function PedidosUsuario(){
+       $sesion=session('datosU');
+       $idUsuario;
+       foreach($sesion as $usua){
+           $idUsuario=$usua->Id_Usuarios;
+       }
+       $usuario=User::find($idUsuario);
+       $productos=Productos::all();
+       $pedidosT=Pedidos::all();
+       $estadosPedido=EstadoPedido::all();
+       $pedidos=Pedidos::join("detalle_pedido_productos", "detalle_pedido_productos.id_pedido", "=", "pedidos.Id_pedido")
+                        ->join("pago_en_lineas", "pago_en_lineas.id_pedido","=","pedidos.Id_pedido")
+                        ->where('id_usuario','=',$usuario->Id_Usuarios)
+                        ->select("*")
+                        ->paginate(10);
+                             
+       return view('Usuario/PedidosU')->with('pedidos', $pedidos)
+                                      ->with('productos', $productos)
+                                      ->with('pedidosT',$pedidosT)
+                                      ->with('estadoPedido', $estadosPedido);                       
+     }
     
 }

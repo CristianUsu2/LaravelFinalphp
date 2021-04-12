@@ -102,41 +102,51 @@
                         <div class="checkout-billing-details-wrap">
                             <h2>Datos Personales</h2>
                             <div class="billing-form-wrap">
-                                <form action="#">
-                                                                    
+                                <form method="post" action="{{url('/Productos/finalizarCompra')}}"  id="formFinalizar">
+                                    @csrf
+                                   @foreach($usuario as $u)                                 
                                 <div class="single-input-item">
+                                     <input type="hidden" name="idUsuario" value="{{$u->Id_Usuarios}}"/>
                                         <label for="documento" class="required">Documento</label>
-                                        <input type="text" id="documento" value="CC" placeholder="Documento" disabled>
+                                        <input type="text" name="documento" id="documento" value="CC{{$u->identificacion}}" placeholder="Documento" disabled>
                                     </div>
                                     <div class="row">
             
                                         <div class="col-md-6">
                                             <div class="single-input-item">
                                                 <label for="f_name" class="required">Nombre</label>
-                                                <input type="text" id="f_name" placeholder="Nombre" required />
+                                                <input type="text"  id="f_name" value="{{$u->name}}" placeholder="Nombre" required />
                                             </div>
                                         </div>
         
                                         <div class="col-md-6">
                                             <div class="single-input-item">
                                                 <label for="l_name" class="required">Apellido</label>
-                                                <input type="text" id="l_name" placeholder="Apellido" required />
+                                                <input type="text" id="l_name" value="{{$u->apellido}}" placeholder="Apellido" required />
                                             </div>
                                         </div>
                                     </div>
         
                                     <div class="single-input-item">
                                         <label for="email" class="required">Correo</label>
-                                        <input type="email" id="email" placeholder="Correo Electronico" required />
+                                        <input type="email" id="email" value="{{$u->email}}" placeholder="Correo Electronico" required />
                                     </div>
                                     
                                     <div class="single-input-item">
-                                        <label for="phone">Teléfono</label>
-                                        <input type="text" id="phone"  placeholder="Teléfono" />
+                                        <label for="phone" class="required">Teléfono</label>
+                                        <input type="text" id="phone"  value="{{$u->telefono}}" placeholder="Teléfono" />
                                     </div>
       
-                                </form>
+                                    <div class="single-input-item">
+                                        <label for="phone" class="required">Direccion</label>
+                                        <input type="text" name="direccion" id="direccion" value="" placeholder="Calle ..." />
+                                    </div>
+                                    @endforeach
+                                
                             </div>
+                        
+                        
+                          
                         </div>
                     </div>
         
@@ -154,29 +164,19 @@
                                                 <th>Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><a href="single-product.html">Bolso Skate <strong> × 1</strong></a></td>
-                                                <td>$65.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="single-product.html">Tenis Axes <strong> × 1</strong></a></td>
-                                                <td>$100.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="single-product.html">Gorra Axes <strong> × 2</strong></a></td>
-                                                <td>$40.000</td>
-                                            </tr>
+                                        <tbody id="tbodyFinalizarCompra">
+                                            
+                                           
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <td>Sub Total</td>
-                                                <td><strong>$205.000</strong></td>
+                                                <td><strong id="subtotalD"></strong></td>
                                             </tr>
                                        
                                             <tr>
                                                 <td>Total + Envío</td>
-                                                <td><strong>$215.000</strong></td>
+                                                <td><strong id="totalD"></strong></td>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -187,7 +187,11 @@
                                         <div class="payment-method-name">
                                        
                                     </div>
+                                
+                                    <button type="submit" id="contraEntrega" class="btn btn-dark">Contra Entrega</button>
+                                </form>
                                     <a href="https://biz.payulatam.com/B0e22fdDF57BD14"><img src="https://ecommerce.payulatam.com/img-secure-2015/boton_pagar_grande.png"></a>
+                                  
                                     </div>
                                 </div>
                             </div>

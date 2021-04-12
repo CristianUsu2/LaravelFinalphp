@@ -281,7 +281,35 @@ return [
                     'text' => 'Sección Colores',
                     'url'  => '/Administrador/colores/MostrarColor',
                 ],
-                
+                [
+                    'text'    => 'Sección Pedidos',
+                    'url'     => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'Mostrar Pedidos',
+                            'url'  => '/Administrador/productos/MostrarPedidos',
+                        ],
+                        [
+                            'text' => 'Mostrar Pagos realizados',
+                            'url'  => '/Administrador/productos/MostrarPagosRealizados',
+                        ],
+                        [
+                            'text'    => 'Opciones Pedidos',
+                            'url'     => '#',
+                            
+                            'submenu' => [
+                                [
+                                    'text' => 'Mostrar Estados de pagos',
+                                    'url'  => '/Administrador/productos/MostrarProductos',
+                                ],
+                                [
+                                    'text' => 'Mostrar tipo de pagos',
+                                    'url'  => '/Administrador/productos/MostrarProductos',
+                                ],
+                            ],
+                        ],
+                    ],
+                ]
             ],
         ],
         [

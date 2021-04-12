@@ -117,11 +117,7 @@
                   </div>
                 </div> 
             </div>
-    
-
-          
-
-
+  
 
             <div class="row" id="contenedorImagenes">
               @foreach ($productos as $p)
@@ -175,6 +171,8 @@
               @endforeach
               
           </div>
+
+          
 
     </div>
 

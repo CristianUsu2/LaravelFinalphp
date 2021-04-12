@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../Usuario/pushbar/css/pushbar.css">
-    <link rel="stylesheet" href="../Usuario/fontawesome-free-5.15.1-web/css/all.min.css">
-    <link rel="stylesheet" href="../Usuario/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../Usuario/css/helper.min.css">
-    <link rel="stylesheet" href="../Usuario/css/plugins.css">
-    <link rel="stylesheet" href="../Usuario/css/style.css">
-    <link rel="stylesheet" href="../Usuario/css/skin-default.css">
+    <link rel="stylesheet" type="text/css" href="../Usuario/pushbar/css/pushbar.css">
+    <link rel="stylesheet" type="text/css" href="../Usuario/fontawesome-free-5.15.1-web/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../Usuario/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../Usuario/css/helper.min.css">
+    <link rel="stylesheet" type="text/css" href="../Usuario/css/plugins.css">
+    <link rel="stylesheet" type="text/css" href="../Usuario/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../Usuario/css/skin-default.css">
 
     <link rel="icon" href="../Usuario/img/logo.jpeg" />
     <title>Tienda Axes</title>
@@ -68,7 +68,7 @@
                                                 @if (session()->has('datosU'))
                                                 <div class="dropdown-menu" aria-labelledby="myaccount" >
                                                     <a class="dropdown-item" href="{{url('/Informacion/'.$item->Id_Usuarios)}}"><i style="margin-right:5px;" class="fas fa-user"></i>Mi Perfil</a>
-                                                    <a class="dropdown-item" href=""><i style="margin-right:5px;" class="fa fa-truck"></i>Mis Pedidos</a>
+                                                    <a class="dropdown-item" href="{{route('PedidosU')}}"><i style="margin-right:5px;" class="fa fa-truck"></i>Mis Pedidos</a>
                                                     <a class="dropdown-item" href="{{route('loginCerrar')}}"><i style="margin-right:5px;" class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                                                    </div>    
                                                 @endif

@@ -1,9 +1,10 @@
 
 let botonCompra = document.getElementById("botonCarrito");
-let id = document.getElementById("item");
-let imgE = document.getElementById("imgdet");
+let id = document.getElementById("idProducto");
+let imgE = document.getElementById("img");
 let articulo = document.getElementById("titulo");
 let precio = document.getElementById("precio");
+let cantidad=document.getElementById("cantidad");
 let DivTallas = document.getElementById("seccionTallas");
 let color = document.getElementById("color");
 let listaProductos = document.getElementById("carrito");
@@ -27,7 +28,6 @@ let SacarTalla = (e) => {
 
 
 let AñadirElementoLocalStorage = () => {
-  tallaP="M";
   if (tallaP != null) {
     let itemP = id.value;
     let nombreP =articulo.textContent;
@@ -35,7 +35,11 @@ let AñadirElementoLocalStorage = () => {
     let imgP =imgE.src;
     let colorP = color.textContent;
     let precioP =precioS.substring(1);
-    let cantidadP = 1;
+    let cantidadP = cantidad.value;
+    if(cantidadP == 0){
+         cantidadP=1;
+    }
+    console.log(imgP)
     const producto = {
       itemP,
       nombreP,

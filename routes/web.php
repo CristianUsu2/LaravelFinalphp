@@ -18,15 +18,13 @@ Route::get('/Categorias', [ControladorUsuario::class, "categoriaU"])->name("cate
 Route::get('/Informacion/{Id_Usuarios}', [ControladorUsuario::class, "datosU"]);
 Route::post('/Informacion', [ControladorUsuario::class, "informacionU"])->name('Modificar');
 Route::post('/CambiarContraseña', [ControladorUsuario::class, "update"])->name('cambiarC');
-
 Route::post("Envio", [MailerController::class, "composeEmail"])->name("send-email");
-
 Route::get('/Productos/login',[ControladorUsuario::class, "loginC"])->name("loginCerrar");
-Route::get('/Productos/detalleProducto/id={idProducto}', [ControladorUsuario::class, "detalleProd"]);
+Route::get('/Productos/detalleProducto{idProducto}', [ControladorUsuario::class, "detalleProd"]);
 Route::get('/Productos/detalleCompra',[ControladorUsuario::class,"detalleCompra"])->name("detalleCompra");
-
 Route::get('/Productos/finalizarCompra',[ControladorUsuario::class,"FinalizarCompra"]);
-
+Route::post('/Productos/finalizarCompra',[ControladorUsuario::class,"GuardarCompra"]);
+Route::get('/Productos/Pedidos',[ControladorUsuario::class,"PedidosUsuario"])->name('PedidosU');
 /*-------------Rutas de Administrador Usuarios---------------------- */
 Route::get('/Administrador', [ControladorAdmin::class, "index"])->name('inicio');
 Route::get('/Administrador/usuarios', [ControladorAdmin::class, "usuarios"])->name('usuarios');
@@ -37,7 +35,10 @@ Route::get('/Administrador/usuarios/{Id_Usuarios}', [ControladorAdmin::class, "e
 Route::get('/Administrador/usuariosE/{Id_Usuarios}',[ControladorAdmin::class, "editarUsuario"]);
 Route::post('/Administrador/usuariosE',[ControladorAdmin::class,"ModificarUsuario"])->name('ModificarUsuario');
 Route::get('/Administrador/generarPDF', [PDFController::class, 'generatePDF'])->name('PDF');
-
+Route::get('/Administrador/productos/MostrarPedidos',[ControladorAdmin::class, "MostrarPedidos"]);
+Route::get('/Administrador/productos/MostrarPedidos/{id}',[ControladorAdmin::class, "EditarEstadoPedido"]);
+Route::post('/Administrador/productos/MostrarPedidos',[ControladorAdmin::class, "CambiarEstadoPedido"]);
+Route::get('/Administrador/productos/MostrarPagosRealizados',[ControladorAdmin::class, "MostrarPagosRealizados"]);
 
 /*-----------Rutas de las categorias ----------- */
 
